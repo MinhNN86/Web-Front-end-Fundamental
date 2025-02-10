@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex10</title>
+  </head>
+  <body>
+    <form action="http://www.myserver.com" method="post">
+      <h2>Billing Address</h2>
+      <label for="fullName">Full Name</label>
+      <br />
+      <input
+        type="text"
+        name="Full Name"
+        id="fullName"
+        placeholder="John M. Doe"
+      />
+      <br /><br />
+      <label for="email">✉️Email</label>
+      <br />
+      <input
+        type="email"
+        name="Email"
+        id="email"
+        placeholder="john@example.com"
+      />
+      <br /><br />
+      <label for="address">🪪Address</label>
+      <br />
+      <input
+        type="text"
+        name="Address"
+        id="address"
+        placeholder="542 W. 15th Street"
+      />
+      <br /><br />
+      <label for="city">🏛️City</label>
+      <br />
+      <input type="text" name="City" id="city" placeholder="New York" />
+      <br /><br />
+      <label for="state">State</label>
+      <br />
+      <input type="text" name="State" id="state" placeholder="NY" />
+      <br /><br />
+      <label for="shippingAddressSameAsBilling">
+        <input
+          type="checkbox"
+          name="Shipping address same as billing"
+          value="Yes"
+          id="shippingAddressSameAsBilling"
+        />Shipping address same as billing
+      </label>
+      <br /><br />
+      <button type="submit">Countinue to checkout</button>
+    </form>
+  </body>
+</html>
