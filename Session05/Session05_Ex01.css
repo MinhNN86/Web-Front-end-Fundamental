@@ -1,14 +1,7 @@
-body > h1 {
+* {
   text-align: center;
-  color: rgb(0, 0, 132);
-  background-color: antiquewhite;
 }
-ul h3 {
-  color: red;
-}
-ul h2 {
-  color: green;
-}
-ul h1 {
-  color: blue;
+body > h1 {
+  background-color: gray;
+  color: white;
 }

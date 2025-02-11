@@ -1,29 +1,38 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  padding: 20px;
-  background-color: #f8f8f8;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-h2 {
-  color: #0074d9;
+p > code {
+  color: rgb(255, 94, 120);
+  background-color: rgb(223, 223, 223);
+  font-size: large;
 }
-
-p {
-  font-size: 16px;
-  line-height: 1.5;
+.center {
+  text-align: center;
+  border: 2px solid green;
+  padding: 15px;
 }
 
 .example {
-  background-color: #fff8dc;
-  padding: 15px;
-  border-left: 5px solid #ffd700;
-  margin-top: 15px;
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin-top: 20px;
 }
 
-pre {
-  background-color: fff8dc;
+.code {
+  background-color: white;
+  font-size: x-large;
   padding: 10px;
-  border-radius: 5px;
+  border-left: 4px solid rgb(1, 206, 1);
   font-family: monospace;
+}
+.button {
+  display: inline-block; /* Hiển thị dạng inline nhưng có thể chỉnh kích thước */
+  margin-top: 15px; /* Tạo khoảng cách 15px phía trên */
+  margin-bottom: 10px; /* Tạo khoảng cách 10px phía dưới */
+  padding: 10px 15px; /* Thêm đệm: 10px trên/dưới, 15px trái/phải */
+  background-color: rgb(20, 121, 20); /* Màu nền xanh lá đậm */
+  color: white; /* Màu chữ trắng */
+  text-decoration: none; /* Bỏ gạch chân (nếu là thẻ <a>) */
+  border-radius: 5px; /* Bo tròn góc 5px */
+  font-weight: bold; /* Chữ in đậm */
 }

@@ -7,28 +7,21 @@
     <link rel="stylesheet" href="Session05_Ex06.css" />
   </head>
   <body>
-    <h2>5. Groups of selectors</h2>
+    <h1>Center Align Text</h1>
     <p>
-      A comma-separated list of selectors represents the union of all elements
-      selected by each of the individual selectors in the list. (A comma is
-      U+002C.) For example, in CSS when several selectors share the same
-      declarations, they may be grouped into a comma-separated list. White space
-      may appear before and/or after the comma.
+      To just center the text inside an element, use
+      <code>text-align: center;</code>
     </p>
+    <div class="center">This text is centered.</div>
     <div class="example">
-      <b>CSS example:</b>
-      <p>
-        In this example, we condense three rules with identical declarations
-        into one. Thus,
-      </p>
-      <pre>
-h1 { font-family: sans-serif }
-h2 { font-family: sans-serif }
-h3 { font-family: sans-serif }
-        </pre
-      >
-      <p>is equivalent to:</p>
-      <pre>h1, h2, h3 { font-family: sans-serif }</pre>
+      <h2>Example</h2>
+      <div class="code">
+        .center { <br />
+        &nbsp;&nbsp;text-align: center; <br />
+        &nbsp;&nbsp;border: 3px solid green; <br />
+        }
+      </div>
+      <a href="http://example.com" class="button">Try it Yourself »</a>
     </div>
   </body>
 </html>

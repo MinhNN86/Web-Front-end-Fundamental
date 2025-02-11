@@ -1,33 +1,11 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  text-align: center;
-}
-h1 {
+#first {
   font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px gray;
+  font-weight: bolder;
+  margin-bottom: 10px;
 }
-table {
-  width: 80%;
-  margin: 20px auto;
-  border-collapse: collapse;
-  background: white;
+#second {
+  color: gray;
 }
-th,
-td {
-  padding: 12px;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-th {
-  background-color: #3276ff;
-  color: white;
-}
-
-.first {
-  background-color: #f4f4f4;
-}
-.second {
-  background-color: white;
+#second > b {
+  color: black;
 }

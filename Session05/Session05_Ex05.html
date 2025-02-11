@@ -3,33 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ex5</title>
+    <title>Ex05</title>
     <link rel="stylesheet" href="Session05_Ex05.css" />
   </head>
   <body>
-    <table>
-      <tr>
-        <td rowspan="3">
-          <img
-            src="https://kenh14cdn.com/203336854389633024/2025/2/9/ngang-25-1739035719884943052494-1739083569427-17390835705331589670985.jpg"
-            alt="ảnh"
-            width="300"
-          />
-        </td>
-        <td id="first">
-          Đèn Âm Hồn: Phim tôn vinh văn hóa Việt lại đi đạo nhái loạt bom tấn
-          nước ngoài
-        </td>
-      </tr>
-      <tr>
-        <td id="second"><b>Cine -</b> 20 giờ trước</td>
-      </tr>
-      <tr>
-        <td>
-          Tác phẩm của đạo diễn Hoàng Nam “học lõm” nhiều phim kinh dị nổi tiếng
-          nhưng chất lượng kém xa.
-        </td>
-      </tr>
-    </table>
+    <h2>5. Groups of selectors</h2>
+    <p>
+      A comma-separated list of selectors represents the union of all elements
+      selected by each of the individual selectors in the list. (A comma is
+      U+002C.) For example, in CSS when several selectors share the same
+      declarations, they may be grouped into a comma-separated list. White space
+      may appear before and/or after the comma.
+    </p>
+    <div class="example">
+      <b>CSS example:</b>
+      <p>
+        In this example, we condense three rules with identical declarations
+        into one. Thus,
+      </p>
+      <pre>
+h1 { font-family: sans-serif }
+h2 { font-family: sans-serif }
+h3 { font-family: sans-serif }
+        </pre
+      >
+      <p>is equivalent to:</p>
+      <pre>h1, h2, h3 { font-family: sans-serif }</pre>
+    </div>
   </body>
 </html>
