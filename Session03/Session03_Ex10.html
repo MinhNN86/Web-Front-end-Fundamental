@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex10</title>
+  </head>
+  <body>
+    <form action="http://wwww.myserver.com" method="post">
+      <label for="Name">Họ và tên:</label>
+      <input type="text" name="Họ và tên" id="Name" />
+      <br />
+      <label for="dob">Ngày sinh:</label>
+      <input type="date" name="Ngày sinh" id="dob" />
+      <br />
+      <label for="gioiTinh">Giới tính:</label>
+      <label
+        ><input type="radio" name="Giới tính" id="gioiTinh" value="Nam" /> Nam
+      </label>
+      <label
+        ><input type="radio" name="Giới tính" id="gioiTinh" value="Nam" /> Nữ
+      </label>
+      <br />
+      <label for="SDT">Số điện thoại:</label>
+      <input
+        type="tel"
+        name="Số điện thoại"
+        id="SDT"
+        pattern="(03|05|07|08|09)[0-9]{8}"
+        maxlength="10"
+        minlength="10"
+        required
+      />
+      <br />
+      <label for="Email">Email:</label>
+      <input type="email" name="Email" id="Email" />
+      <br />
+      <label for="tenCongTy">Tên công ty:</label>
+      <input type="text" name="Tên công ty" id="tenCongTy" />
+      <br />
+      <label for="vaiTroCongTy">Vai trò trong công ty:</label>
+      <select id="vaiTroCongTy" name="Vai trò trong công ty" required>
+        <option value="CEO">Giám đốc điều hành (CEO)</option>
+        <option value="Phó giám đốc">Phó giám đốc</option>
+      </select>
+      <br />
+      <label for="quyMoCongTy">Quy mô công ty:</label>
+      <select id="quyMoCongTy" name="Quy mô công ty" required>
+        <option value="Doanh nghiệp nhỏ">Doanh nghiệp nhỏ</option>
+        <option value="Doanh nghiệp vừa">Doanh nghiệp vừa</option>
+        <option value="Doanh nghiệp lớn">Doanh nghiệp lớn</option>
+      </select>
+      <br />
+      <label for="nganhCongTy">Ngành nghề công ty:</label>
+      <input type="text" name="Ngành nghề công ty" id="nganhCongTy" />
+      <br />
+      <label for="lyDoThamGia">Lý do tham gia câu lạc bộ:</label>
+      <textarea name="Lý do tham gia câu lạc bộ" id="lyDoThamGia"></textarea>
+      <br />
+      <label for="kinhNgiemLanhDao">Kinh nghiệm lãnh đạo:</label>
+      <textarea name="Kinh nghiệm lãnh đạo" id="kinhNgiemLanhDao"></textarea>
+      <br />
+      <label for="mucTieuThamGiaCLB">Mục tiêu khi tham gia câu lạc bộ:</label>
+      <textarea
+        name="Mục tiêu khi tham gia câu lạc bộ"
+        id="mucTieuThamGiaCLB"
+      ></textarea>
+      <br />
+      <label for="chuongTrinhSuKien"
+        >Chương trình sự kiện mong muốn tham gia:</label
+      >
+      <label for="chuongTrinhSuKien"
+        ><input
+          type="checkbox"
+          name="Chương trình sự kiện mong muốn tham gia"
+          id="chuongTrinhSuKien"
+          value="Networking"
+        />
+        Networking
+      </label>
+      <label for="chuongTrinhSuKien"
+        ><input
+          type="checkbox"
+          name="Chương trình sự kiện mong muốn tham gia"
+          id="chuongTrinhSuKien"
+          value="Workshops"
+        />
+        Workshops
+      </label>
+      <label for="chuongTrinhSuKien"
+        ><input
+          type="checkbox"
+          name="Chương trình sự kiện mong muốn tham gia"
+          id="chuongTrinhSuKien"
+          value="Hội thảo"
+        />
+        Hội thảo
+      </label>
+      <br />
+      <label for="dkiNhanBanTin">Đăng ký nhận bản tin:</label>
+      <label for="chuongTrinhSuKien"
+        ><input
+          type="checkbox"
+          name="Đăng ký nhận bản tin"
+          id="dkiNhanBanTin"
+          value="Có"
+        />
+        Có
+      </label>
+      <br />
+      <button type="submit">Đăng ký nhận bản tin:</button>
+    </form>
+  </body>
+</html>

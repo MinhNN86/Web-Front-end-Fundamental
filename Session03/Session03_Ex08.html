@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex8</title>
+  </head>
+  <body>
+    <form action="http://wwww.myserver.com" method="post">
+      <label for="Name">Họ và tên:</label>
+      <input type="text" name="Họ và tên" id="Name" />
+      <br />
+      <label for="dob">Ngày sinh:</label>
+      <input type="date" name="Ngày sinh" id="dob" />
+      <br />
+      <label for="gioiTinh">Giới tính:</label>
+      <label
+        ><input type="radio" name="Giới tính" id="gioiTinh" value="Nam" /> Nam
+      </label>
+      <label
+        ><input type="radio" name="Giới tính" id="gioiTinh" value="Nam" /> Nữ
+      </label>
+      <br />
+      <label for="soCCCD">Số căn cước công dân:</label>
+      <input
+        type="text"
+        name="soCCCD"
+        id="soCCCD"
+        pattern="\d{12}"
+        maxlength="12"
+        minlength="12"
+        required
+      />
+      <br />
+      <label for="ngayCap">Ngày cấp:</label>
+      <input type="date" id="ngayCap" name="Ngày cấp" />
+      <br />
+      <label for="noiCap">Nơi cấp:</label>
+      <input type="text" name="Nơi cấp" id="noiCap" />
+      <br />
+      <label for="SDT">Số điện thoại:</label>
+      <input
+        type="tel"
+        name="Số điện thoại"
+        id="SDT"
+        pattern="(03|05|07|08|09)[0-9]{8}"
+        maxlength="10"
+        minlength="10"
+        required
+      />
+      <br />
+      <label for="Email">Email:</label>
+      <input type="email" name="Email" id="Email" />
+      <br />
+      <label for="diaChiThuongTru">Địa chỉ thường trú:</label>
+      <textarea name="Địa chỉ thường trú" id="diaChiThuongTru"></textarea>
+      <br />
+      <label for="diaChiTamTru">Địa chỉ tạm trú:</label>
+      <textarea name="Địa chỉ tạm trú:" id="diaChiTamTru"></textarea>
+      <br />
+      <label for="loaiCCCD">Loại căn cước công dân:</label>
+      <label for="loaiCCCD"
+        ><input
+          type="radio"
+          name="Loại căn cước công dân"
+          id="loaiCCCD"
+          value="Căn cước công dân mới"
+        />
+        Căn cước công dân mới
+      </label>
+      <label for="loaiCCCD"
+        ><input
+          type="radio"
+          name="Loại căn cước công dân"
+          id="loaiCCCD"
+          value="Căn cước công dân cũ"
+        />
+        Căn cước công dân cũ
+      </label>
+      <br />
+      <label for="danToc">Dân tộc:</label>
+      <input type="text" name="Dân tộc" id="danToc" />
+      <br />
+      <label for="tonGiao">Tôn giáo:</label>
+      <input type="text" name="Tôn giáo" id="tonGiao" />
+      <br />
+      <label for="quocTich">Quốc tịch:</label>
+      <input type="text" id="quocTich" name="Quốc tịch" value="Việt Nam" />
+      <br />
+      <label for="tenCha/Me">Họ tên cha/mẹ:</label>
+      <input type="text" name="Họ tên cha/mẹ" id="tenCha/Me" />
+      <br />
+      <label for="soCMND/CCCDcuacha/mẹ">Số CMND/CCCD của cha/mẹ:</label>
+      <input
+        type="text"
+        name="Số CMND/CCCD của cha/mẹ"
+        id="soCMND/CCCDcuacha/mẹ"
+        pattern="\d{12}"
+        maxlength="12"
+        minlength="12"
+        required
+      />
+      <br />
+      <label for="city">Tỉnh/Thành phố:</label>
+      <select id="city" name="city" required>
+        <option value="" disabled selected>Chọn Tỉnh/Thành phố</option>
+        <option value="Hà Nội">Hà Nội</option>
+        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+      </select>
+      <br />
+      <button type="submit">Gửi thông tin</button>
+    </form>
+  </body>
+</html>

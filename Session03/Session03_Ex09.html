@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex8</title>
+  </head>
+  <body>
+    <form action="http://wwww.myserver.com" method="post">
+      <label for="Name">Họ và tên:</label>
+      <input type="text" name="Họ và tên" id="Name" />
+      <br />
+      <label for="dob">Ngày sinh:</label>
+      <input type="date" name="Ngày sinh" id="dob" />
+      <br />
+      <label for="gioiTinh">Giới tính:</label>
+      <label
+        ><input type="radio" name="Giới tính" id="gioiTinh" value="Nam" /> Nam
+      </label>
+      <label
+        ><input type="radio" name="Giới tính" id="gioiTinh" value="Nam" /> Nữ
+      </label>
+      <br />
+      <label for="SDT">Số điện thoại:</label>
+      <input
+        type="tel"
+        name="Số điện thoại"
+        id="SDT"
+        pattern="(03|05|07|08|09)[0-9]{8}"
+        maxlength="10"
+        minlength="10"
+        required
+      />
+      <br />
+      <label for="Email">Email:</label>
+      <input type="email" name="Email" id="Email" />
+      <br />
+      <label for="diaChi">Địa chỉ :</label>
+      <textarea name="Địa Chỉ" id="diaChi"></textarea>
+      <br />
+      <label for="vaiTroTrongNhom">Vai trò trong nhóm:</label>
+      <select name="Vai trò trong nhóm" id="vaiTroTrongNhom">
+        <option value="Thành viên">Thành viên</option>
+        <option value="Nhóm trưởng">Nhóm trưởng</option>
+        <option value="Nhóm phó">Nhóm phó</option>
+      </select>
+      <br />
+      <label for="soThich">Sở thích:</label>
+      <input type="text" name="Sở thích" id="soThich" />
+      <br />
+      <label for="kyNang">Kỹ năng :</label>
+      <textarea name="Kỹ năng" id="kyNang"></textarea>
+      <br />
+      <label for="thoiGianRanh">Thời gian rảnh: </label>
+      <label for="thoiGianRanh"
+        ><input
+          type="checkbox"
+          name="Thời gian rảnh"
+          id="thoiGianRanh"
+          value="Sáng"
+        />
+        Sáng
+      </label>
+      <label for="thoiGianRanh"
+        ><input
+          type="checkbox"
+          name="Thời gian rảnh"
+          id="thoiGianRanh"
+          value="Chiều"
+        />
+        Chiều
+      </label>
+      <label for="thoiGianRanh"
+        ><input
+          type="checkbox"
+          name="Thời gian rảnh"
+          id="thoiGianRanh"
+          value="Tối"
+        />
+        Tối
+      </label>
+      <br />
+      <label for="lyDo">Lý do tham gia nhóm: </label>
+      <textarea name="Lý do tham gia nhóm" id="lyDo"></textarea>
+      <br />
+      <label for="mau">Màu yêu thích: </label>
+      <input type="color" id="mau" name="Màu yêu thích" />
+      <br />
+      <label for="nhanBanTin">Đăng ký nhận bản tin:</label>
+      <label for="nhanBanTin"
+        ><input type="checkbox" name="Đăng ký nhận bản tin" id="nhanBanTin" />
+        Có
+      </label>
+      <br />
+      <label for="thongBaoEmail">Nhập thông báo qua email:</label>
+      <label for="thongBaoEmail"
+        ><input
+          type="radio"
+          name="Nhận thông báo qua email"
+          id="thongBaoEmail"
+          value="Email"
+        />
+        Email
+      </label>
+      <label for="thongBaoEmail"
+        ><input
+          type="radio"
+          name="Nhận thông báo qua email"
+          id="thongBaoEmail"
+          value="SMS"
+        />
+        SMS
+      </label>
+      <br />
+      <button type="submit">Đăng ký thành viên</button>
+    </form>
+  </body>
+</html>
