@@ -1,0 +1,11 @@
+#first {
+  font-size: 24px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+#second {
+  color: gray;
+}
+#second > b {
+  color: black;
+}

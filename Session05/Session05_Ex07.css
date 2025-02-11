@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+body > h1 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px gray;
+}
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+}
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid white;
+}
+th {
+  background-color: #3276ff;
+  color: white;
+}
+.gray {
+  background-color: #f4f4f4;
+}
+.view {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+
+.update {
+  background-color: #fbc02d;
+  color: black;
+  border: none;
+}
+
+.delete {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+}
+button {
+  padding: 12px 16px; /* Tăng padding để làm to ô */
+  font-size: 14px; /* Giữ nguyên kích thước chữ */
+  border-radius: 5px; /* Làm bo góc mềm mại hơn */
+  cursor: pointer;
+}
