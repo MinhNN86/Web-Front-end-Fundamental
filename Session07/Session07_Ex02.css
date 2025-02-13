@@ -1,0 +1,21 @@
+body {
+  background-color: #f7f6f9;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body table .table {
+  border: 0.5px solid black;
+  box-shadow: inset;
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.table .red {
+  font-size: large;
+  font-weight: bolder;
+  color: #bf2c32;
+}
+.table p {
+  color: #453b6c;
+}
