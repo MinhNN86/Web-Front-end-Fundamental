@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex07</title>
+    <link rel="stylesheet" href="Session07_Ex07.css" />
+  </head>
+  <body>
+    <div class="message">
+      <div class="message-header">
+        New message to @mdo
+        <span class="close">&times;</span>
+      </div>
+      <form action="https://example.com" method="post">
+        <div class="question">
+          <label for="recipient">Recipient:</label>
+        </div>
+        <div class="reply">
+          <input type="text" name="Recipient" id="recipient" />
+        </div>
+        <div class="question">
+          <label for="message">Message:</label>
+        </div>
+        <div class="reply">
+          <textarea name="Message" id="message"></textarea>
+        </div>
+        <div class="message-footer">
+          <button type="button" class="btn close-btn">Close</button>
+          <button type="submit" class="btn send-btn">Send message</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
