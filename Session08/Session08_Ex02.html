@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex02</title>
+    <link rel="stylesheet" href="Session08_Ex02.css" />
+  </head>
+  <body>
+    <div class="message-container">
+      <form action="https://myserver.com" method="post">
+        <table>
+          <tr>
+            <td class="box-1">
+              <label for="name">Name</label>
+              <div class="box">
+                <input type="text" id="name" name="Name" />
+              </div>
+            </td>
+            <td>
+              <label for="email">Email</label>
+              <div class="box">
+                <input type="email" id="email" name="Email" />
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div class="message">
+          <label for="message">Message</label>
+          <div class="message-box">
+            <textarea name="Message" id="message"></textarea>
+          </div>
+        </div>
+        <button type="submit">SEND MESSAGE</button>
+      </form>
+    </div>
+  </body>
+</html>
