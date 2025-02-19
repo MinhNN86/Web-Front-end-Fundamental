@@ -1,0 +1,48 @@
+.header1 {
+  width: 100%;
+  height: 70px;
+  background-color: #78bcbe;
+  margin-top: 10px;
+}
+.box1 {
+  width: 50%;
+  height: 35vh;
+  background-color: #eb5c48;
+  margin-top: 10px;
+}
+.box2 {
+  width: 50%;
+  height: 35vh;
+  background-color: #f7b53f;
+  margin-top: 10px;
+}
+section {
+  display: flex;
+  gap: 10px;
+}
+.box3 {
+  width: 50%;
+  height: 35vh;
+  background-color: #3f5e7b;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .box3 {
+    width: 100%;
+    height: 150px;
+  }
+  .box2 {
+    width: 100%;
+    height: 150px;
+  }
+  .box1 {
+    width: 100%;
+    height: 150px;
+  }
+}

@@ -1,0 +1,129 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+body {
+  background-color: #e6e7e7;
+}
+.header-mobile {
+  display: none;
+}
+.container {
+  max-width: 60%;
+  margin: auto;
+}
+.box {
+  background-color: #9f4a4b;
+}
+
+.header-desktop {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 20px 0;
+}
+.header-desktop .logo {
+  font-weight: bold;
+  font-size: xx-large;
+  color: #9f4a4b;
+}
+.header-desktop .nav {
+  width: calc(90% - 20px);
+  text-align: center;
+  font-size: xx-large;
+}
+
+.main-aside {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+  height: calc(50vh - 20px);
+}
+.main-aside .main {
+  width: calc(67% - 10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+}
+.main-aside .aside {
+  width: calc(33% - 10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+}
+.column {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.column .col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(34% - 20px);
+  height: 10vh;
+  font-size: xx-large;
+}
+@media screen and (max-width: 1200px) {
+  .main-aside .main {
+    width: 100%;
+  }
+  .main-aside .aside {
+    width: 100%;
+  }
+  .column .col {
+    width: calc(50% - 20px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-desktop {
+    display: none;
+  }
+  .container {
+    max-width: 100%;
+  }
+  .header-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .header-mobile .logo {
+    font-weight: bold;
+    font-size: 50px;
+    color: #9f4a4b;
+    margin-left: 10px;
+  }
+  .header-mobile .icon {
+    font-size: 50px;
+    margin: 5px 10px 5px 5px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: #9f4a4b;
+  }
+  .header-mobile .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(30vh - 20px);
+    font-size: xx-large;
+  }
+  .body-mobile {
+    max-width: 95%;
+    margin: auto;
+  }
+  .column .col {
+    width: 100%;
+  }
+}
