@@ -1,0 +1,32 @@
+.card {
+  border: none;
+}
+.card-body {
+  position: relative;
+  padding: 0;
+}
+.card-body img {
+  border-radius: 20px;
+}
+.card .card-title {
+  position: absolute;
+  color: white;
+  bottom: 28%;
+  left: 4%;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  font-size: large;
+}
+.card .bottomBox {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+.bottomBox img {
+  border-radius: 100%;
+}
+.bottomBox .info {
+  color: white;
+  margin-left: 190px;
+}

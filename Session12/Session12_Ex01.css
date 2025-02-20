@@ -1,0 +1,16 @@
+.form-select {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.form-select:focus {
+  border-color: #ff6347;
+}
+
+.form-select option {
+  background-color: #ff6347;
+  color: white;
+}

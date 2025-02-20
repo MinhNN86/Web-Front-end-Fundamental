@@ -1,0 +1,29 @@
+.container {
+  margin: 100px;
+  width: 400px;
+  border: 2px solid #8d8d8d;
+  border-radius: 10px;
+  padding: 0 !important;
+}
+.header-form {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  gap: 190px;
+}
+.header-form .text {
+  font-weight: bold;
+}
+.body-form {
+  margin: 0px 20px;
+  margin-bottom: 20px;
+}
+.body-form .pass {
+  margin-bottom: 10px;
+}
+.icon {
+  background-color: #ffffff;
+  border: none;
+}
