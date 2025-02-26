@@ -1,0 +1,472 @@
+<!-- ////////////////////////// Session 01 ////////////////////////// -->
+<!DOCTYPE html>
+<!--Khai báo <!DOCTYPE html> để thông báo rằng tài liệu sử dụng HTML5. -->
+<html lang="en">
+  <!--Thuộc tính lang=”en” (hoặc ngôn ngữ khác) để chỉ định ngôn ngữ chính của tài liệu. -->
+  <head>
+    <!--Thẻ <head> Chứa thông tin meta và các liên kết quan trọng: -->
+    <meta charset="UTF-8" />
+    <!--Đặt mã hóa ký tự là UTF-8 để hỗ trợ đa ngôn ngữ. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Đảm bảo trang web hiển thị tốt trên các thiết bị di động bằng cách thiết lập viewport. -->
+
+    <!-- link với file CSS (External CSS) (sử dụng CSS bên ngoài)-->
+    <link rel="stylesheet" href="liThuyetCSS.css" />
+
+    <!-- Internal CSS (CSS nội bộ) -->
+    <style>
+      p {
+        color: blueviolet;
+        margin-left: 40px;
+      }
+    </style>
+    <title>Lý Thuyết</title>
+  </head>
+  <body>
+    <!-- Chúng ta sẽ sử dụng các thẻ <h1>, <h2>, <h3>, <h4>, <h5>, <h6> để định nghĩa các tiêu đề. -->
+    <h1>Tiêu đề cấp 1 (H1)</h1>
+    <h2>Tiêu đề cấp 2 (H2)</h2>
+    <h3>Tiêu đề cấp 3 (H3)</h3>
+    <h4>Tiêu đề cấp 4 (H4)</h4>
+    <h5>Tiêu đề cấp 5 (H5)</h5>
+    <h6>Tiêu đề cấp 6 (H6)</h6>
+
+    <!-- Ta dùng thẻ <p> để định nghĩa một đoạn văn. -->
+    <p>Nội dung đoạn văn tại đây.</p>
+
+    <!-- List element (Thẻ danh sách) -->
+    <!-- Danh sách không có thứ tự (Unordered List): -->
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <!-- Danh sách có thứ tự (Ordered List): -->
+    <!-- có thể thêm <ol type=”A”> để danh sách xếp thứ tự-->
+    <ol>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </ol>
+    <!-- Danh sách định nghĩa (Definition List): Được sử dụng khi bạn muốn tạo danh sách các thuật ngữ và định nghĩa. 
+    Sử dụng thẻ <dl> cho danh sách, <dt> cho tên thuật ngữ và <dd> cho định nghĩa. -->
+    <dl>
+      <dt>HTML</dt>
+      <dd>HyperText Markup Language</dd>
+
+      <dt>CSS</dt>
+      <dd>Cascading Style Sheets</dd>
+    </dl>
+
+    <!-- Image element (Thẻ hình ảnh) -->
+    <!-- Có thể lấy ảnh lưu trên máy src="./resource" -->
+    <img src="URL" alt="Description" width="300" height="60" />
+    <!-- src - Chỉ định đường dẫn đến hình ảnh  -->
+    <!-- alt - Chỉ định văn bản thay thế cho hình ảnh, nếu hình ảnh vì lý do nào đó không thể hiển thị -->
+    <!-- width và height (tùy chọn): Bạn có thể chỉ định chiều rộng và chiều cao của hình ảnh. -->
+    <!-- Có thể lấy ảnh lưu trên máy --><br />
+    <img src="./resources/Cat_August_2010-4.jpg" alt="Cat" />
+
+    <!-- Anchor element (Thẻ liên kết) --><br />
+    <a href="https://www.google.com">Google</a>
+    <!-- Có thể lấy html lưu trên máy --><br />
+    <a href="./anchor.html">anchor link</a>
+    <!-- Dùng ảnh làm liên kết --><br />
+    <a href="https://www.google.com">
+      <img
+        src="https://www.google.com.vn/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        alt="Google"
+      />
+    </a>
+    <!-- Dùng liên kết để tạo một dấu trang (bookmark) -->
+    <p><a href="#C2">Etymology and naming</a></p>
+    <p><a href="#C2">See also</a></p>
+    <p><a href="#C3">References</a></p>
+    <h2 id="C2" class="test">Etymology and naming</h2>
+    <h2 id="C3" class="test">See also</h2>
+    <h2 id="C4" class="test">References</h2>
+    <!-- Các thuộc tính tùy chọn khác của thẻ <a>: -->
+    <!-- target: Chỉ định nơi mở liên kết. Một số giá trị phổ biến:
+        _blank: Mở liên kết trong một cửa sổ/tab mới.
+        _self: Mở liên kết trong cùng một cửa sổ/tab (mặc định).
+        _parent: Mở liên kết trong cửa sổ cha (dùng trong iframe).
+        _top: Mở liên kết trong toàn bộ cửa sổ trình duyệt. -->
+    <a href="https://www.example.com" target="_blank">Visit Example</a>
+
+    <!-- Tạo danh sách sử dụng các thẻ format text -->
+    <ul>
+      <li>This word is <em>emphasized</em></li>
+      <!-- <em>: Sử dụng để nhấn mạnh văn bản (emphasized). -->
+      <li>This word is <i>italic</i></li>
+      <!-- <i>: Sử dụng để in nghiêng văn bản (italic). -->
+      <li>This word is <sup>superscripted</sup></li>
+      <!-- <sup>: Sử dụng cho văn bản ở dạng mũ trên (superscripted). -->
+      <li>This word is <sub>subscripted</sub></li>
+      <!-- <sub>: Sử dụng cho văn bản ở dạng chỉ số dưới (subscripted). -->
+      <li>This word is <ins>inserted</ins></li>
+      <!-- <ins>: Sử dụng cho văn bản có dấu gạch dưới inserted (inserted). -->
+      <li>This word is <del>deleted</del></li>
+      <!-- <del>: Sử dụng cho văn bản bị xóa (deleted). -->
+    </ul>
+
+    <!-- ////////////////////////// Session 02 ////////////////////////// -->
+
+    <!-- <sub>: Sử dụng cho văn bản ở dạng chỉ số dưới (subscripted). -->
+    <!-- <sup>: Sử dụng cho văn bản ở dạng mũ trên (superscripted). -->
+    <!--  <hr> – Đường kẻ ngang (Horizontal Rule) -->
+    <p>Phần 1</p>
+    <hr />
+    <p>Phần 2</p>
+
+    <!--  Entity trong HTML
+      < → &lt;
+      > → &gt;
+      & → &amp;
+      " → &quot;
+      ' → &apos;
+      © → &copy;
+      ® → &reg;
+      € → &euro;
+      £ → &pound;
+      ¥ → &yen; 
+    -->
+
+    <!-- Semantic HTML
+       * <header> – Phần đầu trang hoặc phần đầu của một phần nội dung. *
+       * <nav> – Chứa các liên kết điều hướng (menu, breadcrumb). *
+       * <main> – Nội dung chính của trang web. *
+       * <section> – Một phần nội dung có chủ đề cụ thể. *
+       * <article> – Nội dung độc lập như bài viết, tin tức, blog.
+      <aside> – Nội dung phụ, như thanh bên hoặc quảng cáo.
+       * <footer> – Phần chân trang, thường chứa thông tin liên hệ, bản quyền. *
+      <figure> – Chứa hình ảnh, biểu đồ hoặc nội dung minh họa.
+      <figcaption> – Chú thích cho <figure>.
+      <mark> – Đánh dấu nội dung quan trọng.
+      <time> – Hiển thị ngày giờ có ý nghĩa trong văn bản.
+    -->
+    <header>Đây là phân vùng tiêu để header của 1 trang web</header>
+    <nav>Đây là thanh điều hướng</nav>
+    <section>
+      Đây là phân vùng nội dung 02
+      <article>Bài viết 01</article>
+    </section>
+    <footer>Đây là phân vùng chân trang</footer>
+
+    <!-- Bảng trong HTML -->
+    <!-- tr, td, th element -->
+    <!-- 1️⃣ Thẻ <tr> (Table Row - Hàng của bảng) -->
+    <table border="1">
+      <tr>
+        <td>Dữ liệu 1</td>
+        <td>Dữ liệu 2</td>
+      </tr>
+    </table>
+    <br />
+    <!-- 2️⃣ Thẻ <td> (Table Data - Ô dữ liệu trong bảng) -->
+    <table border="1">
+      <tr>
+        <td>Hàng 1, Cột 1</td>
+        <td>Hàng 1, Cột 2</td>
+      </tr>
+    </table>
+    <br />
+    <!-- Thuộc tính quan trọng:
+      colspan: Gộp nhiều cột thành một.
+      rowspan: Gộp nhiều hàng thành một. -->
+    <table border="1">
+      <tr>
+        <td>Hàng 1, Cột 1</td>
+        <td>Hàng 1, Cột 2</td>
+      </tr>
+      <tr>
+        <td colspan="2">Gộp 2 cột</td>
+      </tr>
+    </table>
+    <br />
+    <!-- 3️⃣ Thẻ <th> (Table Header - Ô tiêu đề cột/hàng) -->
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Cột 1</th>
+          <th>Cột 2</th>
+        </tr>
+      </thead>
+    </table>
+    <br />
+
+    <!-- thead, tbody, tfoot element -->
+    <!-- Thẻ <thead> Table Head (Phần đầu trang)
+      Thẻ <thead> được sử dụng để nhóm các hàng chứa tiêu đề của bảng.
+      Phần này thường chứa các thẻ <tr> với các ô tiêu đề <th>. -->
+
+    <!-- Thẻ <tbody> Table Body (Phần thân trang)
+      Thường chứa các thẻ <tr> và <td>.
+      Tất cả dữ liệu nội dung của bảng nên nằm trong <tbody>. -->
+
+    <!-- Thẻ <tfoot> Table Footer (Phần chân trang)
+      Thường nằm sau <thead> và <tbody> nhưng được hiển thị ở cuối bảng.
+      Trong một số trường hợp in ấn, <tfoot> có thể xuất hiện ở cuối mỗi trang. -->
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Họ tên</th>
+          <th>Tuổi</th>
+          <th>Thành phố</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nguyễn Văn A</td>
+          <td>25</td>
+          <td>Hà Nội</td>
+        </tr>
+        <tr>
+          <td>Trần Thị B</td>
+          <td>30</td>
+          <td>Đà Nẵng</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- colspan và rowspan -->
+    <!-- Thuộc tính colspan (Gộp cột) -->
+    <table border="1">
+      <tr>
+        <th>Tên</th>
+        <th>Tuổi</th>
+        <th>Thành phố</th>
+      </tr>
+      <tr>
+        <td colspan="3">Dữ liệu gộp 3 cột</td>
+      </tr>
+    </table>
+    <br />
+    <!-- Thuộc tính rowspan (Gộp hàng) -->
+    <table border="1">
+      <tr>
+        <th rowspan="2">Thông tin</th>
+        <th>Tuổi</th>
+      </tr>
+      <tr>
+        <td>25</td>
+      </tr>
+    </table>
+    <br />
+    <!-- Căn chỉnh giữa cho ô -->
+    <!-- align="center" trong các thẻ <th> và <td> -->
+    <table border="1">
+      <tr>
+        <th align="center">STT</th>
+        <th align="center">Tên</th>
+        <th align="center">Tuổi</th>
+      </tr>
+      <tr>
+        <td align="center">1</td>
+        <td align="center">Nguyễn Văn A</td>
+        <td align="center">25</td>
+      </tr>
+      <tr>
+        <td align="center">2</td>
+        <td align="center">Trần Thị B</td>
+        <td align="center">30</td>
+      </tr>
+      <tr>
+        <td align="center">3</td>
+        <td align="center">Lê Thị C</td>
+        <td align="center">22</td>
+      </tr>
+    </table>
+    <br />
+    <!-- đổi màu ô -->
+    <!-- sử dụng thuộc tính bgcolor trực tiếp trong thẻ <td> để thay đổi màu nền -->
+    <table border="1">
+      <tr>
+        <th align="center">STT</th>
+        <th align="center">Tên</th>
+        <th align="center">Tuổi</th>
+      </tr>
+      <tr>
+        <td align="center">1</td>
+        <td align="center" bgcolor="red">Nguyễn Văn A</td>
+        <td align="center">25</td>
+      </tr>
+      <tr>
+        <td align="center">2</td>
+        <td align="center">Trần Thị B</td>
+        <td align="center">30</td>
+      </tr>
+      <tr>
+        <td align="center">3</td>
+        <td align="center">Lê Thị C</td>
+        <td align="center" bgcolor="yellow">22</td>
+      </tr>
+    </table>
+
+    <!-- 🏗️ Cellspacing và Cellpadding trong bảng HTML
+  📌 1. Cellspacing là gì?
+  🔹 cellspacing xác định khoảng cách giữa các ô (cells) trong bảng.
+  🔹 Đây là khoảng trống bên ngoài ô, giữa đường viền của các ô liền kề.
+
+  📌 2. Cellpadding là gì?
+  🔹 cellpadding xác định khoảng cách giữa nội dung và đường viền của ô.
+  🔹 Đây là phần lề bên trong mỗi ô, giúp tạo không gian xung quanh nội dung. -->
+    <table border="1" cellspacing="10" cellpadding="10"></table>
+
+    <!-- ////////////////////////// Session 03 ////////////////////////// -->
+    <!-- phương thức get & post -->
+    <!-- 
+    get: Gửi dữ liệu qua URL dưới dạng chuỗi truy vấn (query string).
+    query string - ?key=value&...keyN=valueN
+    post: Gửi dữ liệu trong phần thân (body) của yêu cầu HTTP, không hiển thị trên URL.
+    -->
+
+    <!-- các thẻ trong <form> và <input> <textarea>-->
+    <!-- 
+    * type: Xác định loại trường nhập dữ liệu. (chi tiết ở dưới)
+    id: Định danh duy nhất cho phần tử trong trang web
+    name: Xác định tên của trường khi gửi dữ liệu lên server
+    placeholder: Hiển thị văn bản gợi ý bên trong ô nhập
+    lable: Thẻ <label> được dùng để mô tả và liên kết với một trường nhập (<input>, <textarea>, <select>)
+    -->
+    <h1>Đăng ký</h1>
+    <form action="http://www.myserver.com" method="post">
+      <label for="Username">Username</label>
+      <input id="Username" type="text" name="username" />
+      <br />
+      <label for="Email">Email</label>
+      <input id="Email" type="email" name="email" />
+      <br />
+      <label for="Password">Password</label>
+      <input id="Password" type="password" name="password" />
+      <br /><br />
+
+      <!-- Thẻ <textarea> trong HTML được dùng để tạo ô nhập liệu văn bản nhiều dòng trong một form -->
+      <textarea name="message" placeholder="Nhập tin nhắn..."></textarea>
+      <br /><br />
+      <!-- input type trong HTML -->
+      <!-- 
+    text – Nhập văn bản thông thường.
+    password – Nhập mật khẩu, ẩn ký tự bằng dấu ● hoặc *.
+    email – Nhập email, kiểm tra định dạng hợp lệ.
+    number – Nhập số, có thể đặt giới hạn min, max, step.
+    date – Chọn ngày từ lịch (date picker).
+    file – Tải file lên từ thiết bị.
+    submit – Nút gửi form đến server.
+    reset – Nút đặt lại, xóa toàn bộ dữ liệu trong form. 
+    -->
+
+      <!-- Radio button -->
+      <!-- Radio button là một dạng phần tử input trong HTML, cho phép người dùng chọn
+    một trong nhiều tùy chọn -->
+      <label>Giới tính</label>
+      <label><input type="radio" name="gioiTinh" value="Nam" />Nam</label>
+      <label><input type="radio" name="gioiTinh" value="Nu" />Nu</label>
+      <label
+        ><input type="radio" name="gioiTinh" value="Khong Xac Dinh" />Khong Xac
+        Dinh</label
+      >
+      <br /><br />
+      <!-- 
+    type: Xác định kiểu phần tử là radio button.
+    name: Nhóm các radio button để đảm bảo chỉ một nút được chọn.
+    value: Giá trị được gửi đến máy chủ khi radio button được chọn.
+    checked: Thiết lập radio button mặc định được chọn.
+    id: Liên kết radio button với một nhãn (<label>).
+    disabled: Vô hiệu hóa radio button, không cho phép người dùng tương tác.
+    -->
+
+      <!-- Checkbox -->
+      <!-- Checkbox là một phần tử nhập liệu trong HTML, cho phép người dùng chọn một
+    hoặc nhiều tùy chọn từ một danh sách -->
+      <label>Giới tính</label>
+      <label><input type="checkbox" name="gioiTinh" value="Nam" />Nam</label>
+      <label><input type="checkbox" name="gioiTinh" value="Nu" />Nu</label>
+      <label
+        ><input type="checkbox" name="gioiTinh" value="Khong Xac Dinh" />Khong
+        Xac Dinh</label
+      >
+      <br /><br />
+      <!-- 
+    type: Xác định kiểu phần tử là checkbox.
+    name: Tên của checkbox, được sử dụng để nhóm checkbox lại với nhau.
+    value: Giá trị được gửi đến máy chủ khi checkbox được chọn.
+    checked: Thiết lập checkbox mặc định được chọn.
+    id: Liên kết checkbox với một nhãn (<label>).
+    disabled: Vô hiệu hóa checkbox, không cho phép người dùng tương tác.
+    -->
+
+      <!-- Select, Option  -->
+      <!-- Thẻ <select> được sử dụng chung với thẻ <option> để tạo một danh sách drop-down hoặc list
+    cho phép chọn một hoặc nhiều hạng mục từ một danh sách có sẵn. -->
+      <label>Hobbies:</label>
+      <br />
+      <select name="Hobbies">
+        <option value="Reading Book">Reading Book</option>
+        <option value="Listening Music">Listening Music</option>
+        <option value="Playing game">Playing game</option>
+      </select>
+      <br /><br />
+      <!-- 
+      name: Xác định tên của select khi gửi dữ liệu trong form.
+      multiple: Cho phép chọn nhiều mục cùng lúc.
+      size: Hiển thị nhiều lựa chọn cùng lúc (theo số lượng dòng).
+      disabled: Vô hiệu hóa select (không thể chọn).
+      selected: Đặt tùy chọn mặc định được chọn.
+      value: Giá trị của từng tùy chọn (dùng để gửi dữ liệu).
+      -->
+
+      <!-- pattern -->
+      <!-- pattern: Biểu thức chính quy để kiểm tra giá trị nhập vào. -->
+      <!-- Không hoạt động với <input type="number">, chỉ hoạt động với text, password, tel, v.v. -->
+      <!-- 1️⃣ Chỉ nhập chữ cái (không số, không ký tự đặc biệt) -->
+      <input
+        type="text"
+        pattern="[A-Za-z]+"
+        title="Chỉ nhập chữ cái (A-Z, a-z)"
+      />
+      <br />
+      <!-- 2️⃣ Nhập số điện thoại Việt Nam (10 chữ số, bắt đầu bằng 0) -->
+      <input
+        type="tel"
+        pattern="0[0-9]{9}"
+        title="Nhập số điện thoại hợp lệ (10 chữ số, bắt đầu bằng 0)"
+      />
+      <br />
+      <!-- 3️⃣ Email hợp lệ -->
+      <input
+        type="email"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+        title="Nhập email hợp lệ"
+      />
+      <br />
+      <!-- 4️⃣ Mật khẩu có ít nhất 8 ký tự, bao gồm chữ cái và số -->
+      <input
+        type="password"
+        pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}"
+        title="Ít nhất 8 ký tự, bao gồm chữ và số"
+      />
+      <br />
+      <!-- 5️⃣ Chỉ nhập số từ 1 đến 100 -->
+      <input
+        type="number"
+        pattern="^(100|[1-9][0-9]?)$"
+        title="Nhập số từ 1 đến 100"
+      />
+      <br />
+      <input type="submit" value="Gửi" />
+      <button id="btn" type="reset">Reset</button>
+    </form>
+
+    <!-- Thẻ </iframe> -->
+    <!-- Thẻ <iframe> (Inline Frame) được dùng để nhúng một trang web khác vào trong trang web hiện tại. -->
+    <iframe src="URL" width="560" height="315"></iframe>
+
+    <!-- ////////////////////////// CSS ////////////////////////// -->
+    <!-- Inline CSS (CSS nội tuyến) -->
+    <h1 style="color: blue; text-align: center">This is a heading</h1>
+    <p style="color: red">This is a paragraph.</p>
+
+    <!-- liên kết javascript -->
+    <script src="./liThuyetJS.js"></script>
+  </body>
+</html>

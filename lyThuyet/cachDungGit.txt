@@ -1,0 +1,7 @@
+repository: trên GitHub (remote)
+tạo repository: trên máy tính (local)
+    git init: tạo kho chứa trên máy tính
+    git add tệp muốn thêm/: thêm tất cả các tệp vào staging area
+    git commit -m "add file": tạo commit với thông điệp
+    git remote add origin ...: thêm remote repository
+    git push -u origin master: đẩy commit lên remote repository và thiết lập upstream

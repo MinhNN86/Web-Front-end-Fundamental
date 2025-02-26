@@ -1,0 +1,658 @@
+/* External CSS (CSS bên ngoài) */
+/* ? Start CSS */
+/* !Color & Background-Color */
+/* selector {
+  color: value;              Văn bản (text) bên trong phần tử
+  background-color: value;   Nền của phần tử
+} */
+
+/* *Các cách khai báo màu sắc color & backgroud - color
+1️⃣ Tên màu 
+Ví dụ: color: red;
+Ghi chú: 147 màu tên có sẵn (red, blue, green, ...)
+2️⃣ HEX
+Ví dụ: color: #ff5733;
+Ghi chú: Dùng 6 ký tự (RGB) hoặc 3 ký tự (#f00)
+3️⃣ RGB
+Ví dụ: color: rgb(255, 87, 51);
+Ghi chú: Giá trị từ 0-255 cho R, G, B
+4️⃣ RGBA
+Ví dụ: color: rgba(255, 87, 51, 0.5);
+Ghi chú: Giống RGB nhưng có độ trong suốt (0-1)
+5️⃣ HSL
+Ví dụ: color: hsl(9, 100%, 64%);
+Ghi chú: Hue (0-360), Saturation (%), Lightness (%) */
+body {
+  background-color: whitesmoke;
+}
+h1 {
+  color: black;
+}
+
+/* !Bộ thuộc tính về text (Text properties) trong CSS */
+/* *Thuộc tính text-align */
+/* Mục đích: Căn chỉnh văn bản theo chiều ngang. */
+/* Giá trị:
+left: Căn trái (mặc định).
+right: Căn phải.
+center: Căn giữa.
+justify: Căn đều hai bên. */
+/* 
+element {
+    text-align: <giá trị>;
+} 
+*/
+h1 {
+  text-align: left;
+}
+/* *Thuộc tính text-decoration */
+/* Mục đích: Thêm hoặc loại bỏ gạch chân, gạch ngang, hoặc gạch trên văn bản. */
+/* Giá trị:
+none: Loại bỏ định dạng.
+underline: Gạch chân văn bản.
+overline: Gạch trên văn bản.
+line-through: Gạch ngang văn bản. */
+/* 
+element {
+    text-decoration: <giá trị>;
+} 
+*/
+h1 {
+  text-decoration: none;
+}
+/* *Thuộc tính line-height */
+/* Mục đích: Điều chỉnh khoảng cách giữa các dòng trong đoạn văn. */
+/* Giá trị: Có thể là một giá trị cố định (px), tỷ lệ (em), hoặc giá trị số (1.5). */
+/* 
+element {
+    line-height: <giá trị>;
+} 
+*/
+h1 {
+  line-height: normal;
+}
+/* Thuộc tính letter-spacing */
+/* Mục đích: Điều chỉnh khoảng cách giữa các ký tự trong văn bản. */
+/* Giá trị: Có thể là một giá trị dương (giãn rộng) hoặc âm (thu hẹp). */
+/* 
+element {
+    letter-spacing: <giá trị>;
+}  */
+h1 {
+  letter-spacing: normal;
+}
+/* *Thuộc tính text-transform */
+/* Mục đích: Chuyển đổi kiểu chữ của văn bản. */
+/* Giá trị: 
+   - uppercase: Chuyển tất cả chữ thành IN HOA.
+   - lowercase: Chuyển tất cả chữ thành chữ thường.
+   - capitalize: Chữ cái đầu của mỗi từ viết HOA.
+   - none: Giữ nguyên kiểu chữ mặc định. */
+
+/* 
+element {
+    text-transform: <giá trị>;
+}  
+*/
+h1 {
+  text-transform: uppercase;
+}
+
+/* !Bộ thuộc tính font (Font Properties) trong CSS */
+/* *Thuộc tính font-family
+Thuộc tính font-family cho phép chọn phông chữ hiển thị. Nếu trình duyệt không hỗ trợ phông chữ đầu tiên,
+ nó sẽ thử các phông chữ dự phòng tiếp theo. */
+/* Lưu ý: Nên có ít nhất một phông chữ dự phòng để đảm bảo hiển thị tốt trên mọi trình duyệt. */
+h1 {
+  font-family: "Times New Roman", Times, serif;
+}
+/* *Thuộc tính font-style */
+/* Thuộc tính font-style thay đổi kiểu dáng văn bản. */
+/* Các giá trị:
+normal: Chữ bình thường.
+italic: Chữ nghiêng.
+oblique: Chữ nghiêng theo một góc nhất định. */
+h1 {
+  font-style: normal;
+}
+/* *Thuộc tính font-weight */
+/* Mục đích: Thuộc tính font-weight được sử dụng để xác định độ dày (đậm hoặc nhạt) của văn bản */
+/* Giá trị hợp lệ:
+Từ khóa:
+normal: Độ dày mặc định của chữ (400).
+bold: Văn bản in đậm (700).
+lighter: Văn bản nhẹ hơn so với phần tử cha.
+bolder: Văn bản đậm hơn so với phần tử cha.
+Giá trị số:
+100: Mỏng nhất (Thin).
+200: Nhẹ hơn (Extra Light).
+300: Nhẹ (Light).
+400: Mặc định (Normal).
+500: Trung bình (Medium).
+600: Hơi đậm (Semi Bold).
+700: Đậm (Bold).
+800: Rất đậm (Extra Bold).
+900: Siêu đậm (Black). */
+h1 {
+  font-weight: bold;
+}
+/* *Thuộc tính font-size */
+/* Thuộc tính font-size xác định kích thước của văn bản. */
+/* Các đơn vị phổ biến:
+px (pixel) – Độ lớn cố định.
+em – Phụ thuộc vào kích thước của phần tử cha.
+rem – Phụ thuộc vào kích thước gốc (Được xác định bởi phần tử <html>).
+% – Phần trăm so với phần tử cha. */
+h1 {
+  font-size: xx-large;
+}
+
+/* !Universal Selector */
+/* Mô tả: Selector này chọn tất cả các phần tử trong tài liệu HTML. */
+/* Ký hiệu: Dấu sao (*). */
+/* Ứng dụng:
+Áp dụng một style chung cho tất cả các phần tử trên trang.
+Thường được dùng để đặt các giá trị mặc định hoặc để "reset" style. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* !Id selector và Class selector */
+/* *ID Selector được sử dụng để áp dụng style cho một phần tử cụ thể,
+được xác định bằng thuộc tính id trong HTML.
+ID trong HTML phải duy nhất trong toàn bộ tài liệu. */
+#C2 {
+  color: aqua;
+}
+/* *Class Selector được sử dụng để áp dụng style cho một hoặc nhiều phần tử,
+được xác định bằng thuộc tính class trong HTML.
+Một class có thể được sử dụng trên nhiều phần tử. */
+.test {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 5px;
+}
+
+/* !Adjacent selector và Descendant selector */
+/* *Adjacent Selector chọn phần tử B mà ngay lập tức đứng sau phần tử A trong cây DOM.
+Hai phần tử phải là anh em (siblings) trực tiếp. */
+h1 + h2 {
+  color: black;
+}
+/* h1: Phần tử đầu tiên | h2: phần tử ngay sau A */
+
+/* *Descendant Selector chọn tất cả các phần tử B nằm bên trong phần tử A,
+bất kể mức độ lồng nhau.
+Nó không yêu cầu phần tử B phải là con trực tiếp của A. */
+ul li {
+  color: black;
+}
+/* Direct Child Selector */
+/* Bộ chọn li > a trong CSS có nghĩa là:
+👉 Chọn tất cả thẻ <a> (liên kết) nằm trực tiếp bên trong thẻ <li> (mục danh sách).
+📌 Dấu > là bộ chọn con trực tiếp (child selector),
+chỉ áp dụng cho các phần tử con trực tiếp, không chọn các phần tử lồng sâu hơn. */
+ul > li {
+  color: black;
+}
+
+/* !Attribute selector */
+/* *Chọn tất cả phần tử có thuộc tính bất kỳ */
+/* [attribute] {
+  property: value;
+} */
+
+/* *Chọn phần tử có thuộc tính 'attribute' với giá trị CHÍNH XÁC là "value" */
+/* [attribute="value"] {
+  property: value;
+} */
+
+/* *Chọn phần tử có thuộc tính 'attribute' BẮT ĐẦU bằng "value" */
+/* [attribute^="value"] {
+  property: value;
+} */
+
+/* *Chọn phần tử có thuộc tính 'attribute' KẾT THÚC bằng "value" */
+/* [attribute$="value"] {
+  property: value;
+} */
+
+/* *Chọn phần tử có thuộc tính 'attribute' CHỨA "value" ở bất kỳ vị trí nào */
+/* [attribute*="value"] {
+  property: value;
+} */
+/* attribute: href, type, class */
+
+/* !Pseudo class và Pseudo elements */
+/* *Pseudo-class là một từ khóa được thêm vào selector,
+dùng để chọn các phần tử dựa trên trạng thái đặc biệt hoặc một điều kiện cụ thể.
+Nó không thay đổi nội dung hoặc cấu trúc của DOM. */
+/* 
+selector:pseudo-class{
+  property: value;
+} */
+/* 
+:hover Chọn phần tử khi người dùng di chuột qua.
+:visited	Áp dụng cho liên kết đã được truy cập.
+:link	Áp dụng cho liên kết chưa được truy cập.
+:active	Áp dụng khi nhấn (click giữ) vào phần tử.
+:focus Chọn phần tử khi nó được focus (thường là các thẻ input).
+:last-child Chọn phần tử cuối cùng trong nhóm anh em.
+:not(selector) Chọn các phần tử không khớp với selector. */
+
+/* *Pseudo-element được sử dụng để style một phần cụ thể của phần tử,
+chẳng hạn như chữ cái đầu tiên hoặc nội dung trước/ sau phần tử.
+Nó không áp dụng cho trạng thái mà chỉ dành cho các thành phần phụ trong một phần tử. */
+/* 
+selector::pseudo-element{
+  property: value;
+} */
+/* 
+::before Chèn nội dung trước phần tử.
+::after Chèn nội dung sau phần tử.
+::first-letter Style chữ cái đầu tiên của phần tử.
+::first-line Style dòng đầu tiên của phần tử. */
+
+/* !Thứ tự ưu tiên trong CSS */
+/* 
+!important (cao nhất) → (Vượt mọi quy tắc)  
+Inline style (style="...") → 1000  
+ID selector (#id) → 100  
+Class, Attribute, Pseudo-class (.class, [attr], :hover) → 10  
+Element selector (p, h1, div) → 1  
+Universal selector (*) → 0 (thấp nhất)   */
+
+/* ? Box model */
+/* ! Box model - width - height */
+/** CSS Box Model là cấu trúc cơ bản để trình bày và định dạng các phần tử HTML.
+Mỗi phần tử được xem như một hộp bao gồm các thành phần sau:
+Content: Nội dung chính của phần tử (văn bản, hình ảnh, v.v.).
+Padding: Khoảng cách giữa nội dung và viền (border).
+Border: Đường viền bao quanh phần tử.
+Margin: Khoảng cách giữa phần tử và các phần tử khác. */
+/** Width - Height trong Box model
+width - Định nghĩa chiều rộng của phần tử
+height - Định nghĩa chiều cao của phần tử */
+/*! Border */
+/** CSS border là một thuộc tính dùng để tạo đường viền bao quanh các phần tử HTML. */
+/*border: [width][style][color] */
+h1 {
+  border: 0px solid red;
+}
+/* Các thuộc tính chi tiết của border */
+/*
+*border-width
+Xác định độ dày của đường viền.
+Giá trị có thể là:
+Từ khóa: thin, medium, thick.
+Hoặc đơn vị cụ thể: px, em, % */
+/* 
+*border-style
+Xác định kiểu dáng của đường viền.
+Giá trị phổ biến:
+none: Không có đường viền.
+solid: Đường viền liền mạch.
+dotted: Đường viền chấm.
+dashed: Đường viền gạch ngang.
+double: Đường viền kép.
+groove: Đường viền lõm vào.
+ridge: Đường viền nổi lên.
+inset: Đường viền bên trong.
+outset: Đường viền bên ngoài. */
+/* 
+*border-color
+Xác định màu của đường viền */
+/* 
+*Đường viền từng cạnh
+Bạn có thể đặt đường viền cho từng cạnh riêng biệt:
+border-top
+border-right
+border-bottom
+border-left */
+/* 
+*Bo tròn đường viền
+Thuộc tính border-radius được dùng để tạo góc bo tròn cho đường viền. */
+/*! Margin & Padding */
+/* Tổng quan về Margin và Padding
+Margin: Là khoảng cách bên ngoài giữa phần tử và các phần tử khác xung quanh nó.
+Padding: Là khoảng cách bên trong, giữa nội dung của phần tử và đường viền (border) của phần tử đó.
+Hình ảnh minh họa box model */
+/* 
+*Cú pháp chung: margin: giá trị;
+Các giá trị:
+margin: auto; → Căn giữa phần tử block.
+margin: 20px; → Áp dụng cho tất cả các cạnh.
+margin: 20px 10px; → 20px (trên & dưới), 10px (trái & phải).
+margin: 10px 15px 20px 5px; → 10px (trên), 15px (phải), 20px (dưới), 5px (trái).
+Thiết lập riêng biệt:
+margin-top | margin-right | margin-bottom | margin-left */
+/* 
+*Cú pháp chung: padding: giá trị;
+Các giá trị:
+padding: 20px; → Áp dụng cho tất cả các cạnh.
+padding: 20px 10px; → 20px (trên & dưới), 10px (trái & phải).
+padding: 10px 15px 20px 5px; → 10px (trên), 15px (phải), 20px (dưới), 5px (trái).
+Thiết lập riêng biệt:
+padding-top | padding-right | padding-bottom | padding-left */
+/** Box sizing: value */
+/* border-box */
+/*! Box model - display properties */
+/** Cú pháp cơ bản */
+/* 
+element{
+  display: value;
+} */
+/* element: Tên phần tử HTML (như div, p, span, v.v.).
+value: Giá trị của thuộc tính display (xem chi tiết bên dưới). */
+/* 
+INLINE: Không áp dụng Width & Height. Margin & Padding chỉ ảnh hưởng theo chiều ngang.
+BLOCK: Width, Height, Margin & Padding đều có tác dụng đầy đủ.
+INLINE-BLOCK: Giống inline nhưng hỗ trợ Width, Height, Margin & Padding. 
+NONE: Ẩn phần tử khỏi trang, không hiển thị và không chiếm không gian trong bố cục.
+FLEX: Giúp sắp xếp, căn chỉnh phần tử linh hoạt theo hàng hoặc cột, hỗ trợ co giãn tự động. */
+/*! Opacity - Alpha channel */
+/* 
+opacity ảnh hưởng đến toàn bộ thành phần, bao gồm cả nội dung bên trong.
+rgba chỉ ảnh hưởng đến màu sắc cụ thể (màu nền, đường viền), không làm mờ nội dung con. */
+/*! Position properties*/
+/** cú pháp
+div{
+ position: value;
+} */
+/* 
+🔹 static (Mặc định)
+Phần tử sắp xếp theo luồng tài liệu.
+Không thể dùng top, left, right, bottom.
+🔹 relative (Tương đối)
+Giữ nguyên vị trí ban đầu nhưng có thể điều chỉnh bằng top, left, right, bottom.
+Không ảnh hưởng đến phần tử khác.
+🔹 absolute  (Tuyệt đối)
+Định vị so với phần tử cha có position khác static, nếu không có sẽ dựa vào viewport.
+Bỏ qua vị trí ban đầu, có thể chồng lên phần tử khác.
+🔹 fixed (Cố định)
+Gắn chặt vào vị trí trên viewport, không bị ảnh hưởng khi cuộn trang.
+Thường dùng cho thanh điều hướng cố định hoặc nút "Lên đầu trang".
+🔹 sticky (Bám dính)
+Hoạt động như relative nhưng khi cuộn đến một điểm nhất định, nó trở thành fixed.
+Dùng cho tiêu đề bảng hoặc thanh công cụ cuộn.
+📌 Ứng dụng:
+relative làm mốc cho absolute.
+absolute dùng cho popup, dropdown.
+fixed cho navbar cố định.
+sticky cho header khi cuộn trang. 🚀 */
+/*! Transition */
+/* transition: [property] [duration] [timing-function] [delay]; */
+/** Property
+Xác định thuộc tính CSS sẽ thay đổi.
+Ví dụ: opacity, transform, width, height, color.
+Sử dụng all để áp dụng hiệu ứng cho tất cả các thuộc tính có thể chuyển đổi */
+/** Duration
+Thời gian thực hiện chuyển đổi.
+Giá trị có thể là giây (s) hoặc mili giây (ms). */
+/** Timing-function
+Xác định cách tốc độ thay đổi trong suốt quá trình chuyển đổi.
+Các giá trị phổ biến:
+linear: Tốc độ không đổi.
+ease: Mặc định, thay đổi mượt mà.
+ease-in: Tăng tốc dần.
+ease-out: Giảm tốc dần.
+ease-in-out: Tăng tốc rồi giảm tốc.
+cubic-bezier(n, n, n, n): Tùy chỉnh đường cong chuyển đổi. */
+/** Delay
+Thời gian chờ trước khi bắt đầu hiệu ứng. */
+/* 🔹 Lưu ý:
+✅ Không phải tất cả thuộc tính CSS đều hỗ trợ transition (ví dụ: display).
+✅ Tránh quá nhiều hiệu ứng phức tạp để tối ưu hiệu suất.
+✅ Phối hợp với :hover, :focus, :active để tạo hiệu ứng mượt mà. 🚀 */
+
+/*! Transform*/
+/* Cú pháp
+selector {
+  transform: value;
+} */
+/* Dịch chuyển phần tử (translate)
+Dịch chuyển phần tử theo trục x và y. 
+.box{
+  transform: translate(50px, 20px)
+}
+Phần tử có class là box di chuyển 50px sang phải và 20px xuống dưới. */
+/* Xoay phần tử (rotate)
+Giá trị rotate(angle) giúp xoay phần tử một góc nhất định.
+.box{
+  transform: rotate(30 deg);
+}
+Phần tử có class là box xoay 30 độ theo chiều kim đồng hồ. */
+/* Phóng to, thu nhỏ (scale)
+Giá trị scale(x, y) giúp thay đổi kích thước phần tử theo trục X và Y.
+.box{
+  transform: scale(1.5, 2);
+}
+Phần tử có class là box sẽ được kéo dài 1.5 lần theo chiều ngang và 2 lần theo chiều dọc. */
+
+/*? CSS Layout */
+/*! Flex direction */
+/* Flex Direction là một thuộc tính quan trọng trong Flexbox,
+xác định hướng mà các phần tử con (Flex Items) được sắp xếp bên trong Flex Container. */
+/** Cú pháp
+.container {
+  display: flex;
+  flex-direction: value;
+} */
+/** value
+row: Các phần tử con được sắp xếp theo chiều ngang (trục chính là từ trái sang phải).
+row-reverse: Các phần tử con được sắp xếp theo chiều ngang nhưng đảo ngược (trục chính là từ phải sang trái).
+column: Các phần tử con được sắp xếp theo chiều dọc (trục chính là từ trên xuống dưới).
+column-reverse: Các phần tử con được sắp xếp theo chiều dọc nhưng đảo ngược (trục chính là từ dưới lên trên).*/
+
+/*! Flex wrap */
+/* Flex Wrap là một thuộc tính trong Flexbox,
+được sử dụng để quyết định xem các phần tử con (Flex Items) có được phép xuống dòng khi không đủ không gian trong Flex Container hay không. */
+/** Cú pháp
+.container {
+  display: flex;
+  flex-wrap: value;
+} */
+/** vaule
+nowrap: Các phần tử con sẽ không được phép xuống dòng, bất kể không gian có đủ hay không.
+wrap: Các phần tử con sẽ được phép xuống dòng nếu không gian trong Flex Container không đủ.
+wrap-reverse: Tương tự như wrap, nhưng các dòng mới sẽ được sắp xếp từ dưới lên trên.*/
+
+/*! Justify content*/
+/* justify-content là một thuộc tính trong Flexbox,
+được sử dụng để căn chỉnh các phần tử con (Flex Items) dọc theo trục chính (Main Axis) trong một Flex Container. */
+/** Cú pháp
+.container {
+  display: flex;
+  justify-content: value;
+} */
+/** vaule
+flex-start (mặc định): Căn các phần tử về đầu trục chính.
+flex-end: Căn các phần tử về cuối trục chính.
+center: Căn các phần tử vào giữa trục chính.
+space-between: Các phần tử cách đều nhau, phần tử đầu & cuối sát mép.
+space-around: Các phần tử cách đều nhau, khoảng cách hai bên lớn hơn.
+space-evenly: Các phần tử cách đều nhau, khoảng cách bằng nhau. */
+
+/*! Align item */
+/* align-items là một thuộc tính trong Flexbox,
+được sử dụng để căn chỉnh các phần tử con (Flex Items) dọc theo trục chéo (Cross Axis) trong một Flex Container. */
+/** Cú pháp
+.container {
+  display: flex;
+  align-items: value;
+} */
+/** value
+flex-start: Căn các phần tử về đầu trục chéo (bên trên nếu flex-direction: row).
+flex-end: Căn các phần tử về cuối trục chéo (bên dưới nếu flex-direction: row).
+center: Căn các phần tử vào giữa trục chéo.
+baseline: Căn các phần tử dựa trên dòng cơ sở của nội dung.
+stretch (mặc định): Kéo dài phần tử để đầy chiều cao của Flex Container (nếu không đặt chiều cao cụ thể). */
+
+/*! Align content & align-self  */
+/** cú pháp
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: value;
+} */
+/** value
+flex-start: Căn các dòng ở đầu trục chéo.
+flex-end: Căn các dòng ở cuối trục chéo.
+center: Căn các dòng vào giữa trục chéo.
+space-between: Khoảng cách giữa các dòng trải đều, không có khoảng cách ở hai đầu.
+space-around: Khoảng cách giữa các dòng trải đều, có khoảng cách nhỏ hơn ở hai đầu.
+space-evenly: Khoảng cách giữa các dòng và hai đầu bằng nhau.
+stretch (mặc định): Các dòng kéo dài để lấp đầy không gian (nếu không đặt chiều cao).*/
+/** align-self – Ghi đè align-items cho từng phần tử  */
+/* 
+auto (mặc định): Sử dụng giá trị từ align-items.
+flex-start: Căn phần tử ở đầu trục chéo.
+flex-end: Căn phần tử ở cuối trục chéo.
+center: Căn phần tử vào giữa trục chéo.
+baseline: Căn theo dòng cơ sở của nội dung.
+stretch: Kéo dài phần tử để đầy không gian. */
+/** Lưu ý:
+align-content chỉ hoạt động khi có nhiều dòng (tức flex-wrap: wrap).
+align-self giúp căn chỉnh từng phần tử riêng lẻ, không ảnh hưởng đến phần tử khác.*/
+
+/*! Tóm Tắt Flexbox
+1. Thuộc Tính Flex Container
+-display:
+flex: Container dạng khối.
+inline-flex: Container dạng inline.
+-flex-direction: Xác định hướng sắp xếp của các phần tử (row, row-reverse, column, column-reverse).
+-justify-content: Căn chỉnh các phần tử theo trục chính:
+flex-start, flex-end, center, space-between, space-around, space-evenly.
+-align-items: Căn chỉnh theo trục chéo:
+flex-start, flex-end, center, baseline, stretch (mặc định).
+-flex-wrap: Điều khiển việc xuống dòng:
+nowrap (mặc định), wrap, wrap-reverse.
+-align-content: Căn chỉnh các dòng khi có nhiều dòng (áp dụng khi flex-wrap: wrap):
+flex-start, flex-end, center, space-between, space-around, stretch (mặc định).
+2. Thuộc Tính Flex Item
+order: Xác định thứ tự hiển thị của phần tử (mặc định là 0).
+flex-grow: Độ co giãn khi có không gian dư (mặc định là 0).
+flex-shrink: Độ thu nhỏ khi không gian hạn chế (mặc định là 1).
+flex-basis: Kích thước cơ bản trước khi co giãn hoặc thu nhỏ (auto mặc định).
+align-self: Ghi đè align-items cho phần tử riêng lẻ:
+auto (mặc định), flex-start, flex-end, center, baseline, stretch. */
+
+/*! Tóm tắt display: grid
+display: grid giúp tạo bố cục dạng lưới (grid layout) với hàng (rows) và cột (columns),
+cho phép sắp xếp phần tử linh hoạt và chính xác.
+🚀 1. Cấu trúc cơ bản
+Khi một phần tử có display: grid, nó trở thành grid container, và các phần tử con bên trong trở thành grid items.
+📌 2. Các thuộc tính quan trọng trong Grid
+2.1. Xác định số cột và hàng
+  grid-template-columns: Xác định số lượng và kích thước của các cột.
+    Ví dụ giá trị: 200px 300px auto 1fr
+  grid-template-rows: Xác định số lượng và kích thước của các hàng.
+    Ví dụ giá trị: 100px auto 2fr
+    Đơn vị phổ biến:
+    px: Kích thước cố định (VD: 200px).
+    %: Theo phần trăm của phần tử cha (VD: 50%).
+    fr: Chia tỷ lệ không gian có sẵn (VD: 1fr 2fr).
+    auto: Tự động dựa vào nội dung (VD: auto auto 100px).
+2.2. Khoảng cách giữa các ô
+  gap: Tạo khoảng cách giữa các hàng và cột.
+    Ví dụ giá trị: 10px, 20px 10px
+  row-gap: Khoảng cách giữa các hàng.
+    Ví dụ giá trị: 15px, 5%
+  column-gap: Khoảng cách giữa các cột.
+    Ví dụ giá trị: 20px, 2em
+2.3. Định vị phần tử trong lưới
+  grid-column: start / end: Xác định vị trí cột.
+    Ví dụ giá trị: 1 / 3, span 2
+  grid-row: start / end: Xác định vị trí hàng.
+    Ví dụ giá trị: 2 / 4, span 3
+2.4. Sử dụng span để mở rộng ô
+  grid-column: span <số cột>: Mở rộng phần tử qua nhiều cột.
+    Ví dụ giá trị: span 2, span 3
+  grid-row: span <số hàng>: Mở rộng phần tử qua nhiều hàng.
+    Ví dụ giá trị: span 2, span 4
+2.5. repeat() và minmax()
+  repeat(n, value): Tạo nhiều cột/hàng có kích thước giống nhau.
+    Ví dụ giá trị: repeat(3, 1fr), repeat(4, 100px)
+  minmax(min, max): Xác định kích thước tối thiểu và tối đa.
+    Ví dụ giá trị: minmax(100px, 1fr), minmax(50px, auto)
+2.6. Căn chỉnh nội dung
+  justify-items: Căn chỉnh phần tử theo chiều ngang.
+    Giá trị: start, center, end, stretch
+  align-items: Căn chỉnh phần tử theo chiều dọc.
+    Giá trị: start, center, end, stretch
+  place-items: Kết hợp cả hai.
+    Giá trị: center start, end stretch  */
+
+/*! Media Query trong CSS  */
+/* Cú pháp
+@media screen and ( condition ){
+          CSS
+} */
+/* condition: 480px - 768px - 1024px - 1200px */
+/* Theo kích thước màn hình:
+max-width: Áp dụng CSS khi màn hình nhỏ hơn hoặc bằng giá trị xác định.
+min-width: Áp dụng CSS khi màn hình lớn hơn hoặc bằng giá trị xác định.
+Theo loại thiết bị:
+all: Áp dụng cho tất cả thiết bị.
+screen: Chỉ áp dụng cho màn hình (máy tính, điện thoại, tablet).
+print: Áp dụng khi in trang web.
+Theo độ phân giải:
+min-resolution: Áp dụng CSS khi thiết bị có độ phân giải tối thiểu xác định.
+max-resolution: Áp dụng CSS khi thiết bị có độ phân giải tối đa xác định. */
+
+/*! Bootstrap */
+/*! tích hợp bootstrap vào dự án */
+/* 
+<head>
+<link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+ */
+/*! Các component cơ bản */
+/* 
+Alerts (Thông báo)
+Buttons (Nút bấm)
+Cards (Thẻ)
+Navbar (Thanh điều hướng)
+Forms (Biểu mẫu)
+Modals (Cửa sổ bật lên)
+Tooltips (Gợi ý)
+Collapse (Thu gọn)
+Tabs (Thẻ chuyển đổi nội dung)
+ */
+/*! Hệ thống grid system trong bootstrap */
+/* Hệ thống Grid của Bootstrap là nền tảng giúp xây dựng bố cục web linh hoạt và nhất quán trên mọi thiết bị.
+Nó dựa trên CSS Flexbox và hỗ trợ thiết kế Responsive, giúp sắp xếp nội dung dễ dàng. */
+/* 
+Lưới 12 cột: Bootstrap chia trang web thành 12 cột, cho phép tùy chỉnh bố cục linh hoạt (VD: 3 cột × 4 = 12).
+Responsive: Tự động điều chỉnh theo kích thước màn hình với breakpoint:
+xs (<576px), sm (≥576px), md (≥768px), lg (≥992px), xl (≥1200px), xxl (≥1400px).
+Cấu trúc chính:
+Container: Bao nội dung, căn giữa.
+Row: Chứa các cột.
+Column: Phân chia nội dung.
+Loại container:
+.container: Chiều rộng cố định theo màn hình.
+.container-fluid: Luôn chiếm 100% chiều rộng.
+.container-{breakpoint}: Áp dụng cố định từ breakpoint trở lên.
+VD:
+<div class="col-12 col-sm-6 col-md-4 col-lg-3 bg-primary text-white p-3">
+Cột này thay đổi theo kích thước màn hình
+</div> */
+
+/*! reset CSS */
+/* 
+*{
+font-family: Arial, Helvetica, sans-serif;
+color: tiệm cận màu đen
+box-sizing: border-box
+margin: 0;
+padding: 0
+} */
