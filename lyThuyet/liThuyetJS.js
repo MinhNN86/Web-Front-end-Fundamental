@@ -172,6 +172,7 @@ console.log(m); // null
 // null === undefined là false vì chúng là hai kiểu dữ liệu khác nhau.
 console.log(null == undefined); // true
 console.log(null === undefined); // false
+
 //! Math object
 //* Đặc điểm của Math Object
 // Không phải là một constructor: Bạn không thể tạo một thể hiện của Math bằng từ khóa new.
@@ -191,3 +192,22 @@ console.log(Math.sqrt(16)); // 4 (Căn bậc hai)
 console.log(Math.random()); // Số ngẫu nhiên từ 0 đến <1
 console.log(Math.max(1, 5, 3)); // 5 (Giá trị lớn nhất)
 console.log(Math.min(1, 5, 3)); // 1 (Giá trị nhỏ nhất)
+
+//! toLocaleString()
+// là phương thức trong JavaScript dùng để định dạng số và ngày giờ theo từng quốc gia.
+//* Cú pháp: ten_Biến.toLocaleString([locales], [options])
+
+//! Kiểu dữ liệu Boolean trong javascript
+//* Boolean là một kiểu dữ liệu nguyên thủy trong JavaScript, chỉ có hai giá trị:
+// true (đúng)
+// false (sai)
+
+//! Comparison operator trong javascript (Toán tử so sánh)
+// ==  : So sánh bằng lỏng lẻo
+// === : So sánh bằng nghiêm ngặt
+// !=  : Không bằng lỏng lẻo
+// !== : Không bằng nghiêm ngặt
+// >   : Lớn hơn
+// <   : Nhỏ hơn
+// >=  : Lớn hơn hoặc bằng
+// <=  : Nhỏ hơn hoặc bằng
