@@ -211,3 +211,78 @@ console.log(Math.min(1, 5, 3)); // 1 (Giá trị nhỏ nhất)
 // <   : Nhỏ hơn
 // >=  : Lớn hơn hoặc bằng
 // <=  : Nhỏ hơn hoặc bằng
+
+//! Switch-case
+switch (expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+  // code block
+}
+
+//! Truthy vs Falsy trong javascript
+//* Falsy values
+// "Falsy" là những giá trị được chuyển đổi thành false khi đánh giá trong ngữ cảnh Boolean.
+// Có 6 giá trị được coi là falsy:
+// false (giá trị Boolean false)
+// 0 (số không)
+// -0 (âm số không)
+// "" hoặc '' (chuỗi rỗng)
+// null (giá trị rỗng)
+// undefined (giá trị chưa được định nghĩa)
+// NaN (Not-a-Number)
+//* Truthy values
+// Ngoại trừ 6 giá trị falsy ở trên, mọi giá trị khác đều là Truthy.
+
+//! For … Loop trong javascript
+//* Cú pháp
+// for (expression 1; expression 2; expression 3){
+//   code
+// }
+//1. Khởi tạo: Xác định giá trị bắt đầu.
+//2. Điều kiện: Kiểm tra xem vòng lặp có tiếp tục hay không.
+//3. Biểu thức cập nhật: Thay đổi giá trị sau mỗi lần lặp.
+for (let i = 1; i < 6; i++) {
+  console.log(i);
+}
+
+//! Infinite loop và Nested loop trong javascript
+//* Infinite Loop (Vòng lặp vô hạn)
+//* Nested Loop (Vòng lặp lồng nhau)
+
+//! Break và Continue
+//* Câu lệnh break
+// Chức năng: Dùng để thoát hoàn toàn khỏi một vòng lặp. Khi break được gọi, vòng lặp hiện tại sẽ dừng ngay lập tức,
+// và chương trình tiếp tục chạy đoạn mã bên ngoài vòng lặp.
+//* Câu lệnh continue
+// Chức năng: Bỏ qua bước hiện tại trong vòng lặp và chuyển đến bước lặp tiếp theo.
+// Không thoát khỏi vòng lặp, mà chỉ bỏ qua các câu lệnh sau continue trong lần lặp đó.
+
+//! While … Loop
+//* Cú pháp
+// while (condition){
+//   Khối mã được thực thi khi điều kiện là true
+// }
+// condition: Là một biểu thức điều kiện. Nếu biểu thức trả về true, khối mã bên trong vòng lặp sẽ được thực thi.
+// Khi condition trở thành false, vòng lặp dừng lại.
+let i = 1;
+while (i <= 5) {
+  console.log(i); // In ra giá trị của i
+  i++; // Tăng i lên 1
+}
+
+//! Do while … Loop
+// Điểm đặc biệt của nó là khối mã trong vòng lặp luôn được thực thi ít nhất một lần,
+// ngay cả khi điều kiện kiểm tra là false.
+//* Cú pháp
+// do {
+//   Khối mã được thực thi
+// } while (condition);
+do {
+  console.log(i); // In ra giá trị của i
+  i++;
+} while (i <= 5);
