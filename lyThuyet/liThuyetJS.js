@@ -286,3 +286,505 @@ do {
   console.log(i); // In ra giá trị của i
   i++;
 } while (i <= 5);
+
+//! Tổng quan về array trong javascript
+//* Khai báo và khởi tạo Array
+// Cách 1: Sử dụng cú pháp dấu ngoặc vuông []
+let arr = []; // Mảng rỗng
+let fruits = ["Apple", "Banana", "Cherry"]; // Mảng có 3 phần tử
+// Cách 2: Sử dụng hàm tạo Array()
+let arr1 = new Array(); // Mảng rỗng
+let numbers = new Array(5); // Mảng có 5 phần tử (chưa khởi tạo)
+let colors = new Array("Red", "Green", "Blue"); // Mảng với 3 phần tử
+//* Mảng đa chiều
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+console.log(matrix[1][2]); // Output: 6
+
+//! Thuật ngữ cơ bản trong array (element, index, length)
+//* Element (Phần tử)
+// Element là các giá trị được lưu trữ trong mảng.
+//* Index (Chỉ số)
+// Index là vị trí của phần tử trong mảng,
+// bắt đầu từ 0 (chỉ số đầu tiên của mảng).
+//* Length (Độ dài)
+// Length là thuộc tính của mảng, trả về số lượng phần tử hiện có trong mảng.
+
+//! Truy cập vào phần tử của mảng
+//* Truy cập phần tử bằng chỉ số
+// Mỗi phần tử có chỉ số (index) bắt đầu từ 0.
+let fruits1 = ["Apple", "Banana", "Cherry"];
+console.log(fruits1[0]); // Output: "Apple"
+console.log(fruits1[2]); // Output: "Cherry"
+//* Truy cập phần tử ngoài giới hạn (Out of bound)
+// Khi truy cập phần tử có chỉ số không tồn tại, JavaScript trả về undefined.
+let fruits2 = ["Apple", "Banana"];
+console.log(fruits2[3]); // Output: undefined
+//* Truy cập phần tử cuối cùng
+// Có thể sử dụng thuộc tính length - 1 để lấy phần tử cuối.
+let fruits3 = ["Apple", "Banana", "Cherry"];
+console.log(fruits3[fruits3.length - 1]); // Output: "Cherry"
+//* Lặp qua mảng để truy cập từng phần tử
+// Có thể dùng vòng for, for...of, hoặc forEach.
+let fruits4 = ["Apple", "Banana", "Cherry"];
+// Dùng for thường
+for (let i = 0; i < fruits4.length; i++) {
+  console.log(fruits[i]);
+}
+// Dùng for...of
+for (let fruit of fruits4) {
+  console.log(fruit);
+}
+// Dùng forEach
+fruits.forEach((fruit) => {
+  console.log(fruit);
+});
+
+//! Cập nhật phần tử trong mảng
+//* Cập nhật giá trị bằng chỉ số
+// Bạn có thể thay đổi giá trị của một phần tử trong mảng
+// bằng cách gán một giá trị mới vào chỉ số cụ thể.
+//* Cú pháp
+// array[index] = newValue;
+let fruits5 = ["Apple", "Banana", "Cherry"];
+fruits5[1] = "Mango"; // Thay "Banana" thành "Mango"
+console.log(fruits5); // Output: ["Apple", "Mango", "Cherry"]
+//* Cập nhật phần tử cuối cùng
+let fruits6 = ["Apple", "Banana", "Cherry"];
+fruits6[fruits6.length - 1] = "Grape"; // Thay "Cherry" thành "Grape"
+console.log(fruits6); // Output: ["Apple", "Banana", "Grape"]
+
+//! Thêm mới phần tử vào trong mảng
+//* Thêm phần tử vào cuối mảng
+// Sử dụng push()
+let fruits7 = ["Apple", "Banana"];
+fruits7.push("Cherry");
+console.log(fruits7); // Output: ["Apple", "Banana", "Cherry"]
+// Sử dụng chỉ số trực tiếp
+let fruits8 = ["Apple", "Banana"];
+fruits8[fruits8.length] = "Cherry";
+console.log(fruits8); // Output: ["Apple", "Banana", "Cherry"]
+//* Thêm phần tử vào đầu mảng
+// Sử dụng unshift()
+let fruits9 = ["Banana", "Cherry"];
+fruits9.unshift("Apple");
+console.log(fruits9); // Output: ["Apple", "Banana", "Cherry"]
+//* Thêm phần tử tại vị trí bất kỳ
+// Sử dụng splice()
+// Cú pháp
+// array.splice(start, deleteCount, item1, item2, ...);
+// start: Vị trí để thêm phần tử (bắt đầu từ 0).
+// deleteCount: Số phần tử cần xoá (0 nếu không muốn xoá gì).
+// item1, item2, ...: Các phần tử cần thêm vào.
+let fruits10 = ["Apple", "Cherry"];
+fruits10.splice(1, 0, "Banana"); // Thêm "Banana" vào chỉ số 1
+console.log(fruits10); // Output: ["Apple", "Banana", "Cherry"]
+
+//! Xóa phần tử trong mảng
+//* Phương thức pop() xóa phần tử cuối cùng khỏi mảng.
+let fruits11 = ["Apple", "Banana", "Cherry"];
+let removed = fruits11.pop();
+console.log(fruits11); // Output: ["Apple", "Banana"]
+console.log(removed); // Output: "Cherry"
+//* Phương thức shift() xóa phần tử đầu tiên của mảng.
+let fruits12 = ["Apple", "Banana", "Cherry"];
+console.log("Before:", fruits12); // Output: ["Apple", "Banana", "Cherry"]
+
+let removed1 = fruits12.shift();
+console.log("After:", fruits12); // Output: ["Banana", "Cherry"]
+console.log(removed1); // Output: "Apple"
+//* Phương thức splice() có thể xóa một hoặc nhiều phần tử từ một vị trí chỉ định.
+// Cú pháp
+// array.splice(start, deleteCount);
+// start: Chỉ số bắt đầu xóa.
+// deleteCount: Số lượng phần tử cần xóa.
+let fruits13 = ["Apple", "Banana", "Cherry", "Date"];
+fruits13.splice(1, 2); // Xóa 2 phần tử bắt đầu từ chỉ số 1
+console.log(fruits13); // Output: ["Apple", "Date"]
+
+//! Cách sử dụng phương thức splice trong mảng
+//* Cú pháp cơ bản
+// array.splice(start, deleteCount, item1, item2, ..., itemN);
+// start: Vị trí bắt đầu thay đổi trong mảng.
+// deleteCount: Số phần tử cần xóa bắt đầu từ start.
+// item1, item2, ...: Các phần tử mới sẽ được chèn vào vị trí start.
+//* Xóa phần tử trong mảng
+// Nếu chỉ định deleteCount, splice() sẽ xóa số lượng phần tử tương ứng.
+let fruits14 = ["Apple", "Banana", "Cherry"];
+fruits14.splice(1, 1); // Xóa 1 phần tử tại chỉ số 1
+console.log(fruits14); // Output: ["Apple", "Cherry"]
+//* Thêm phần tử vào mảng
+// Nếu deleteCount là 0, các phần tử mới (item1, item2, ...) sẽ được thêm vào vị trí start.
+let fruits15 = ["Apple", "Cherry"];
+fruits15.splice(1, 0, "Banana"); // Thêm "Banana" vào chỉ số 1
+console.log(fruits15); // Output: ["Apple", "Banana", "Cherry"]
+// * Thay thế phần tử trong mảng
+// Nếu deleteCount > 0 và có item1, item2, ..., thì các phần tử cũ sẽ bị thay thế bằng phần tử mới.
+let fruits16 = ["Apple", "Banana", "Cherry"];
+fruits16.splice(1, 1, "Grape"); // Thay "Banana" bằng "Grape"
+console.log(fruits16); // Output: ["Apple", "Grape", "Cherry"]
+//* Lưu ý khi sử dụng splice()
+// ✅ Phá hủy mảng gốc: splice() thay đổi trực tiếp trên mảng gốc, nên cần cẩn thận khi thao tác dữ liệu.
+// ✅ Trả về mảng bị xóa: splice() trả về một mảng chứa các phần tử đã bị xóa.
+// ✅ Độ linh hoạt cao: splice() có thể xóa, thêm, thay thế phần tử chỉ với một lệnh duy nhất.
+
+//! Array methods cơ bản
+//* Thêm hoặc xóa các phần
+// push()
+// Thêm một hoặc nhiều phần tử vào cuối mảng.
+// Trả về: Chiều dài mới của mảng.
+// pop()
+// Xóa phần tử cuối cùng của mảng.
+// Trả về: Phần tử đã bị xóa.
+// unshift()
+// Thêm một hoặc nhiều phần tử vào đầu mảng.
+// Trả về: Chiều dài mới của mảng.
+// shift()
+// Xóa phần tử đầu tiên của mảng.
+// Trả về: Phần tử đã bị xóa.
+//* Truy cập và thay đổi mảng
+// splice()
+// Thêm, xóa, hoặc thay thế phần tử tại vị trí chỉ định.
+// Trả về: Mảng chứa các phần tử đã bị xóa.
+// slice()
+// Tạo một bản sao của một phần mảng (không thay đổi mảng gốc).
+// Trả về: Một mảng mới.
+//* Tìm kiếm phần tử
+// indexOf()
+// Tìm chỉ số của phần tử đầu tiên có giá trị chỉ định.
+// Trả về: Chỉ số của phần tử (hoặc -1 nếu không tìm thấy).
+let arr2 = [10, 20, 30, 40, 50, 20];
+console.log(arr2.indexOf(20)); // Kết quả: 1
+console.log(arr2.indexOf(100)); // Kết quả: -1 (không tìm thấy)
+// lastIndexOf()
+// Tìm chỉ số của phần tử cuối cùng có giá trị chỉ định.
+// Trả về: Chỉ số của phần tử (hoặc -1 nếu không tìm thấy).
+let arr3 = [10, 20, 30, 40, 50, 20];
+console.log(arr3.lastIndexOf(20)); // Kết quả: 5
+console.log(arr3.lastIndexOf(100)); // Kết quả: -1 (không tìm thấy)
+//* Sắp xếp và đảo ngược mảng
+// sort()
+// Sắp xếp các phần tử trong mảng (theo thứ tự chuỗi mặc định hoặc một hàm tùy chỉnh).
+// Trả về: Mảng đã sắp xếp.
+// reverse()
+// Đảo ngược thứ tự các phần tử trong mảng.
+// Trả về: Mảng đã bị đảo ngược
+
+//! Vòng lặp nâng cao duyệt qua mảng
+//* Vòng lặp for...in
+// for...in dùng để duyệt qua các thuộc tính (key) của một đối tượng, bao gồm cả mảng.
+// Phù hợp khi cần làm việc với chỉ số (index) hoặc thuộc tính của đối tượng.
+// Cú pháp
+// for (let key in array) {
+//  Code xử lý
+// }
+let numbers1 = [10, 20, 30];
+for (let index in numbers1) {
+  console.log(`Index ${index}: Value ${numbers1[index]}`);
+}
+// Output:
+// Index 0: Value 10
+// Index 1: Value 20
+// Index 2: Value 30
+// Ưu điểm
+// ✅ Truy cập được chỉ số của phần tử.
+// Nhược điểm
+// ❌ Không tối ưu khi duyệt qua mảng (có thể duyệt qua cả thuộc tính không mong muốn nếu mở rộng mảng).
+//* Vòng lặp for...of
+// for...of dùng để duyệt qua giá trị của phần tử trong một đối tượng có thể lặp (iterable), như mảng, chuỗi, Map, Set...
+// Phù hợp khi cần làm việc với giá trị của từng phần tử.
+// for (let value of array) {
+//    Code xử lý
+// }
+let numbers2 = [10, 20, 30];
+for (let num of numbers2) {
+  console.log(num);
+}
+// Output:
+// 10
+// 20
+// 30
+// Ưu điểm
+// ✅ Ngắn gọn, dễ đọc.
+// ✅ Phù hợp khi chỉ cần làm việc với giá trị từng phần tử.
+// Nhược điểm
+// ❌ Không truy cập được chỉ số trực tiếp.
+
+//! Hàm trong javascript
+//* Khai báo hàm
+function sum(a, b) {
+  return a + b;
+}
+sum(5, 6);
+
+//! Tham số và đối số
+//* Tham số: Tham số được đặt trong cặp ngoặc tròn () khi khai báo hàm.
+// Định nghĩa: Tham số là các biến được định nghĩa trong khai báo hàm.
+// Chúng đóng vai trò như placeholder để nhận giá trị từ bên ngoài khi hàm được gọi.
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+//* Đối số: Đối số được đặt trong cặp ngoặc tròn () khi gọi hàm.
+// Định nghĩa: Đối số là các giá trị cụ thể được truyền vào hàm khi hàm được gọi.
+// Các giá trị này sẽ được gán cho tham số tương ứng.
+greet("Alice");
+
+//! return trong JavaScript
+//* Giới thiệu
+// return kết thúc hàm và trả về một giá trị.
+//* Cú pháp return
+// return value; trả về giá trị từ hàm.
+function add(a, b) {
+  return a + b;
+}
+console.log(add(3, 5)); // Output: 8
+//* Kết thúc hàm với return
+// Mã sau return không được thực thi.
+//* Trả về các giá trị khác nhau
+// Hàm có thể trả về số, chuỗi, mảng, đối tượng, hàm khác, hoặc undefined.
+//* return trong hàm mũi tên (arrow function)
+// Hàm mũi tên với từ khóa return
+const add = (a, b) => {
+  return a + b;
+};
+// Hàm mũi tên không cần từ khóa return
+const add = (a, b) => a + b;
+console.log(add(2, 3)); // Output: 5
+//* Trả về nhiều giá trị
+function getMultipleValues() {
+  return [1, "hello", true];
+}
+console.log(getMultipleValues()); // [1, 'hello', true]
+
+//! Function expression
+//* Cách sử dụng Function expression
+// Bạn tạo một hàm và gán nó cho một biến.
+// Hàm này có thể được gọi thông qua tên biến.
+const greet1 = function (name) {
+  return `Hello, ${name}!`;
+};
+console.log(greet1("Alice")); // Output: Hello, Alice!
+//* Đặc điểm của Function expression
+//* Ẩn danh (Anonymous Function):
+// Function Expression thường được sử dụng với các hàm không tên (hàm ẩn danh).
+// Bạn cũng có thể đặt tên, nhưng tên đó chỉ hữu ích trong ngữ cảnh nội bộ của chính hàm.
+const anonymousFunction = function () {
+  console.log("This is an anonymous function.");
+};
+anonymousFunction();
+//* Không bị hoisting:
+// Khác với Function Declaration, Function Expression không được hoisting.
+// Bạn phải khai báo hàm trước khi gọi nó.
+greet("Alice"); // ❌ ReferenceError: Cannot access 'greet' before initialization
+const greet = function (name) {
+  return `Hello, ${name}!`;
+};
+//* Lưu trữ hàm trong biến:
+// Function Expression cho phép lưu trữ hàm trong các biến hoặc truyền chúng làm đối số.
+const add = function (a, b) {
+  return a + b;
+};
+console.log(add(3, 4)); // Output: 7
+
+//! Higher order function (HOF) trong javascript
+// Higher order function trong javascript
+// Định nghĩa:
+// Nhận một hàm khác làm tham số
+// Trả về một hàm khác như kết quả
+// Lợi ích của Higher order function
+// Tái sử dụng mã: Giúp viết các đoạn mã có thể tái sử dụng và dễ đọc hơn
+// Trừu tượng hóa: Tách biệt logic chung và các chi tiết thực hiện
+// Dễ quản lý và bảo trì: Giảm sự phức tạp trong mã khi xử lý dữ liệu hoặc logic
+// Ví dụ
+let result3 = applyFormula([1, 2, 3, 4], function (el) {
+  el = el + 10;
+  return el;
+});
+let result4 = applyFormula([-1, -2, -3, -4], function (el) {
+  el = el ** 2;
+  return el;
+});
+function applyFormula(arr, fn) {
+  let result = [];
+  for (let index in arr) {
+    let el = fn(arr[index]);
+    result.push(el);
+  }
+  return result;
+}
+
+//! For each method
+// forEach là một phương thức được sử dụng để lặp qua từng phần tử của một mảng.
+// arr.forEach(callback(currentValue, index, arr), thisArg);
+// callback: Hàm được gọi cho mỗi phần tử trong mảng. Hàm này có thể nhận các tham số:
+// currentValue: Giá trị của phần tử hiện tại.
+// index (tuỳ chọn): Chỉ mục (index) của phần tử hiện tại.
+// arr (tuỳ chọn): Mảng đang được lặp qua.
+// thisArg (tuỳ chọn): Giá trị để sử dụng làm this khi thực thi hàm callback.
+let arr4 = [10, 20, 30, 40];
+arr.forEach(function (element, index) {
+  console.log(element, index);
+});
+
+//! Map
+// tạo một mảng mới bằng cách áp dụng một hàm lên từng phần tử của mảng gốc.
+// arr.map(callback(element, index, arr), thisArg);
+// callback: Hàm được gọi cho từng phần tử trong mảng. Hàm này nhận 3 tham số:
+// element: Phần tử hiện tại của mảng.
+// index (tùy chọn): Chỉ số của phần tử hiện tại.
+// array (tùy chọn): Mảng mà phương thức map được gọi.
+// thisArg (tùy chọn): Giá trị được sử dụng làm this trong hàm callback
+let newArr = arr.map(function (element, index) {
+  return element + 10;
+});
+console.log(newArr);
+
+//! Filter
+// tạo một mảng mới từ các phần tử của mảng gốc mà thỏa mãn một điều kiện được xác định bởi hàm callback.
+// arr.filter(callback(element, index, arr), thisArg)
+// callback: Hàm được gọi cho từng phần tử trong mảng. Hàm này nhận 3 tham số:
+// element: Phần tử hiện tại của mảng.
+// index (tùy chọn): Chỉ số của phần tử hiện tại.
+// array (tùy chọn): Mảng mà phương thức filter được gọi.
+// thisArg (tùy chọn): Giá trị được sử dụng làm this trong hàm callback
+let newArr1 = arr.filter(function (element, index) {
+  return element < 10;
+});
+console.log(newArr1);
+
+//! Reduce
+// duyệt qua các phần tử của mảng  và tính toán một giá trị duy nhất dựa trên các phần tử của mảng đó
+// arr.reduce(callback(accumulator, currentValue, index, array), intialValue)
+// callback: Hàm được gọi cho từng phần tử trong mảng, nhận 4 tham số:
+// accumulator: Giá trị tích lũy (lưu trữ kết quả sau mỗi lần thực hiện).
+// currentValue: Phần tử hiện tại đang được xử lý.
+// index (tùy chọn): Chỉ số của phần tử hiện tại.
+// array (tùy chọn): Mảng mà phương thức reduce được gọi.
+// initialValue (tùy chọn): Giá trị ban đầu của accumulator. Nếu không được cung cấp, giá trị ban đầu sẽ là phần tử đầu tiên của mảng, và reduce sẽ bắt đầu từ phần tử thứ hai.
+let result5 = arr.reduce(function (acc, cur) {
+  acc = acc + cur;
+  return acc;
+});
+// tìm số lớn nhất
+let arr5 = [10, 20, 5, 40, 15];
+let max = arr5.reduce((acc, curr) => (curr > acc ? curr : acc), arr5[0]);
+console.log(max); // Output: 40
+
+//! Some & Every
+//some(): Kiểm tra nếu ít nhất một phần tử thỏa mãn điều kiện → Trả về true / false.
+// arr.some(callback(currentValue, index, arr), thisArg)
+// callback: Hàm callback được gọi cho mỗi phần tử trong mảng
+// currentValue: Phần tử hiện tại trong mảng.
+// index (tùy chọn): Chỉ số của phần tử hiện tại.
+// array (tùy chọn): Mảng mà phương thức some được gọi.
+// thisArg (tùy chọn): Giá trị được sử dụng làm this khi gọi hàm callback
+let result6 = arr.some(function (element, index) {
+  return element > 40;
+});
+//every(): Kiểm tra nếu tất cả phần tử thỏa mãn điều kiện → Trả về true / false.
+//arr.every(callback(currentValue, index, arr), thisArg)
+// callback: Hàm callback được gọi cho mỗi phần tử trong mảng
+// currentValue: Phần tử hiện tại trong mảng.
+// index (tùy chọn): Chỉ số của phần tử hiện tại.
+// array (tùy chọn): Mảng mà phương thức every được gọi.
+// thisArg (tùy chọn): Giá trị được sử dụng làm this khi gọi hàm callback.
+let result7 = arr.every(function (element, index) {
+  return element > 40;
+});
+
+//! object trong javascript
+//* Cách tạo Object
+// Sử dụng dấu ngoặc nhọn {} (Object literal)
+const person = {
+  name: "John",
+  age: 30,
+  greet: function () {
+    console.log(`Hello, my name is ${this.name}`);
+  },
+};
+//* Thuộc tính và phương thức
+//Thuộc tính
+console.log(person.name); //John
+// Phương thức
+console.log(person.greet()); //Hello, my name is John
+
+//! Truy cập vào thuộc tính trong đối tượng
+//* Truy cập thuộc tính bằng dấu chấm (.)
+// Cú pháp
+// object.property
+person.name; //John
+//* Truy cập thuộc tính bằng dấu ngoặc vuông ([])
+// Cú pháp
+// object["propetyName"];
+person["name"]; //John
+//* Xử lý an toàn khi truy cập thuộc tính (Optional Chaining)
+const person1 = null;
+console.log(person1?.name); // undefined, không gây lỗi
+
+//! Duyệt qua đối tượng
+//* Duyệt qua bằng for … in
+//Cú pháp
+// for(let key in object){
+//   Xử lý từng thuộc tính
+// }
+// Chỉ liệt kê các thuộc tính có thể liệt kê (enumerable).
+for (let key in person) {
+  console.log(`${key}: ${person[key]}`);
+}
+//* Duyệt qua bằng Object.keys()
+// Phương thức Object.keys() trả về một mảng chứa tất cả các tên thuộc tính (key) của đối tượng
+Object.keys(person).forEach((key) => {
+  console.log(`${key}: ${person[key]}`);
+});
+//* Duyệt qua bằng Object.values()
+// Phương thức Object.values() trả về một mảng chứa tất cả các giá trị của đối tượng.
+Object.values(person).forEach((value) => {
+  console.log(value);
+});
+
+//! Các thao tác thêm, sửa, xóa thuộc tính của đối tượng
+//* Thêm thuộc tính
+// Cú pháp
+// object.propetyName = value;
+// object["propetyName"] = value;
+person.weight = "50kg";
+//* Sửa đổi thuộc tính
+// Cú pháp
+// object.propetyName = newValue;
+// object["propetyName"] = newValue;
+person.age = 50;
+//* Xóa thuộc tính
+// Cú pháp
+// delete object.propetyName;
+// delete object["propetyName"];
+delete person.name;
+
+//! Mảng đối tượng
+//* Tạo mảng đối tượng
+const students = [
+  { name: "Alice", age: 20, grade: "A" },
+  { name: "Bob", age: 22, grade: "B" },
+  { name: "Charlie", age: 19, grade: "C" },
+];
+// Truy cập phần tử trong mảng đối tượng
+students[0];
+//* Duyệt qua mảng đối tượng
+for (let i = 0; i < students.length; i++) {
+  students[i].name;
+}
+//* Thao tác với mảng đối tượng
+// thêm
+students.push({ name: "Minh", age: 19, grade: "A" });
+// sửa
+students[3].grade = "A+";
+// xóa
+students.splice(1, 1);
+// tìm
+let student = students.find((s) => s.name === "Minh");
+// lọc
+let toStudents = students.filter((s) => s.grade === "A");
+// sắp xếp
+student.sort((a, b) => a.age - b.age); // Sắp xếp tuổi tăng dần
