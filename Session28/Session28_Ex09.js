@@ -7,7 +7,16 @@ let menu = `Menu
 6. Sắp xếp sách theo giá tăng dần.
 7. Thoát.
 `;
-let sach = [];
+let sach = [
+  {
+    id: 1,
+    title: "test",
+    author: "test",
+    year: 2000,
+    price: 10,
+    isAvailable: true,
+  },
+];
 while (true) {
   let check = true;
   let luaChon = +prompt(menu);
@@ -15,15 +24,7 @@ while (true) {
     case 1: //Thêm sách mới.
       let n = +prompt("Nhập số lượng sách mới");
       for (let i = 0; i < n; i++) {
-        let checkId = true;
-        let inputId;
-        do {
-          inputId = +prompt("Nhập ID sách");
-          checkId = !sach.some((el) => el.id === inputId);
-          if (!checkId) {
-            alert("ID sách đã tồn tại, vui lòng nhập lại!");
-          }
-        } while (!checkId);
+        let inputId = sach.length + 1;
         let inputName = prompt("Nhập tên sách");
         let inputAuthor = prompt("Nhập tên tác giả");
         let inputYear = +prompt("Nhập năm xuất bản");
