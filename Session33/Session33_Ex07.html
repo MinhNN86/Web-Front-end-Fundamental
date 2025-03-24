@@ -1,0 +1,159 @@
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    .productsContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: 700px;
+    }
+    .product {
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      padding: 15px;
+    }
+    .product img {
+      width: 276px;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product .productTitle {
+      padding: 5px;
+      font-weight: bold;
+      font-size: large;
+    }
+    .product .productPrice {
+      padding: 5px;
+      color: red;
+      font-weight: bolder;
+      font-size: large;
+    }
+    .product .addCart {
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      width: 138px;
+      height: 31px;
+      cursor: pointer;
+    }
+
+    .cartContainer {
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      border-radius: 10px;
+      text-align: center;
+      padding: 20px;
+      width: 346px;
+      height: 253px;
+    }
+    .cartContainer h2 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    .cartItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .cartItemInfo {
+      text-align: left;
+    }
+    .cartItemTitle {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .cartItemPrice {
+      color: red;
+      font-size: 14px;
+    }
+    .quantityControls {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .quantityBtn {
+      border: none;
+      padding: 5px 10px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .decreaseBtn,
+    .increaseBtn {
+      background: #28a745;
+      color: white;
+    }
+    .removeBtn {
+      background: #dc3545;
+      color: white;
+      border: none;
+      width: 32px;
+      height: 31px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .cartTotal {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: right;
+      margin-top: 10px;
+    }
+    #checkoutBtn {
+      width: 100%;
+      padding: 10px;
+      background: royalblue;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+  <body>
+    <h1>Cửa hàng Đơn giản</h1>
+    <div class="container">
+      <div class="productsContainer" id="product-list">
+        <h2 style="width: 100%; text-align: center">Sản phẩm</h2>
+      </div>
+      <div class="cartContainer" id="cartContainer">
+        <h2>Giỏ Hàng</h2>
+        <div id="cartItems">
+          <div class="cartItem"></div>
+        </div>
+        <div class="cartTotal" id="cartTotal">Tổng: 0₫</div>
+        <button id="checkoutBtn">Thanh toán</button>
+      </div>
+    </div>
+    <script src="./Session33_Ex07.js "></script>
+  </body>
+</html>
