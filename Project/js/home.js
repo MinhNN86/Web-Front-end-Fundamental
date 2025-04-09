@@ -287,14 +287,9 @@ document
 //     finalWeight: "978.8 grams",
 //     portions: 4,
 //     likes: 134,
-//     ingredients: ["food_01", "food_02"],
-//     cookingMethods: [
-//       {
-//         id: 1,
-//         content:
-//           "STEP 1 Heat the oven to 200C/fan 180C/gas 6. Put the cauliflower in an ovenproof dish or tin.",
-//       },
-//     ],
+//     ingredients: [1, 2, 3], // 3 ingredients
+//     cookingMethods:
+//       "STEP 1 Heat the oven to 200C/fan 180C/gas 6. Put the cauliflower in an ovenproof dish or tin.",
 //     category: [
 //       { id: 1, name: "vegetarian" },
 //       { id: 2, name: "appetizer" },
@@ -312,14 +307,9 @@ document
 //     finalWeight: "850 grams",
 //     portions: 3,
 //     likes: 198,
-//     ingredients: ["food_03", "food_04", "food_05"],
-//     cookingMethods: [
-//       {
-//         id: 1,
-//         content:
-//           "STEP 1 Mix lemon juice, olive oil, and herbs. Marinate chicken for 15 minutes then grill until cooked.",
-//       },
-//     ],
+//     ingredients: [4, 5, 6, 1], // 4 ingredients
+//     cookingMethods:
+//       "STEP 1 Mix lemon juice, olive oil, and herbs. Marinate chicken for 15 minutes then grill until cooked.",
 //     category: [
 //       { id: 3, name: "grilled" },
 //       { id: 4, name: "main course" },
@@ -337,14 +327,9 @@ document
 //     finalWeight: "1100 grams",
 //     portions: 4,
 //     likes: 165,
-//     ingredients: ["food_06", "food_07"],
-//     cookingMethods: [
-//       {
-//         id: 1,
-//         content:
-//           "STEP 1 Roast the pumpkin at 180C until soft. Blend with cream and season to taste.",
-//       },
-//     ],
+//     ingredients: [2, 3, 7], // 3 ingredients
+//     cookingMethods:
+//       "STEP 1 Roast the pumpkin at 180C until soft. Blend with cream and season to taste.",
 //     category: [
 //       { id: 5, name: "soup" },
 //       { id: 6, name: "vegetarian" },
@@ -361,14 +346,9 @@ document
 //     finalWeight: "600 grams",
 //     portions: 2,
 //     likes: 243,
-//     ingredients: ["food_08", "food_09"],
-//     cookingMethods: [
-//       {
-//         id: 1,
-//         content:
-//           "STEP 1 Cook spaghetti. Sauté garlic in olive oil and toss with pasta.",
-//       },
-//     ],
+//     ingredients: [1, 4, 5], // 3 ingredients
+//     cookingMethods:
+//       "STEP 1 Cook spaghetti. Sauté garlic in olive oil and toss with pasta.",
 //     category: [
 //       { id: 7, name: "pasta" },
 //       { id: 1, name: "vegetarian" },
@@ -386,14 +366,9 @@ document
 //     finalWeight: "900 grams",
 //     portions: 3,
 //     likes: 120,
-//     ingredients: ["food_10", "food_11", "food_12"],
-//     cookingMethods: [
-//       {
-//         id: 1,
-//         content:
-//           "STEP 1 Sauté onions and garlic, add chickpeas and spinach, and simmer until flavors blend.",
-//       },
-//     ],
+//     ingredients: [6, 7, 2, 3], // 4 ingredients
+//     cookingMethods:
+//       "STEP 1 Sauté onions and garlic, add chickpeas and spinach, and simmer until flavors blend.",
 //     category: [
 //       { id: 8, name: "stew" },
 //       { id: 1, name: "vegetarian" },
@@ -411,14 +386,9 @@ document
 //     finalWeight: "750 grams",
 //     portions: 2,
 //     likes: 177,
-//     ingredients: ["food_13", "food_14", "food_15"],
-//     cookingMethods: [
-//       {
-//         id: 1,
-//         content:
-//           "STEP 1 Fry tofu until golden. Add vegetables and stir-fry with sauce for 5 minutes.",
-//       },
-//     ],
+//     ingredients: [4, 1, 5], // 3 ingredients
+//     cookingMethods:
+//       "STEP 1 Fry tofu until golden. Add vegetables and stir-fry with sauce for 5 minutes.",
 //     category: [
 //       { id: 9, name: "stir-fry" },
 //       { id: 1, name: "vegetarian" },
@@ -435,14 +405,9 @@ document
 //     finalWeight: "500 grams",
 //     portions: 2,
 //     likes: 210,
-//     ingredients: ["food_16", "food_17"],
-//     cookingMethods: [
-//       {
-//         id: 1,
-//         content:
-//           "STEP 1 Preheat oven. Place salmon in foil with lemon and dill. Bake for 20 minutes.",
-//       },
-//     ],
+//     ingredients: [6, 2, 3], // 3 ingredients
+//     cookingMethods:
+//       "STEP 1 Preheat oven. Place salmon in foil with lemon and dill. Bake for 20 minutes.",
 //     category: [
 //       { id: 10, name: "seafood" },
 //       { id: 4, name: "main course" },
@@ -460,14 +425,9 @@ document
 //     finalWeight: "300 grams",
 //     portions: 1,
 //     likes: 156,
-//     ingredients: ["food_18", "food_19"],
-//     cookingMethods: [
-//       {
-//         id: 1,
-//         content:
-//           "STEP 1 Toast bread, mash avocado, and top with a poached egg.",
-//       },
-//     ],
+//     ingredients: [7, 1, 4], // 3 ingredients
+//     cookingMethods:
+//       "STEP 1 Toast bread, mash avocado, and top with a poached egg.",
 //     category: [
 //       { id: 11, name: "breakfast" },
 //       { id: 1, name: "vegetarian" },
@@ -485,14 +445,9 @@ document
 //     finalWeight: "1000 grams",
 //     portions: 4,
 //     likes: 188,
-//     ingredients: ["food_20", "food_21", "food_22"],
-//     cookingMethods: [
-//       {
-//         id: 1,
-//         content:
-//           "STEP 1 Hollow bell peppers, fill with mix, and bake at 180C for 30-35 minutes.",
-//       },
-//     ],
+//     ingredients: [5, 6, 2, 3], // 4 ingredients
+//     cookingMethods:
+//       "STEP 1 Hollow bell peppers, fill with mix, and bake at 180C for 30-35 minutes.",
 //     category: [
 //       { id: 12, name: "baked" },
 //       { id: 1, name: "vegetarian" },
@@ -510,14 +465,9 @@ document
 //     finalWeight: "680 grams",
 //     portions: 3,
 //     likes: 142,
-//     ingredients: ["food_23", "food_24", "food_25"],
-//     cookingMethods: [
-//       {
-//         id: 1,
-//         content:
-//           "STEP 1 Cook quinoa, let cool, and mix with feta, olives, and dressing.",
-//       },
-//     ],
+//     ingredients: [4, 7, 1], // 3 ingredients
+//     cookingMethods:
+//       "STEP 1 Cook quinoa, let cool, and mix with feta, olives, and dressing.",
 //     category: [
 //       { id: 13, name: "salad" },
 //       { id: 1, name: "vegetarian" },

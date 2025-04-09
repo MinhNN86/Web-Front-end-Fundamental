@@ -143,22 +143,27 @@
   display: flex;
   gap: 30px;
 }
+
 .infoLeft {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
+
 .recipeMenu {
+  width: 275px;
   background-color: #ffffff;
   border-radius: 5px;
   padding: 30px 20px;
   box-shadow: 0px 2px 2px 0px rgba(144, 144, 144, 0.14);
 }
+
 .firstMenu {
   display: flex;
-  gap: 9px;
+  justify-content: space-around;
   margin-bottom: 210px;
 }
+
 .communityRecipes {
   display: flex;
   gap: 8px;
@@ -167,11 +172,19 @@
   box-shadow: 0px 1px 3px 0px #dddddd;
   border-radius: 6px;
 }
-.communityRecipes div {
+
+.communityRecipes .communityRecipe {
   color: #ea9f77;
   font-weight: bold;
   font-size: 11px;
 }
+
+.communityRecipes .myRecipes {
+  color: #2BA0CC;
+  font-weight: bold;
+  font-size: 11px;
+}
+
 .recipeLike {
   height: 28px;
   display: flex;
@@ -181,22 +194,27 @@
   border: 1px solid #eeeeee;
   border-radius: 4px;
 }
+
 .recipeLike div {
   color: #aaaaaa;
   font-size: 11px;
 }
+
+
 .categoryRecipe {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 3px;
   padding: 7px;
   border: 1px solid #f3f3f4;
-  width: 123px;
+  width: auto;
 }
-.categoryRecipe div {
+
+.categoryRecipe span {
   font-size: 11px;
   color: #676a6c;
 }
+
 .addFavorite {
   width: 143px;
   height: 32px;
@@ -209,37 +227,45 @@
   border: 1px solid #eeeeee;
   cursor: pointer;
 }
+
 .addFavorite div {
   color: #676a6c;
   font-size: 12px;
   font-weight: bold;
 }
+
 .recipeInfo {
   background-color: #ffffff;
   box-shadow: 0px 2px 2px 0px rgba(144, 144, 144, 0.14);
   padding: 20px;
   border-radius: 5px;
 }
+
 .recipeInfo .recipeTitle {
   margin-bottom: 22px;
 }
+
 .recipeInfo .recipeTitle h2 {
   font-size: 22px;
   font-weight: normal;
   color: #676a6c;
 }
+
 .recipeInfo .recipeTitle p {
   font-size: 12px;
   color: #888888;
 }
+
 .recipeInfo .infoCol {
   display: flex;
   flex-direction: column;
   gap: 7px;
 }
+
 .recipeInfo .infoRow {
   display: flex;
 }
+
 .recipeInfo .infoRow .infoName {
   width: 200px;
   height: 41.5px;
@@ -264,9 +290,11 @@
   color: #676a6c;
   border-left: 1px solid #ffffff;
 }
+
 .recipeInfo .infoRow .infoName.description {
   height: 61px;
 }
+
 .recipeInfo .infoRow .infoValue.description {
   width: 645px;
   padding-left: 10px;
@@ -286,54 +314,65 @@
   padding: 15px;
   margin-bottom: 25px;
 }
+
 .creation div:first-child {
   color: #ffffff;
   font-size: 17px;
 }
+
 .creation div:last-child {
   color: #ffffff;
   font-size: 11px;
 }
+
 /* CSS title chung */
 .recipeDetail .recipeDetailsTitle {
   margin-bottom: 15px;
 }
+
 .recipeDetail .recipeDetailsTitle h2 {
   font-size: 20px;
   color: #676a6c;
   font-weight: normal;
 }
+
 .recipeDetail .recipeDetailsTitle p {
   font-size: 12px;
   color: #888888;
   font-weight: lighter;
 }
+
 .recipeDetail .recipeDetailCard {
   background-color: #ffffff;
   padding: 20px;
   box-shadow: 0 2px 2px 0 rgba(144, 144, 144, 0.14);
   border-radius: 5px;
 }
+
 .recipeDetail {
   display: flex;
   gap: 30px;
   padding: 0px 15px;
 }
+
 /*! CookingMethod */
 .ingredientCookingMethod {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
+
 .ingredientCookingMethod .ingredient {
   padding: 20px;
   background-color: #ffffff;
 }
+
 .ingredientCookingMethod .ingredientValue {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 .ingredientCookingMethod .ingredientValue div {
   width: 742.33px;
   height: 40.5px;
@@ -344,9 +383,11 @@
   font-weight: bold;
   border: 1px solid #eeeeee;
 }
+
 .ingredientCookingMethod .cookingMethod .stepCook {
   display: flex;
 }
+
 .ingredientCookingMethod .cookingMethod .stepCook .stepNumber {
   width: 40px;
   background-color: #fafafb;
@@ -358,6 +399,7 @@
   font-size: 14.3px;
   font-weight: bold;
 }
+
 .ingredientCookingMethod .cookingMethod .stepCook .stepValue {
   width: 703.33px;
   padding: 11px 10px;
@@ -366,6 +408,7 @@
   border-left: 1px solid #ffffff;
   line-height: 19.5px;
 }
+
 /*! nutrient */
 .nutrient {
   display: flex;
@@ -373,6 +416,7 @@
   gap: 25px;
   width: 360px;
 }
+
 .global .energyGroup {
   display: flex;
   justify-content: space-between;
@@ -381,33 +425,40 @@
   border-bottom: 1px solid #eeeeee;
   margin-bottom: 25px;
 }
+
 .global .energyGroup .energy {
   color: #676a6c;
 }
+
 .global .energyGroup .kcalInfo {
   display: flex;
   align-items: center;
   gap: 2px;
 }
+
 .global .energyGroup .kcalValue {
   font-size: 14px;
   color: #676a6c;
   font-weight: 550;
 }
+
 .global .energyGroup .kcal {
   color: #888888;
   font-size: 11px;
 }
+
 .globalCircle {
   display: flex;
   justify-content: space-between;
 }
+
 .globalItem {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 7px;
 }
+
 .globalCircle .circle {
   width: 72.2px;
   height: 72.2px;
@@ -417,90 +468,69 @@
   padding: 20px;
   border-radius: 100%;
 }
+
 .globalCircle .globalItem .red {
   border: 6px solid #db4965;
 }
+
 .globalCircle .globalItem .orange {
   border: 6px solid #ea9f77;
 }
+
 .globalCircle .globalItem .green {
   border: 6px solid #1ab394;
 }
+
 .globalCircle .globalItem .blue {
   border: 6px solid #6a7d93;
 }
+
+.globalCircle .globalItem .zeroValue {
+  border: 6px solid #F3F3F4 !important;
+}
+
 .globalCircle .circleValue {
   font-size: 16px;
   color: #676a6c;
 }
+
 .globalCircle .circleValue span {
   font-size: 16px;
   color: #676a6c;
 }
+
 .globalCircle .globalItem p {
   color: #888888;
 }
 
-.macronutrients .chartAnnotation {
-  display: flex;
-  gap: 20px;
-}
-.macronutrients .chartAnnotation {
-  display: flex;
-  justify-content: center;
-}
-.macronutrients .chartAnnotation .tableRow {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-.macronutrients .boxColor {
-  width: 10px;
-  height: 10px;
-}
-.macronutrients .chartAnnotation .red {
-  background-color: #db4965;
-}
-.macronutrients .chartAnnotation .orange {
-  background-color: #ea9f77;
-}
-.macronutrients .chartAnnotation .green {
-  background-color: #1ab394;
-}
-.macronutrients .chartAnnotation p {
-  color: #000000;
-  font-size: 12px;
-}
-.macronutrients .macronutrientChart .pieChart {
-  display: flex;
-  justify-content: center;
-  width: 243.2px;
-  height: 243.2px;
-  margin-bottom: 11px;
-}
-.macronutrients .macronutrientChart .pieChart #pieChart {
-  width: 100%;
-  height: 100%;
+
+.macronutrientChart {
+  margin-top: 25.5px;
 }
 
 .micronutrient {
   margin-bottom: 50px;
 }
+
 .micronutrient .nutrientItem {
   display: flex;
   justify-content: space-between;
   height: 28px;
 }
+
 .micronutrient .nutrientItem:nth-child(odd) {
   background-color: #fafafb;
 }
+
 .micronutrient .nutrientName {
   color: #717171;
 }
+
 .micronutrient .nutrientValue {
   color: #717171;
   font-weight: bold;
 }
+
 .micronutrient .nutrientValue span {
   font-weight: normal;
   color: #717171;
@@ -543,7 +573,8 @@
 }
 
 .logoIcon {
-  display: none; /* Ẩn logo icon ban đầu */
+  display: none;
+  /* Ẩn logo icon ban đầu */
 }
 
 /* Hiển thị logo icon khi sidebar thu gọn */

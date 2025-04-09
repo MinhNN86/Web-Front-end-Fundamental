@@ -43,7 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// chuyển hướng sang trang add
+// chuyển hướng sang trang addRecipe
+document.getElementById("addRecipe").addEventListener("click", function () {
+  window.location.href = "addRecipe.html";
+});
 
 // hàm render recipe
 let currentPage = 1;
@@ -169,3 +172,61 @@ function renderAllRecipes() {
 }
 
 renderAllRecipes();
+
+// render tìm kiếm
+//render lựa chọn category
+document.addEventListener("DOMContentLoaded", function () {
+  let categoriesRecipeData = JSON.parse(
+    localStorage.getItem("categoriesRecipeData")
+  );
+  let searchCategory = document.getElementById("searchCategory");
+  searchCategory.innerHTML = "";
+  searchCategory.innerHTML = `<option value="" selected>Category</option>`;
+  categoriesRecipeData.forEach((e) => {
+    searchCategory.innerHTML += `
+    <option value="${e.name}">${e.name}</option>
+    `;
+  });
+});
+
+// render lựa chọn nutrient
+document.addEventListener("DOMContentLoaded", function () {
+  const nutrients = ["Energy", "Fat", "Carbohydrate", "Protein"];
+  let inputNutrient = document.getElementById("searchNutrient");
+  inputNutrient.innerHTML = "";
+  inputNutrient.innerHTML += `<option value="" selected>Sort by nutrient</option>`;
+  nutrients.forEach((e) => {
+    inputNutrient.innerHTML += `<option value="${e.toLowerCase()}">${e}</option>`;
+  });
+});
+
+// hàm tìm kiếm
+const recipesData = JSON.parse(localStorage.getItem("recipesData"));
+let filteredRecipes = recipesData;
+function searchNameCategory() {
+  currentPage = 1;
+  const searchRecipe = document
+    .getElementById("searchRecipe")
+    .value.trim()
+    .toLowerCase();
+  const searchCategory = document.getElementById("searchCategory").value;
+
+  // lọc dữ liệu
+  filteredRecipes = recipesData.filter((recipe) => {
+    const matchesName = recipe.name.toLowerCase().includes(searchRecipe);
+    const matchesCategory =
+      searchCategory === "" ||
+      recipe.category.some((cat) => cat.name === searchCategory);
+
+    return matchesName && matchesCategory;
+  });
+
+  renderRecipes(filteredRecipes);
+}
+
+document
+  .getElementById("searchRecipe")
+  .addEventListener("input", searchNameCategory);
+document
+  .getElementById("searchCategory")
+  .addEventListener("change", searchNameCategory);

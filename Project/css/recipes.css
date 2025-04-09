@@ -168,7 +168,7 @@
   justify-content: center;
 }
 
-.contentContainer .search #searchFood {
+.contentContainer .search #searchRecipe {
   height: 100%;
   width: 695px;
   border: 1px solid #e5e6e7;
@@ -176,7 +176,7 @@
   color: #676a6c;
 }
 
-.contentContainer .search #searchFood::placeholder {
+.contentContainer .search #searchRecipe::placeholder {
   color: #b2b4b5;
 }
 
@@ -193,7 +193,7 @@
   cursor: pointer;
 }
 
-.contentContainer .search .sortNutrient input {
+.contentContainer .search .sortNutrient #searchNutrient {
   width: 200px;
   border: 1px solid #e5e6e7;
   padding: 6px 12px;
@@ -364,6 +364,7 @@
 
 .recipeTitle {
   display: flex;
+  justify-content: space-between;
   gap: 31.64px;
   height: 40px;
   margin: 21px 21px 12.25px 0px;
@@ -407,7 +408,7 @@
   margin-bottom: 32px;
 }
 
-.recipeCategory .categoryName {
+.recipeCategory span {
   color: #676a6c;
 }
 

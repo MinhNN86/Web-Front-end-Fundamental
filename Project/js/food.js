@@ -119,7 +119,7 @@ function renderFoodCard(foodToRender) {
         <div class="energy foodNutrition">
           <div class="nutritionValue">
             ${
-              food.macronutrients.energy === ""
+              food.macronutrients.energy === "0"
                 ? "-"
                 : food.macronutrients.energy + " kcal"
             } 
@@ -129,7 +129,7 @@ function renderFoodCard(foodToRender) {
         <div class="fat foodNutrition">
           <div class="nutritionValue">
             ${
-              food.macronutrients.fat === ""
+              food.macronutrients.fat === "0"
                 ? "-"
                 : food.macronutrients.fat + " g"
             } 
@@ -139,7 +139,7 @@ function renderFoodCard(foodToRender) {
         <div class="carbohydrate foodNutrition">
           <div class="nutritionValue">
             ${
-              food.macronutrients.carbohydrate === ""
+              food.macronutrients.carbohydrate === "0"
                 ? "-"
                 : food.macronutrients.carbohydrate + " g"
             } 
@@ -149,7 +149,7 @@ function renderFoodCard(foodToRender) {
         <div class="protein foodNutrition">
           <div class="nutritionValue">
             ${
-              food.macronutrients.protein === ""
+              food.macronutrients.protein === "0"
                 ? "-"
                 : food.macronutrients.protein + " g"
             } 
@@ -523,8 +523,9 @@ function renderFood() {
 
 renderFood();
 
-// tìm thực phẩm
-document.getElementById("searchFood").addEventListener("input", function () {
+const foodData = JSON.parse(localStorage.getItem("foodData")) || [];
+let filteredFood = foodData;
+function searchNameCategory() {
   currentPage = 1;
   const searchFood = document
     .getElementById("searchFood")
@@ -536,11 +537,8 @@ document.getElementById("searchFood").addEventListener("input", function () {
     .toLowerCase();
   const foodData = JSON.parse(localStorage.getItem("foodData")) || [];
 
-  if (searchFood === "" && searchCategory === "") {
-    renderFoodCard(foodData);
-    return;
-  }
-  const filteredFood = foodData.filter((food) => {
+  // Lọc dữ liệu dựa trên cả tên và thể loại
+  filteredFood = foodData.filter((food) => {
     const matchesName = food.name.toLowerCase().includes(searchFood);
     const matchesCategory =
       searchCategory === "" ||
@@ -550,30 +548,15 @@ document.getElementById("searchFood").addEventListener("input", function () {
   });
 
   renderFoodCard(filteredFood);
-});
+}
 
-// lọc thể loại thực phẩm
+// Gắn sự kiện cho cả hai input tìm kiếm
+document
+  .getElementById("searchFood")
+  .addEventListener("input", searchNameCategory);
 document
   .getElementById("searchCategory")
-  .addEventListener("input", function () {
-    currentPage = 1;
-    const searchCategory = document
-      .getElementById("searchCategory")
-      .value.trim()
-      .toLowerCase();
-    const foodData = JSON.parse(localStorage.getItem("foodData")) || [];
-
-    if (searchCategory === "") {
-      renderFoodCard(foodData);
-      return;
-    }
-
-    const filteredFood = foodData.filter((food) =>
-      food.category.toLowerCase().includes(searchCategory)
-    );
-
-    renderFoodCard(filteredFood);
-  });
+  .addEventListener("input", searchNameCategory);
 
 // render lựa chọn nutrient
 document.addEventListener("DOMContentLoaded", function () {
@@ -598,12 +581,8 @@ document
     if (!selectedNutrient) {
       return;
     }
-
-    // Lấy dữ liệu thực phẩm từ localStorage
-    let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
-
     // Sắp xếp dữ liệu theo giá trị dinh dưỡng
-    foodData.sort((a, b) => {
+    filteredFood.sort((a, b) => {
       let valueA = a.macronutrients[selectedNutrient] || 0;
       let valueB = b.macronutrients[selectedNutrient] || 0;
 
@@ -624,8 +603,9 @@ document
 
     // Hiển thị thực phẩm đã sắp xếp
     currentPage = 1;
-    renderFoodCard(foodData);
+    renderFoodCard(filteredFood);
   });
+
 // Thêm thực phẩm
 let saveCreateFoodBtn = document.getElementById("saveCreateFood");
 saveCreateFoodBtn.addEventListener("click", function () {
@@ -636,12 +616,13 @@ saveCreateFoodBtn.addEventListener("click", function () {
   const quantity = document.getElementById("inputQuantity").value.trim();
 
   // Lấy thông tin macronutrients
-  const energy = parseFloat(document.getElementById("inputEnergy").value) || "";
+  const energy =
+    parseFloat(document.getElementById("inputEnergy").value) || "0";
   const carbohydrate =
-    parseFloat(document.getElementById("inputCarbohydrate").value) || "";
-  const fat = parseFloat(document.getElementById("inputFat").value) || "";
+    parseFloat(document.getElementById("inputCarbohydrate").value) || "0";
+  const fat = parseFloat(document.getElementById("inputFat").value) || "0";
   const protein =
-    parseFloat(document.getElementById("inputProtein").value) || "";
+    parseFloat(document.getElementById("inputProtein").value) || "0";
 
   // Kiểm tra dữ liệu cơ bản
   if (!name || !category || !source || !quantity) {
@@ -652,62 +633,62 @@ saveCreateFoodBtn.addEventListener("click", function () {
   // Tạo đối tượng micronutrients
   const micronutrients = {
     cholesterol:
-      parseFloat(document.getElementById("inputCholesterol").value) || "",
-    fiber: parseFloat(document.getElementById("inputFiber").value) || "",
-    sodium: parseFloat(document.getElementById("inputSodium").value) || "",
-    water: parseFloat(document.getElementById("inputWater").value) || "",
-    vitaminA: parseFloat(document.getElementById("inputVitaminA").value) || "",
+      parseFloat(document.getElementById("inputCholesterol").value) || "0",
+    fiber: parseFloat(document.getElementById("inputFiber").value) || "0",
+    sodium: parseFloat(document.getElementById("inputSodium").value) || "0",
+    water: parseFloat(document.getElementById("inputWater").value) || "0",
+    vitaminA: parseFloat(document.getElementById("inputVitaminA").value) || "0",
     vitaminB6:
-      parseFloat(document.getElementById("inputVitaminB6").value) || "",
+      parseFloat(document.getElementById("inputVitaminB6").value) || "0",
     vitaminB12:
-      parseFloat(document.getElementById("inputVitaminB12").value) || "",
-    vitaminC: parseFloat(document.getElementById("inputVitaminC").value) || "",
-    vitaminD: parseFloat(document.getElementById("inputVitaminD").value) || "",
-    vitaminE: parseFloat(document.getElementById("inputVitaminE").value) || "",
-    vitaminK: parseFloat(document.getElementById("inputVitaminK").value) || "",
-    starch: parseFloat(document.getElementById("inputStarch").value) || "",
-    lactose: parseFloat(document.getElementById("inputLactose").value) || "",
-    alcohol: parseFloat(document.getElementById("inputAlcohol").value) || "",
-    caffeine: parseFloat(document.getElementById("inputCaffeine").value) || "",
-    sugars: parseFloat(document.getElementById("inputSugars").value) || "",
-    calcium: parseFloat(document.getElementById("inputCalcium").value) || "",
-    iron: parseFloat(document.getElementById("inputIron").value) || "",
+      parseFloat(document.getElementById("inputVitaminB12").value) || "0",
+    vitaminC: parseFloat(document.getElementById("inputVitaminC").value) || "0",
+    vitaminD: parseFloat(document.getElementById("inputVitaminD").value) || "0",
+    vitaminE: parseFloat(document.getElementById("inputVitaminE").value) || "0",
+    vitaminK: parseFloat(document.getElementById("inputVitaminK").value) || "0",
+    starch: parseFloat(document.getElementById("inputStarch").value) || "0",
+    lactose: parseFloat(document.getElementById("inputLactose").value) || "0",
+    alcohol: parseFloat(document.getElementById("inputAlcohol").value) || "0",
+    caffeine: parseFloat(document.getElementById("inputCaffeine").value) || "0",
+    sugars: parseFloat(document.getElementById("inputSugars").value) || "0",
+    calcium: parseFloat(document.getElementById("inputCalcium").value) || "0",
+    iron: parseFloat(document.getElementById("inputIron").value) || "0",
     magnesium:
-      parseFloat(document.getElementById("inputMagnesium").value) || "",
+      parseFloat(document.getElementById("inputMagnesium").value) || "0",
     phosphorus:
-      parseFloat(document.getElementById("inputPhosphorus").value) || "",
+      parseFloat(document.getElementById("inputPhosphorus").value) || "0",
     potassium:
-      parseFloat(document.getElementById("inputPotassium").value) || "",
-    zinc: parseFloat(document.getElementById("inputZinc").value) || "",
-    copper: parseFloat(document.getElementById("inputCopper").value) || "",
-    fluoride: parseFloat(document.getElementById("inputFluoride").value) || "",
+      parseFloat(document.getElementById("inputPotassium").value) || "0",
+    zinc: parseFloat(document.getElementById("inputZinc").value) || "0",
+    copper: parseFloat(document.getElementById("inputCopper").value) || "0",
+    fluoride: parseFloat(document.getElementById("inputFluoride").value) || "0",
     manganese:
-      parseFloat(document.getElementById("inputManganese").value) || "",
-    selenium: parseFloat(document.getElementById("inputSelenium").value) || "",
-    thiamin: parseFloat(document.getElementById("inputThiamin").value) || "",
+      parseFloat(document.getElementById("inputManganese").value) || "0",
+    selenium: parseFloat(document.getElementById("inputSelenium").value) || "0",
+    thiamin: parseFloat(document.getElementById("inputThiamin").value) || "0",
     riboflavin:
-      parseFloat(document.getElementById("inputRiboflavin").value) || "",
-    niacin: parseFloat(document.getElementById("inputNiacin").value) || "",
+      parseFloat(document.getElementById("inputRiboflavin").value) || "0",
+    niacin: parseFloat(document.getElementById("inputNiacin").value) || "0",
     pantothenicAcid:
-      parseFloat(document.getElementById("inputPantothenicAcid").value) || "",
+      parseFloat(document.getElementById("inputPantothenicAcid").value) || "0",
     folateTotal:
-      parseFloat(document.getElementById("inputFolateTotal").value) || "",
+      parseFloat(document.getElementById("inputFolateTotal").value) || "0",
     folicAcid:
-      parseFloat(document.getElementById("inputFolicAcid").value) || "",
+      parseFloat(document.getElementById("inputFolicAcid").value) || "0",
     fattyAcidsTrans:
-      parseFloat(document.getElementById("inputTransFattyAcids").value) || "",
+      parseFloat(document.getElementById("inputTransFattyAcids").value) || "0",
     fattyAcidsSaturated:
       parseFloat(document.getElementById("inputSaturatedFattyAcids").value) ||
-      "",
+      "0",
     fattyAcidsMonounsaturated:
       parseFloat(
         document.getElementById("inputMonounsaturatedFattyAcids").value
-      ) || "",
+      ) || "0",
     fattyAcidsPolyunsaturated:
       parseFloat(
         document.getElementById("inputPolyunsaturatedFattyAcids").value
-      ) || "",
-    chloride: parseFloat(document.getElementById("inputChloride").value) || "",
+      ) || "0",
+    chloride: parseFloat(document.getElementById("inputChloride").value) || "0",
   };
 
   let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
@@ -760,7 +741,7 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       energy: 151,
 //       carbohydrate: 0.8,
 //       fat: 15.2,
-//       protein: 2.9
+//       protein: 2.9,
 //     },
 //     micronutrients: {
 //       cholesterol: 0.0,
@@ -799,8 +780,8 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       fattyAcidsSaturated: "",
 //       fattyAcidsMonounsaturated: "",
 //       fattyAcidsPolyunsaturated: "",
-//       chloride: 340.0
-//     }
+//       chloride: 340.0,
+//     },
 //   },
 //   {
 //     id: 2,
@@ -812,7 +793,7 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       energy: 34,
 //       carbohydrate: 6.6,
 //       fat: 0.4,
-//       protein: 2.8
+//       protein: 2.8,
 //     },
 //     micronutrients: {
 //       cholesterol: 0.0,
@@ -851,8 +832,8 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       fattyAcidsSaturated: 0.04,
 //       fattyAcidsMonounsaturated: 0.01,
 //       fattyAcidsPolyunsaturated: 0.04,
-//       chloride: ""
-//     }
+//       chloride: "",
+//     },
 //   },
 //   {
 //     id: 3,
@@ -864,7 +845,7 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       energy: 52,
 //       carbohydrate: 13.8,
 //       fat: 0.2,
-//       protein: 0.3
+//       protein: 0.3,
 //     },
 //     micronutrients: {
 //       cholesterol: 0.0,
@@ -903,8 +884,8 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       fattyAcidsSaturated: 0.03,
 //       fattyAcidsMonounsaturated: 0.01,
 //       fattyAcidsPolyunsaturated: 0.05,
-//       chloride: ""
-//     }
+//       chloride: "",
+//     },
 //   },
 //   {
 //     id: 4,
@@ -916,7 +897,7 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       energy: 165,
 //       carbohydrate: 0.0,
 //       fat: 3.6,
-//       protein: 31.0
+//       protein: 31.0,
 //     },
 //     micronutrients: {
 //       cholesterol: 85.0,
@@ -955,8 +936,8 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       fattyAcidsSaturated: 1.0,
 //       fattyAcidsMonounsaturated: 1.2,
 //       fattyAcidsPolyunsaturated: 0.8,
-//       chloride: ""
-//     }
+//       chloride: "",
+//     },
 //   },
 //   {
 //     id: 5,
@@ -968,7 +949,7 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       energy: 123,
 //       carbohydrate: 25.6,
 //       fat: 1.0,
-//       protein: 2.7
+//       protein: 2.7,
 //     },
 //     micronutrients: {
 //       cholesterol: 0.0,
@@ -1007,8 +988,8 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       fattyAcidsSaturated: 0.26,
 //       fattyAcidsMonounsaturated: 0.33,
 //       fattyAcidsPolyunsaturated: 0.36,
-//       chloride: ""
-//     }
+//       chloride: "",
+//     },
 //   },
 //   {
 //     id: 6,
@@ -1020,7 +1001,7 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       energy: 61,
 //       carbohydrate: 4.8,
 //       fat: 3.3,
-//       protein: 3.2
+//       protein: 3.2,
 //     },
 //     micronutrients: {
 //       cholesterol: 10.0,
@@ -1059,8 +1040,8 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //       fattyAcidsSaturated: 1.86,
 //       fattyAcidsMonounsaturated: 0.82,
 //       fattyAcidsPolyunsaturated: 0.2,
-//       chloride: ""
-//     }
-//   }
+//       chloride: "",
+//     },
+//   },
 // ];
-// localStorage.setItem('foodData', JSON.stringify(foodData));
+// localStorage.setItem("foodData", JSON.stringify(foodData));
