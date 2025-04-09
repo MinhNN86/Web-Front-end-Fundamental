@@ -44,9 +44,11 @@ document
 
 //render lựa chọn category
 document.addEventListener("DOMContentLoaded", function () {
-  let categoriesRecipeData = JSON.parse(localStorage.getItem("categoriesRecipeData"));
+  let categoriesRecipeData = JSON.parse(
+    localStorage.getItem("categoriesRecipeData")
+  );
   let searchCategory = document.getElementById("searchCategory");
-  searchCategory.innerHTML = ""
+  searchCategory.innerHTML = "";
   searchCategory.innerHTML = `<option value="category" selected>Category</option>`;
   categoriesRecipeData.forEach((e) => {
     searchCategory.innerHTML += `
@@ -77,12 +79,13 @@ function renderRecipes(recipesToRender) {
 
   // phạm vi công thức hiển thị
   const startIndex = (currentPage - 1) * recipesPerPage;
-  const endIndex = Math.min(startIndex + recipesPerPage, recipesToRender.length);
+  const endIndex = Math.min(
+    startIndex + recipesPerPage,
+    recipesToRender.length
+  );
   const currentPageRecipes = recipesToRender.slice(startIndex, endIndex);
 
-  // Xóa nội dung cũ
   recipesList.innerHTML = "";
-
   // Duyệt qua từng món ăn và tạo HTML
   currentPageRecipes.forEach((recipe) => {
     // Tạo chuỗi các category
@@ -136,42 +139,46 @@ function renderRecipes(recipesToRender) {
     `;
   });
 
-  // render phân trang 
+  // render phân trang
   paginationContainer.innerHTML = "";
-  if (totalPages > 1) {
-    paginationContainer.innerHTML += `<div class="backPage"><img src="../assets/home/backPage.png" alt="" height="13px" /></div>`;
+  paginationContainer.innerHTML += `<div class="backPage"><img src="../assets/home/backPage.png" alt="" height="13px" /></div>`;
 
-    for (let i = 1; i <= totalPages; i++) {
-      paginationContainer.innerHTML += `
-        <div class="page-item ${i === currentPage ? "active" : ""}" data-page="${i}">
+  for (let i = 1; i <= totalPages; i++) {
+    paginationContainer.innerHTML += `
+        <div class="page-item ${
+          i === currentPage ? "active" : ""
+        }" data-page="${i}">
           ${i}
         </div>
       `;
-    }
+  }
 
-    paginationContainer.innerHTML += `<div class="nextPage"><img src="../assets/home/nextPage.png" alt="" height="13px" /></div>`;
+  paginationContainer.innerHTML += `<div class="nextPage"><img src="../assets/home/nextPage.png" alt="" height="13px" /></div>`;
 
-    document.querySelector('#pagination .backPage').addEventListener("click", function () {
+  document
+    .querySelector("#pagination .backPage")
+    .addEventListener("click", function () {
       if (currentPage > 1) {
         currentPage--;
         renderRecipes(recipesToRender);
       }
     });
 
-    document.querySelector('#pagination .nextPage').addEventListener("click", function () {
+  document
+    .querySelector("#pagination .nextPage")
+    .addEventListener("click", function () {
       if (currentPage < totalPages) {
         currentPage++;
         renderRecipes(recipesToRender);
       }
     });
 
-    document.querySelectorAll(".page-item").forEach((item) => {
-      item.addEventListener("click", function () {
-        currentPage = parseInt(this.getAttribute("data-page"));
-        renderRecipes(recipesToRender);
-      });
+  document.querySelectorAll(".page-item").forEach((item) => {
+    item.addEventListener("click", function () {
+      currentPage = parseInt(this.getAttribute("data-page"));
+      renderRecipes(recipesToRender);
     });
-  }
+  });
 
   document.querySelectorAll(".recipeCard").forEach((card) => {
     card.addEventListener("click", function () {
@@ -203,44 +210,42 @@ function renderFavoriteRecipe() {
 renderFavoriteRecipe();
 
 //Hàm tìm kiếm công thức
-document
-  .getElementById("searchRecipe")
-  .addEventListener("input", function () {
-    currentPage = 1;
-    // Lọc favorite của tài khoản đăng nhập
-    const favoriteRecipe = favoriteRecipeData.find(
-      (e) => e.accountId === idAccountLogin
-    );
+document.getElementById("searchRecipe").addEventListener("input", function () {
+  currentPage = 1;
+  // Lọc favorite của tài khoản đăng nhập
+  const favoriteRecipe = favoriteRecipeData.find(
+    (e) => e.accountId === idAccountLogin
+  );
 
-    if (!favoriteRecipe || !favoriteRecipe.idRecipeFavorite) {
-      return;
-    }
+  if (!favoriteRecipe || !favoriteRecipe.idRecipeFavorite) {
+    return;
+  }
 
-    // Lấy từ khóa tìm kiếm
-    const inputSearchRecipe = document
-      .getElementById("searchRecipe")
-      .value.trim()
-      .toLowerCase();
-    const inputSearchNutrient = document.getElementById("searchNutrient").value;
-    const inputSearchCategory = document.getElementById("searchCategory").value;
-    // Lấy danh sách món ăn yêu thích từ dữ liệu gốc
-    const recipesFavorite = favoriteRecipe.idRecipeFavorite.map((recipeId) => {
-      return recipeData.find((recipe) => recipe.id === recipeId);
-    });
-    // Lọc theo từ khóa tìm kiếm trong tên món ăn hoặc danh mục
-    const filteredRecipes = recipesFavorite.filter((recipe) => {
-      const matchesName = recipe.name.toLowerCase().includes(inputSearchRecipe);
-
-      // Kiểm tra nếu danh mục được chọn
-      const matchesCategory =
-        inputSearchCategory === "category" ||
-        recipe.category.some((cat) => cat.name === inputSearchCategory);
-
-      return matchesName && matchesCategory;
-    });
-    // Render ra danh sách món ăn đã lọc
-    renderRecipes(filteredRecipes);
+  // Lấy từ khóa tìm kiếm
+  const inputSearchRecipe = document
+    .getElementById("searchRecipe")
+    .value.trim()
+    .toLowerCase();
+  const inputSearchNutrient = document.getElementById("searchNutrient").value;
+  const inputSearchCategory = document.getElementById("searchCategory").value;
+  // Lấy danh sách món ăn yêu thích từ dữ liệu gốc
+  const recipesFavorite = favoriteRecipe.idRecipeFavorite.map((recipeId) => {
+    return recipeData.find((recipe) => recipe.id === recipeId);
   });
+  // Lọc theo từ khóa tìm kiếm trong tên món ăn hoặc danh mục
+  const filteredRecipes = recipesFavorite.filter((recipe) => {
+    const matchesName = recipe.name.toLowerCase().includes(inputSearchRecipe);
+
+    // Kiểm tra nếu danh mục được chọn
+    const matchesCategory =
+      inputSearchCategory === "category" ||
+      recipe.category.some((cat) => cat.name === inputSearchCategory);
+
+    return matchesName && matchesCategory;
+  });
+  // Render ra danh sách món ăn đã lọc
+  renderRecipes(filteredRecipes);
+});
 
 //Lọc thể loại món ăn
 document

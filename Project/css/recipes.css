@@ -141,17 +141,20 @@
   padding: 20px;
   border-radius: 5px;
 }
+
 .contentTitle {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
 }
+
 .contentTitle h2 {
   font-size: 20px;
   font-weight: normal;
   color: #676a6c;
 }
+
 .contentTitle p {
   color: #888888;
 }
@@ -172,6 +175,7 @@
   padding: 8px 13px;
   color: #676a6c;
 }
+
 .contentContainer .search #searchFood::placeholder {
   color: #b2b4b5;
 }
@@ -180,6 +184,7 @@
   height: 100%;
   display: flex;
 }
+
 .contentContainer .search .sortNutrient .iconSort {
   padding: 8px 9px;
   border-left: 1px solid #e5e6e7;
@@ -187,12 +192,14 @@
   border-bottom: 1px solid #e5e6e7;
   cursor: pointer;
 }
+
 .contentContainer .search .sortNutrient input {
   width: 200px;
   border: 1px solid #e5e6e7;
   padding: 6px 12px;
   color: #676a6c;
 }
+
 .contentContainer .search .sortNutrient .iconShow {
   padding: 6px 8px;
   border-right: 1px solid #e5e6e7;
@@ -200,6 +207,7 @@
   border-bottom: 1px solid #e5e6e7;
   cursor: pointer;
 }
+
 .contentContainer .search .sortNutrient input::placeholder {
   color: #b2b4b5;
 }
@@ -208,6 +216,7 @@
   height: 100%;
   display: flex;
 }
+
 .contentContainer .search .searchCategory #searchCategory {
   height: 100%;
   width: 200px;
@@ -215,9 +224,11 @@
   padding: 6px 12px;
   color: #676a6c;
 }
+
 .contentContainer .search #searchCategory::placeholder {
   color: #b2b4b5;
 }
+
 .contentContainer .search .searchCategory .iconShow {
   padding: 6px 8px;
   border-right: 1px solid #e5e6e7;
@@ -225,6 +236,7 @@
   border-bottom: 1px solid #e5e6e7;
   cursor: pointer;
 }
+
 /*! My recipes */
 .myRecipesInfo {
   display: flex;
@@ -232,6 +244,7 @@
   height: 32px;
   margin-bottom: 30px;
 }
+
 .myRecipesInfo .recipesLike {
   display: flex;
   align-items: center;
@@ -240,26 +253,33 @@
   border: 1px solid #eeeeee;
   border-radius: 3px;
 }
+
 .myRecipesInfo .recipesLike .textRecipesLike {
   color: #676a6c;
   font-weight: bold;
   font-size: 12px;
 }
+
 .myRecipesInfo .recipesLike .valueFavorite {
   color: #aaaaaa;
   font-size: 11px;
 }
+
 .myRecipesInfo .recipesMenu {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .myRecipesInfo .recipesMenu input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  appearance: none; /* Ẩn checkbox mặc định */
-  border: 1px solid #2ba0cc; /* Viền mỏng */
-  border-radius: 1.6px; /* Bo góc nhẹ */
+  appearance: none;
+  /* Ẩn checkbox mặc định */
+  border: 1px solid #2ba0cc;
+  /* Viền mỏng */
+  border-radius: 1.6px;
+  /* Bo góc nhẹ */
   cursor: pointer;
   background-color: white;
   display: flex;
@@ -274,7 +294,8 @@
 
 .myRecipesInfo .recipesMenu input[type="checkbox"]::after {
   content: "";
-  background-image: url("../assets/recipes/checkBox.png"); /* Đường dẫn đến ảnh dấu tick */
+  background-image: url("../assets/recipes/checkBox.png");
+  /* Đường dẫn đến ảnh dấu tick */
   background-size: contain;
   background-repeat: no-repeat;
   width: 11.66px;
@@ -293,11 +314,13 @@
   gap: 8px;
   cursor: pointer;
 }
+
 .myRecipesInfo .recipesMenu .myRecipes .textMyRecipes {
   font-size: 12px;
   font-weight: bold;
   color: #2ba0cc;
 }
+
 /*! Thẻ công thức */
 .recipesList {
   display: flex;
@@ -305,6 +328,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .recipeCard {
   display: flex;
   gap: 57px;
@@ -314,6 +338,7 @@
   margin-bottom: 10px;
   cursor: pointer;
 }
+
 .recipeTag {
   width: 150.84px;
   height: 28.5px;
@@ -326,25 +351,30 @@
   box-shadow: 0px 1px 3px 0px #dddddd;
   border-radius: 6px;
 }
+
 .recipeTag .textRecipeTag {
   font-size: 11px;
   font-weight: bold;
   color: #ea9f77;
 }
+
 .recipeContent {
   width: 345px;
 }
+
 .recipeTitle {
   display: flex;
   gap: 31.64px;
   height: 40px;
   margin: 21px 21px 12.25px 0px;
 }
+
 .recipeTitle .recipeName {
   font-size: 15px;
   color: #282828;
   padding-left: 20px;
 }
+
 .recipeTitle .recipeLike {
   width: 60px;
   height: 28px;
@@ -356,16 +386,19 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
 .recipeTitle .recipeLike .numOfLike {
   font-size: 11px;
   font-weight: 500;
   color: #aaaaaa;
 }
+
 .recipeAuthor {
   padding-left: 20px;
   color: #676a6c;
   margin-bottom: 21.25px;
 }
+
 .recipeCategory {
   padding-left: 20px;
   display: flex;
@@ -373,33 +406,62 @@
   gap: 8px;
   margin-bottom: 32px;
 }
+
 .recipeCategory .categoryName {
   color: #676a6c;
 }
+
 .nutritionInfo {
   border-top: 1px solid #eeeeee;
   padding: 11.5px 15.48px;
   display: flex;
   gap: 31px;
 }
+
 .recipeNutrition {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .nutritionInfo div {
   font-size: 11px;
   color: #888888;
 }
+
 .recipeNutrition .nutritionValue {
   color: #282828;
 }
 
 /* Nav pagination */
 .paginationRecipes {
-  margin-top: 45px;
+  margin-top: 100px;
   display: flex;
   justify-content: end;
+  cursor: pointer;
+}
+
+.paginationRecipes #pagination {
+  display: flex;
+}
+
+.paginationRecipes #pagination div {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+}
+
+.paginationRecipes #pagination .backPage,
+.paginationRecipes #pagination .nextPage {
+  width: 35px;
+}
+
+.paginationRecipes #pagination .active {
+  background-color: #F4F4F4;
 }
 
 /* Hiệu ứng chuyển đổi khi thu gọn */
@@ -439,7 +501,8 @@
 }
 
 .logoIcon {
-  display: none; /* Ẩn logo icon ban đầu */
+  display: none;
+  /* Ẩn logo icon ban đầu */
 }
 
 /* Hiển thị logo icon khi sidebar thu gọn */
