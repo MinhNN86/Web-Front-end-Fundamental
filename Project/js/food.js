@@ -761,7 +761,7 @@ saveCreateFoodBtn.addEventListener("click", function () {
   });
 });
 
-// Data
+// Datatest
 // const foodData1 = [
 //   {
 //     id: 1,

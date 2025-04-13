@@ -788,3 +788,297 @@ let student = students.find((s) => s.name === "Minh");
 let toStudents = students.filter((s) => s.grade === "A");
 // sắp xếp
 student.sort((a, b) => a.age - b.age); // Sắp xếp tuổi tăng dần
+
+//! Tổng quan về Dom
+//*Tóm tắt về DOM:
+// DOM (Document Object Model) là mô hình cây thể hiện tài liệu HTML/XML,
+// giúp lập trình viên thao tác nội dung, cấu trúc, và kiểu dáng trang web bằng JavaScript.
+//*Cấu trúc DOM:
+// Document: Gốc của cây DOM.
+// Element nodes: Đại diện cho các thẻ HTML.
+// Text nodes: Chứa nội dung văn bản trong thẻ.
+// Attribute nodes: Đại diện cho thuộc tính của phần tử HTML.
+// Comment nodes: Chứa các phần chú thích trong tài liệu.
+
+//! Truy xuất phần tử HTML trong DOM (id, class, tagname)
+//* Truy xuất phần tử theo ID
+document.getElementById("C2"); // id thẻ html
+//* Truy xuất phần tử theo class
+document.getElementsByClassName("test"); // class thẻ html
+//* Truy xuất phần tử theo tagname
+document.getElementsByTagName("p"); // thẻ html
+//* Truy xuất phần tử theo CSS selector
+// Trả về phần tử đầu tiên khớp với bộ chọn CSS
+document.querySelector("#C2.test"); // trỏ vào thẻ html như CSS
+//* querySelectorAll()
+// Trả về tất cả các phần tử khớp với bộ chọn CSS dưới dạng NodeList
+document.querySelectorAll(".test");
+
+//! innerText và textContent và innerHTML
+let p = document.getElementById("paragraph");
+//* innerText
+// trả về nội dung văn bản hiển thị bên trong một phần tử HTML
+console.log(p.innerText);
+//* innerHTML
+// trả về toàn bộ nội dung HTML (bao gồm cả thẻ HTML) bên trong phần tử.
+console.log(p.innerHTML);
+//* textContent
+// textContent trả về toàn bộ nội dung văn bản bên trong phần tử,
+// bao gồm cả văn bản bị ẩn (ẩn bởi CSS)
+console.log(p.textContent);
+
+//! setAttribute và getAttribute
+//* setAttribute
+// được sử dụng để thêm mới hoặc cập nhật giá trị của một thuộc tính trên phần tử HTML
+let a1 = document.getElementById("anchor");
+a1.setAttribute("href", "http://google.com");
+//* getAttribute
+// được sử dụng để lấy giá trị của một thuộc tính cụ thể trên phần tử HTML
+let img = document.getElementsByTagName("img")[0];
+let link = img.getAttribute("src");
+console.log(link);
+
+//! Điều chỉnh style của các phần tử HTML
+//* Sử dụng thuộc tính style
+let div = document.getElementById("demo-style");
+div.style.backgroundColor = "red";
+//* Thay đổi nhiều thuộc tính cùng lúc
+function applyStyles(element, styles) {
+  for (const property in styles) {
+    element.style[property] = styles[property];
+  }
+}
+applyStyles(div, {
+  backgroundColor: "red",
+  color: "white",
+  fontSize: "20px",
+  padding: "10px",
+  border: "2px solid black",
+  textAlign: "center",
+});
+
+//! Sử dụng lớp CSS (classList)
+//  tùy chỉnh các lớp style trong CSS
+// element.classList.add(className): Thêm lớp CSS vào phần tử
+// element.classList.remove(className): Xóa lớp CSS khỏi phần tử
+// element.classList.toggle(className): Thêm hoặc xóa lớp CSS (nếu đã tồn tại thì xóa, nếu chưa có thì thêm)
+// element.classList.contains(className): Kiểm tra xem lớp CSS có tồn tại không
+// element.classList.replace(oldClass, newClass): Thay thế class cũ bằng class mới
+// element.classList.values(): để lấy danh sách class
+const box = document.getElementById("box");
+// Thêm lớp highlight
+box.classList.add("highlight");
+// Xóa lớp highlight
+box.classList.remove("highlight");
+// Thêm hoặc xóa lớp highlight
+box.classList.toggle("highlight");
+box.classList.toggle("highlight", true); // luôn thêm "highlight"
+box.classList.toggle("highlight", false); // luôn xóa "highlight"
+
+//! DOM traversal
+//* children
+const parent1 = document.getElementById("parent");
+const children = parent1.children; // Lấy tất cả các phần tử con của phần tử cha
+console.log(...children); // HTMLCollection chứa các phần tử con
+//* parentElement
+const child = document.querySelector(".child");
+const parent = child.parentElement; // Lấy phần tử cha
+console.log(parent.tagName); // Tên thẻ của phần tử cha
+
+//! Append child và remove
+//* appendChild
+// appendChild được sử dụng để thêm một nút con vào cuối danh sách các nút con của một nút cha.
+// Thêm phần tử mới vào một phần tử cha
+const parent2 = document.getElementById("parent"); // Lấy phần tử cha
+const newChild = document.createElement("div"); // Tạo phần tử mới
+newChild.textContent = "Tôi là phần tử mới!"; // Thêm nội dung văn bản
+parent2.appendChild(newChild); // Gắn phần tử mới vào cuối danh sách con
+// Di chuyển một phần tử sang một phần tử cha khác
+const existingChild = document.getElementById("child"); // Lấy phần tử cần di chuyển
+const newParent = document.getElementById("newParent"); // Lấy phần tử cha mới
+newParent.appendChild(existingChild); // Di chuyển phần tử vào cha mới
+//* remove
+// remove được sử dụng để xóa một nút khỏi cây DOM.
+const element = document.getElementById("toBeRemoved"); // Lấy phần tử cần xóa
+element.remove(); // Xóa phần tử khỏi cây DOM
+
+//! Gắn sự kiện cho các phần tử HTML (Inline, on và addEventListener)
+//* Gán sự kiện Inline (trực tiếp trong HTML)
+//  <button onclick="alert('Button clicked!')">Click me</button>
+//* Gán sự kiện bằng thuộc tính DOM (on-)
+const button = document.getElementById("btn");
+button.onclick = function () {
+  alert("Button clicked!");
+};
+//* Gán sự kiện bằng addEventListener
+const button = document.getElementById("btn");
+button.addEventListener("click", function () {
+  alert("Button clicked (Handler 1)");
+});
+button.addEventListener("click", function () {
+  alert("Button clicked (Handler 2)");
+});
+
+//! Mouse và Keyboard event
+//* Sự kiện chuột (Mouse Events)
+// Các sự kiện phổ biến: click, dblclick, mousedown, mouseup, mousemove, mouseenter, mouseleave, mouseover, mouseout, contextmenu, wheel.
+// Dùng để xử lý các thao tác như nhấp chuột, rê chuột, cuộn chuột,...
+{
+  /* <button id="myButton">Click me</button>
+
+<script>
+    const button = document.getElementById('myButton');
+
+     Sự kiện click
+    button.addEventListener('click', () => {
+        alert('Button clicked!');
+    });
+
+     Đổi màu khi di chuột vào
+    button.addEventListener('mouseover', () => {
+        button.style.backgroundColor = 'yellow';
+    });
+
+     Trả lại màu ban đầu khi rời chuột
+    button.addEventListener('mouseout', () => {
+        button.style.backgroundColor = '';
+    });
+</script> */
+}
+
+// //* Sự kiện bàn phím (Keyboard Events)
+// Các sự kiện phổ biến: keydown (nhấn phím), keyup (nhả phím).
+// Các thuộc tính quan trọng:
+// event.key: Ký tự của phím nhấn.
+// event.code: Mã phím chuẩn.
+// event.ctrlKey, event.shiftKey, event.altKey, event.metaKey: Kiểm tra phím bổ trợ.
+{
+  /* <input type="text" id="textInput" placeholder="Nhập văn bản" />
+
+<script>
+    const input = document.getElementById('textInput');
+
+     Lắng nghe sự kiện khi nhấn phím
+    input.addEventListener('keydown', (event) => {
+        console.log(`Phím được nhấn: ${event.key}`);
+        if (event.key === 'Enter') {
+            alert('Bạn vừa nhấn Enter!');
+        }
+    });
+
+     Lắng nghe sự kiện khi nhả phím
+    input.addEventListener('keyup', () => {
+        console.log('Bạn đã nhả phím!');
+    });
+</script> */
+}
+
+//! Form submit event
+//* Hiểu về sự kiện submit
+// Sự kiện submit xảy ra khi một biểu mẫu (<form>) được gửi đi, thường thông qua:
+// Nhấn nút Submit (<input type="submit"> hoặc <button type="submit">).
+// Nhấn phím Enter trong trường nhập liệu của biểu mẫu.
+//* Đăng ký sự kiện submit
+{
+  /* <form id="myForm">
+    <!-- Nội dung form -->
+</form>
+<script>
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', (event) => {
+        console.log('Form submitted!');
+    });
+</script> */
+}
+//* Ngăn gửi biểu mẫu mặc định
+{
+  /* <form id="myForm">
+    <input type="text" placeholder="Nhập tên" required />
+    <button type="submit">Gửi</button>
+</form>
+<script>
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Ngăn tải lại trang
+        console.log('Form submit prevented!');
+    });
+</script> */
+}
+//* Thu thập dữ liệu từ biểu mẫu
+{
+  /* <form id="myForm">
+    <input type="text" name="username" placeholder="Tên người dùng" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <button type="submit">Gửi</button>
+</form>
+<script>
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        console.log('Tên người dùng:', formData.get('username'));
+        console.log('Email:', formData.get('email'));
+    });
+</script> */
+}
+
+//! Tổng quan về browser storage
+//* Local Storage
+// Lưu trữ vĩnh viễn trên trình duyệt (~5MB), chỉ truy cập qua JavaScript, không gửi kèm HTTP.
+//* Session Storage
+// Giống Local Storage nhưng chỉ tồn tại trong phiên, mất khi đóng tab/cửa sổ.
+//* Cookies
+// Lưu cặp key-value (~4KB), tự động gửi kèm HTTP, có thể đặt thời gian hết hạn.
+//* IndexedDB
+// Lưu trữ lớn dữ liệu cấu trúc phức tạp, hỗ trợ offline, Progressive Web APP (PWA)
+
+//! Session storage
+//* API của Session Storage
+// Lưu giữ liệu
+sessionStorage.setItem("username", "test");
+sessionStorage.username = "test";
+// Lấy giữ liệu
+sessionStorage.getItem("username");
+sessionStorage.username;
+// Xóa dữ liệu
+delete sessionStorage.username;
+sessionStorage.removeItem("username");
+//* Lưu trữ dữ liệu phức tạp
+// Lưu đối tượng vào sessionStorage
+const user = { name: "John", age: 25 };
+sessionStorage.setItem("user", JSON.stringify(user));
+// Lấy lại đối tượng từ sessionStorage
+const retrievedUser = JSON.parse(sessionStorage.getItem("user"));
+console.log(retrievedUser.name); // Output: John
+// Lưu mảng vào sessionStorage
+const todos = ["Learn JavaScript", "Build a project"];
+sessionStorage.setItem("todos", JSON.stringify(todos));
+// Lấy lại mảng từ sessionStorage
+const retrievedTodos = JSON.parse(sessionStorage.getItem("todos"));
+console.log(retrievedTodos); // Output: ['Learn JavaScript', 'Build a project']
+
+//! Local Storage
+//* API của Local Storage
+// Lưu dữ liệu
+localStorage.setItem("username", "test");
+localStorage.username = "test";
+// Lấy dữ liệu
+localStorage.getItem("username");
+localStorage.username;
+// Xóa dữ liệu
+delete localStorage.username;
+localStorage.removeItem("username");
+localStorage.clear(); // Xóa tất cả dữ liệu
+//* Lưu trữ dữ liệu phức tạp
+// Lưu đối tượng vào localStorage
+const user1 = { name: "John", age: 25 };
+localStorage.setItem("user1", JSON.stringify(user1));
+// Lấy lại đối tượng từ localStorage
+const retrievedUser1 = JSON.parse(localStorage.getItem("user1"));
+console.log(retrievedUser1.name); // Output: John
+// Lưu mảng vào localStorage
+const todos1 = ["Learn JavaScript", "Build a project"];
+localStorage.setItem("todos1", JSON.stringify(todos1));
+// Lấy lại mảng từ localStorage
+const retrievedTodos1 = JSON.parse(localStorage.getItem("todos1"));
+console.log(retrievedTodos1); // Output: ['Learn JavaScript', 'Build a project']
