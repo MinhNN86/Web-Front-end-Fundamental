@@ -68,9 +68,12 @@ document.getElementById("btn-singUp").addEventListener("click", function () {
     let pass = document.querySelector(".pass");
     showNotification(pass);
 
+    // Thêm id cho người dùng mới
+    let inputAccountId =
+      accountData.length > 0 ? accountData[accountData.length - 1].id + 1 : 1;
+
     accountData.push({
-      id:
-        accountData.length > 0 ? accountData[accountData.length - 1].id + 1 : 1,
+      id: inputAccountId,
       email: inputEmail,
       username: inputUsername,
       password: inputPassword,
@@ -78,7 +81,7 @@ document.getElementById("btn-singUp").addEventListener("click", function () {
     localStorage.setItem("accountData", JSON.stringify(accountData));
 
     favoriteRecipeData.push({
-      accountId: accountData[accountData.length - 1].id,
+      accountId: inputAccountId,
       idRecipeFavorite: [],
     });
     localStorage.setItem(
@@ -102,3 +105,86 @@ document.getElementById("btn-singUp").addEventListener("click", function () {
     };
   }
 });
+
+// hàm kiểm tra mảng dữ liệu không có thì tạo
+function checkDataBase() {
+  let accountData = JSON.parse(localStorage.getItem("accountData"));
+  let categoriesRecipeData = JSON.parse(
+    localStorage.getItem("categoriesRecipeData")
+  );
+  let favoriteRecipeData = JSON.parse(
+    localStorage.getItem("favoriteRecipeData")
+  );
+  let foodData = JSON.parse(localStorage.getItem("foodData"));
+  let recipesData = JSON.parse(localStorage.getItem("recipesData"));
+
+  if (!accountData || accountData.length === 0) {
+    accountData = [];
+  }
+  if (!categoriesRecipeData || categoriesRecipeData.length === 0) {
+    categoriesRecipeData = [
+      {
+        id: 1,
+        name: "vegetarian",
+      },
+      {
+        id: 2,
+        name: "appetizer",
+      },
+      {
+        id: 3,
+        name: "vegan",
+      },
+      {
+        id: 4,
+        name: "main course",
+      },
+      {
+        id: 5,
+        name: "dessert",
+      },
+      {
+        id: 6,
+        name: "low-carb",
+      },
+      {
+        id: 7,
+        name: "gluten-free",
+      },
+      {
+        id: 8,
+        name: "breakfast",
+      },
+      {
+        id: 9,
+        name: "salad",
+      },
+      {
+        id: 10,
+        name: "soup",
+      },
+    ];
+  }
+  if (!favoriteRecipeData || favoriteRecipeData.length === 0) {
+    favoriteRecipeData = [];
+  }
+  if (!foodData || foodData.length === 0) {
+    foodData = [];
+  }
+  if (!recipesData || recipesData.length === 0) {
+    recipesData = [];
+  }
+
+  localStorage.setItem("accountData", JSON.stringify(accountData));
+  localStorage.setItem(
+    "categoriesRecipeData",
+    JSON.stringify(categoriesRecipeData)
+  );
+  localStorage.setItem(
+    "favoriteRecipeData",
+    JSON.stringify(favoriteRecipeData)
+  );
+  localStorage.setItem("foodData", JSON.stringify(foodData));
+  localStorage.setItem("recipesData", JSON.stringify(recipesData));
+}
+document.addEventListener("DOMContentLoaded", checkDataBase());

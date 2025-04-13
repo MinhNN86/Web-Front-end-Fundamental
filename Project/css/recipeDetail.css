@@ -152,16 +152,19 @@
 
 .recipeMenu {
   width: 275px;
+  height: 327px;
   background-color: #ffffff;
   border-radius: 5px;
   padding: 30px 20px;
   box-shadow: 0px 2px 2px 0px rgba(144, 144, 144, 0.14);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .firstMenu {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 210px;
+  justify-content: space-between;
 }
 
 .communityRecipes {
@@ -200,6 +203,13 @@
   font-size: 11px;
 }
 
+.recipePicture {
+  /* width: 100%; */
+}
+
+.recipePicture img {
+  width: 100%;
+}
 
 .categoryRecipe {
   display: inline-flex;
@@ -208,6 +218,7 @@
   padding: 7px;
   border: 1px solid #f3f3f4;
   width: auto;
+  border-radius: 3px;
 }
 
 .categoryRecipe span {
@@ -501,15 +512,6 @@
 
 .globalCircle .globalItem p {
   color: #888888;
-}
-
-
-.macronutrientChart {
-  margin-top: 25.5px;
-}
-
-.micronutrient {
-  margin-bottom: 50px;
 }
 
 .micronutrient .nutrientItem {

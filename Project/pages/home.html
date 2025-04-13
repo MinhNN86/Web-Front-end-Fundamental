@@ -6,6 +6,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/home.css" />
     <link rel="icon" type="image/x-icon" href="../assets/iconWeb.png" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
 
   <body>
@@ -107,12 +108,9 @@
                 src="../assets/home/sortBtn.png"
                 alt=""
                 style="cursor: pointer"
+                id="sortNutrientBtn"
               />
-              <input
-                type="text"
-                placeholder="Sort bt nutrient"
-                id="searchNutrient"
-              />
+              <select name="nutrient" id="searchNutrient"></select>
             </div>
             <select name="Category" id="searchCategory"></select>
           </div>

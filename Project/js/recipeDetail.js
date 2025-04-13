@@ -1,3 +1,4 @@
+// sideBar
 document.addEventListener("DOMContentLoaded", function () {
   // Xử lý sidebar
   const btnCloseSidebar = document.querySelector(".btnCloseSidebar");
@@ -41,7 +42,20 @@ document.addEventListener("DOMContentLoaded", function () {
       logoIcon.style.display = "none";
     }
   });
+  //Load username
+  const loginAccountData = JSON.parse(localStorage.getItem("loginAccountData"));
+  document.querySelector(
+    ".firstHeader .username"
+  ).textContent = `${loginAccountData.username}`;
 });
+
+//Đăng xuất tài khoản
+document
+  .querySelector(".sideBar .signOut")
+  .addEventListener("click", function () {
+    localStorage.removeItem("loginAccountData");
+    window.location.href = "signIn.html";
+  });
 
 // lấy dữ liệu
 let loginAccountData = JSON.parse(localStorage.getItem("loginAccountData"));
@@ -68,6 +82,9 @@ function displayRecipeDetails(recipe) {
     `;
     document.querySelector(".addFavorite").style.display = "none";
   }
+  document.querySelector(
+    ".recipeMenu .recipePicture img"
+  ).src = `${recipe.coverSrc}`;
   document.querySelector(".recipeLike div").textContent = `${recipe.likes}`;
   const categoryName = recipe.category.map((e) => e.name).join(", ");
   document.querySelector(
@@ -243,10 +260,12 @@ function displayRecipeDetails(recipe) {
     type: "pie",
     data: {
       labels: xValues,
-      datasets: [{
-        backgroundColor: barColors,
-        data: yValues
-      }]
+      datasets: [
+        {
+          backgroundColor: barColors,
+          data: yValues,
+        },
+      ],
     },
     options: {
       legend: {
@@ -256,10 +275,10 @@ function displayRecipeDetails(recipe) {
           boxWidth: 12,
           fontColor: "#000000",
           fontSize: 12,
-          padding: 15
+          padding: 15,
         },
       },
-    }
+    },
   });
 
   // renderMacronutrientsData

@@ -6,6 +6,7 @@
     <title>Recipes Dashboard</title>
     <link rel="stylesheet" href="../css/recipes.css" />
     <link rel="icon" type="image/x-icon" href="../assets/iconWeb.png" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
 
   <body>
@@ -120,6 +121,7 @@
                   alt=""
                   width="18px"
                   height="18px"
+                  id="sortNutrientBtn"
                 />
               </div>
               <select name="nutrient" id="searchNutrient"></select>
@@ -138,7 +140,7 @@
                 width="14px"
               />
               <div class="textRecipesLike">Favorites</div>
-              <div id="valueFavorite">0</div>
+              <div id="valueFavorite"></div>
             </div>
             <div class="recipesMenu">
               <input type="checkbox" id="checkMyRecipes" />

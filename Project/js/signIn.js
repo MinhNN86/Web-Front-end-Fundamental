@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function showNotification(element) {
   element.style.display = "flex";
   element.classList.add("slide-in");
-  // Sửa lỗi: thay element đúng tên tham số
   setTimeout(() => {
     element.classList.remove("slide-in");
   }, 300);

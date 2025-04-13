@@ -150,8 +150,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 327px;
+  height: 350px;
   border-radius: 5px;
+  width: 275px;
+  /* margin-bottom: 10px; */
 }
 
 
@@ -199,9 +201,64 @@
 }
 
 .addImgRecipe {
+  margin-top: 10px;
   text-align: center;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
+
+.addImgRecipe .textAddImg {
+  display: block;
+}
+
+.addImgRecipe .inputLinkImg {
+  display: none;
+}
+
+.addImgRecipe .inputLinkImg input {
+  border-radius: 3px;
+  height: 27px;
+  border: 1px solid #F3F3F4;
+  padding: 0px 7px;
+  color: #676A6C;
+}
+
+.addImgRecipe .imgRecipe img {
+  display: none;
+  width: 100%;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  max-height: 150px;
+  object-fit: cover;
+}
+
+
+.containerCategory {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.chooseCategory {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+}
+
+.chooseCategory #chooseCategory {
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: #676A6C;
+}
+
+.chooseCategory #chooseCategory:focus {
+  outline: none;
+}
+
 
 .categoryRecipe {
   height: 27px;
@@ -424,31 +481,9 @@
   border: 1px solid #EEEEEE;
 }
 
-.ingredientCookingMethod .ingredientList .addFoodEquivalent {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  border: 1px solid #EEEEEE;
-  border-top: none;
-  cursor: pointer;
-}
-
-.ingredientList .addFoodEquivalent .img {
-  cursor: pointer;
-  width: 39px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #FAFAFB;
-}
-
-.ingredientList .addFoodEquivalent div:nth-child(2) {
-  padding-left: 10px;
-}
-
 .ingredientList .ingredientCard .removeFood {
   width: 39px;
-  height: 80px;
+  /* height: 80px; */
   background-color: #FAFAFB;
   border: 1px solid #EEEEEE;
   border-left: none;
@@ -500,7 +535,10 @@
   border: 1px solid #EEEEEE;
   background-color: #ffffff;
   padding: 8px 13px;
+  color: #676A6C;
 }
+
+.newIngredient .searchIngredient input::placeholder {}
 
 .newIngredient .searchIngredient #searchFood {
   width: 256px;
@@ -509,6 +547,14 @@
 .newIngredient .searchIngredient .sortNutrient {
   display: flex;
 }
+
+.newIngredient .searchIngredient .sortNutrient #inputNutrient {
+  width: 200px;
+  border: 1px solid #EEEEEE;
+  padding-left: 12px;
+  color: #999999;
+}
+
 
 .newIngredient .searchIngredient .sortNutrient div {
   width: 36px;
@@ -575,8 +621,14 @@
   padding: 10px 21px;
 }
 
+.foodValueTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .foodValue .foodValueTitle h3 {
-  font-size: 13px;
+  font-size: 15px;
   color: #282828;
   font-weight: normal;
 }
@@ -645,6 +697,10 @@
   color: #282828;
 }
 
+.foodValue .addFood {
+  display: none;
+}
+
 .foodValueChoose .addFood {
   width: 100%;
   display: flex;
@@ -658,8 +714,34 @@
   color: #ffffff;
 }
 
-.newIngredient .paginationFood {
+/*! Nav Food */
+.paginationFood {
+  margin-top: 15px;
+  display: flex;
+  justify-content: end;
+}
+
+.paginationFood .pagination {
+  display: flex;
+}
+
+.paginationFood .pagination div {
+  width: 30px;
   height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #DDDDDD;
+  cursor: pointer;
+}
+
+.paginationFood .pagination .active {
+  background-color: #F4F4F4;
+}
+
+.pagination .backPage,
+.pagination .nextPage {
+  width: 35px;
 }
 
 /*! CookingMethod */
@@ -828,22 +910,17 @@
   background-color: #1ab394;
 }
 
+.globalCircle .globalItem .zeroValue {
+  border: 6px solid #F3F3F4 !important;
+}
+
 .macronutrients .chartAnnotation p {
   color: #000000;
   font-size: 12px;
 }
 
-.macronutrients .macronutrientChart .pieChart {
-  display: flex;
-  justify-content: center;
-  width: 243.2px;
-  height: 243.2px;
-  margin-bottom: 11px;
-}
-
-.macronutrients .macronutrientChart .pieChart #pieChart {
-  width: 100%;
-  height: 100%;
+.macronutrients #addRecipeChart {
+  display: none;
 }
 
 .micronutrient {

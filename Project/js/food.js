@@ -40,7 +40,40 @@ document.addEventListener("DOMContentLoaded", function () {
       logoIcon.style.display = "none";
     }
   });
+
+  //Load username
+  const loginAccountData = JSON.parse(localStorage.getItem("loginAccountData"));
+  document.querySelector(
+    ".firstHeader .username"
+  ).textContent = `${loginAccountData.username}`;
+
+  // render lựa chọn nutrient
+  const nutrients = ["Energy", "Fat", "Carbohydrate", "Protein"];
+  let inputNutrient = document.getElementById("inputNutrient");
+  inputNutrient.innerHTML = "";
+  inputNutrient.innerHTML += `<option value="" selected>Sort by nutrient</option>`;
+  nutrients.forEach((e) => {
+    inputNutrient.innerHTML += `<option value="${e.toLowerCase()}">${e}</option>`;
+  });
+
+  // nếu không yêu thích món ăn nào thì thông báo
+  const foodData = JSON.parse(localStorage.getItem("foodData"));
+  if (foodData.length === 0) {
+    Swal.fire({
+      title: "Chưa có thực phẩm",
+      text: "Vào click Create food để thêm nhé!",
+      icon: "question",
+    });
+  }
 });
+
+//Đăng xuất tài khoản
+document
+  .querySelector(".sideBar .signOut")
+  .addEventListener("click", function () {
+    localStorage.removeItem("loginAccountData");
+    window.location.href = "signIn.html";
+  });
 
 // Modal
 const modal = document.getElementById("foodModal");
@@ -65,6 +98,8 @@ function closeModal() {
 function openCreateFoodModal() {
   createFoodModal.classList.add("show");
   document.querySelector("#createFoodModal .modalContent").scrollTop = 0;
+  const loginAccountData = JSON.parse(localStorage.getItem("loginAccountData"));
+  document.getElementById("inputSource").value = loginAccountData.username;
 }
 
 function closeCreateFoodModal() {
@@ -558,16 +593,6 @@ document
   .getElementById("searchCategory")
   .addEventListener("input", searchNameCategory);
 
-// render lựa chọn nutrient
-document.addEventListener("DOMContentLoaded", function () {
-  const nutrients = ["Energy", "Fat", "Carbohydrate", "Protein"];
-  let inputNutrient = document.getElementById("inputNutrient");
-  inputNutrient.innerHTML = "";
-  inputNutrient.innerHTML += `<option value="" selected>Sort by nutrient</option>`;
-  nutrients.forEach((e) => {
-    inputNutrient.innerHTML += `<option value="${e.toLowerCase()}">${e}</option>`;
-  });
-});
 // sắp xếp nutrient
 let sortDirection = "desc";
 // Thêm chức năng sắp xếp theo dinh dưỡng
@@ -577,7 +602,7 @@ document
     const nutrientSelect = document.getElementById("inputNutrient");
     const selectedNutrient = nutrientSelect.value;
 
-    // Kiểm tra xem người dùng đã chọn dinh dưỡng chưa
+    // Kiểm tra xem người dùng đã chọn chưa;
     if (!selectedNutrient) {
       return;
     }
@@ -610,9 +635,9 @@ document
 let saveCreateFoodBtn = document.getElementById("saveCreateFood");
 saveCreateFoodBtn.addEventListener("click", function () {
   // Lấy thông tin từ form
+  const loginAccountData = JSON.parse(localStorage.getItem("loginAccountData"));
   const name = document.getElementById("inputName").value.trim();
   const category = document.getElementById("inputCategory").value.trim();
-  const source = document.getElementById("inputSource").value.trim();
   const quantity = document.getElementById("inputQuantity").value.trim();
 
   // Lấy thông tin macronutrients
@@ -625,8 +650,12 @@ saveCreateFoodBtn.addEventListener("click", function () {
     parseFloat(document.getElementById("inputProtein").value) || "0";
 
   // Kiểm tra dữ liệu cơ bản
-  if (!name || !category || !source || !quantity) {
-    alert("Vui lòng điền đầy đủ thông tin cơ bản");
+  if (!name || !category || !quantity) {
+    Swal.fire({
+      icon: "error",
+      title: "Vui lòng điền đầy đủ thông tin",
+      text: "Bạn thiếu thông tin cơ bản của món ăn",
+    });
     return;
   }
 
@@ -701,9 +730,9 @@ saveCreateFoodBtn.addEventListener("click", function () {
   const newFood = {
     id: newId,
     name: name,
-    source: source,
+    source: loginAccountData.username,
     category: category,
-    quantity: quantity,
+    quantity: parseFloat(quantity),
     macronutrients: {
       energy: energy,
       carbohydrate: carbohydrate,
@@ -726,7 +755,10 @@ saveCreateFoodBtn.addEventListener("click", function () {
   });
 
   // Thông báo thành công
-  alert("Thêm thực phẩm thành công!");
+  Swal.fire({
+    title: "Thêm thực phẩm thành công!",
+    icon: "success",
+  });
 });
 
 // Data

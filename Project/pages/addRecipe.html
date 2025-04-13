@@ -3,13 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe detail</title>
+    <title>Add Recipe</title>
     <link rel="stylesheet" href="../css/addRecipe.css" />
     <link rel="icon" type="image/x-icon" href="../assets/iconWeb.png" />
     <script
       src="https://kit.fontawesome.com/8a24770e1c.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
 
   <body>
@@ -117,15 +119,41 @@
               </div>
             </div>
             <div class="addImgRecipe">
-              <i class="fa-solid fa-images"></i> <span>Add Image</span>
+              <div class="textAddImg">
+                <i class="fa-solid fa-images"></i> <span>Add Image</span>
+              </div>
+              <div class="inputLinkImg">
+                <input
+                  type="text"
+                  id="inputLinkImg"
+                  placeholder="Add link Image"
+                />
+              </div>
+              <div class="imgRecipe">
+                <img src="" alt="errorLink" />
+              </div>
             </div>
-            <div class="categoryRecipe">
-              <img
-                src="../assets/addRecipe/newCategory.png"
-                alt=""
-                width="12px"
-              />
-              <input type="text" placeholder="New category" />
+
+            <div class="containerCategory">
+              <div class="categoryRecipe categoryValue">
+                <img
+                  src="../assets/home/categoryIcon.png"
+                  alt=""
+                  width="12px"
+                />
+                <input type="text" id="inputCategory" />
+              </div>
+              <div class="categoryRecipe chooseCategory">
+                <img
+                  src="../assets/addRecipe/newCategory.png"
+                  alt=""
+                  width="12px"
+                  style="cursor: pointer"
+                />
+                <select id="chooseCategory">
+                  <option value="" selected>Select Category</option>
+                </select>
+              </div>
             </div>
           </div>
           <div class="infoRight">
@@ -137,7 +165,7 @@
                   community
                 </p>
               </div>
-              <div class="btnPublish">Publish</div>
+              <div class="btnPublish" id="pushRecipe">Publish</div>
             </div>
             <div class="recipeInfo">
               <div class="recipeTitle">
@@ -148,7 +176,7 @@
                 <div class="infoRow">
                   <div class="infoName">Name</div>
                   <div class="infoValue">
-                    <input type="text" />
+                    <input type="text" id="inputName" />
                   </div>
                   <div class="iconEdit">
                     <img
@@ -160,7 +188,9 @@
                 </div>
                 <div class="infoRow">
                   <div class="infoName description">Description</div>
-                  <div class="infoValue description"><input type="text" /></div>
+                  <div class="infoValue description">
+                    <input type="text" id="inputDescription" />
+                  </div>
                   <div class="iconEdit description">
                     <img
                       src="../assets/addRecipe/edit.png"
@@ -172,7 +202,7 @@
                 <div class="infoRow">
                   <div class="infoName">Author</div>
                   <div class="infoValue">
-                    <input type="text" />
+                    <input type="text" id="inputAuthor" disabled />
                   </div>
                   <div class="iconEdit">
                     <img
@@ -185,7 +215,7 @@
                 <div class="infoRow">
                   <div class="infoName">Total time</div>
                   <div class="infoValue">
-                    <input type="text" />
+                    <input type="text" id="inputTotalTime" />
                   </div>
                   <div class="iconEdit">
                     <img
@@ -198,7 +228,7 @@
                 <div class="infoRow">
                   <div class="infoName">Preparation time</div>
                   <div class="infoValue">
-                    <input type="text" />
+                    <input type="text" id="inputPreparationTime" />
                   </div>
                   <div class="iconEdit">
                     <img
@@ -211,7 +241,7 @@
                 <div class="infoRow">
                   <div class="infoName">Final weight</div>
                   <div class="infoValue">
-                    <input type="text" />
+                    <input type="text" id="inputFinalWeight" />
                   </div>
                   <div class="iconEdit">
                     <img
@@ -224,7 +254,7 @@
                 <div class="infoRow">
                   <div class="infoName">Portions</div>
                   <div class="infoValue">
-                    <input type="text" />
+                    <input type="text" id="inputPortions" />
                   </div>
                   <div class="iconEdit">
                     <img
@@ -256,18 +286,8 @@
                       1 serving of babyfood, water, bottled, GERBER, without
                       added fluoride (113 g)
                     </div>
-                    <div class="addFoodEquivalent">
-                      <div class="img">
-                        <img
-                          src="../assets/addRecipe/addFoodEquivalent.png"
-                          alt=""
-                          height="10px"
-                        />
-                      </div>
-                      <div>Add new food equivalent</div>
-                    </div>
                   </div>
-                  <div class="removeFood">
+                  <div class="removeFood" data-id="">
                     <img
                       src="../assets/addRecipe/removeFood.png"
                       alt=""
@@ -275,20 +295,11 @@
                     />
                   </div>
                 </div>
+
                 <div class="ingredientCard">
                   <div class="ingredientValue">
                     <div class="list">
                       1 serving of babyfood, tropical fruit medley (88 g)
-                    </div>
-                    <div class="addFoodEquivalent">
-                      <div class="img">
-                        <img
-                          src="../assets/addRecipe/addFoodEquivalent.png"
-                          alt=""
-                          height="10px"
-                        />
-                      </div>
-                      <div>Add new food equivalent</div>
                     </div>
                   </div>
                   <div class="removeFood">
@@ -300,6 +311,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="newIngredient">
                 <div class="newIngredientTitle">
                   <div class="img">
@@ -323,13 +335,10 @@
                         src="../assets/home/sortBtn.png"
                         alt=""
                         height="18px"
+                        id="sortNutrientBtn"
                       />
                     </div>
-                    <input
-                      type="text"
-                      placeholder="Sort bt nutrient"
-                      id="searchNutrient"
-                    />
+                    <select id="inputNutrient"></select>
                   </div>
                   <input
                     type="text"
@@ -348,7 +357,7 @@
                       <span class="last"></span>
                     </div>
                   </div>
-                  <div class="foodValue foodValueChoose">
+                  <div class="foodValue">
                     <div class="foodValueTitle">
                       <h3>Keto 90 Second Bread</h3>
                       <p>Community Recipes</p>
@@ -364,7 +373,9 @@
                       <div>6 <span>g</span></div>
                       <div>11 <span>g</span></div>
                     </div>
-                    <div class="addFood"><i class="fa-solid fa-plus"></i></div>
+                    <div class="addFood" id="iconAddFood">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
                   </div>
 
                   <div class="foodValue">
@@ -443,7 +454,9 @@
                     <div class="addFood"></div>
                   </div>
                 </div>
-                <div class="paginationFood"></div>
+                <nav class="paginationFood">
+                  <div class="pagination" id="pagination"></div>
+                </nav>
               </div>
             </div>
 
@@ -457,7 +470,7 @@
                 <div class="stepValue">
                   <input
                     type="text"
-                    id=""
+                    id="inputCookingMethod"
                     placeholder="Add new cooking method"
                   />
                 </div>
@@ -481,32 +494,32 @@
               <div class="energyGroup">
                 <div class="energy">Energy</div>
                 <div class="kcalInfo">
-                  <div class="kcalValue">351</div>
+                  <div class="kcalValue">0</div>
                   <div class="kcal">kcal</div>
                 </div>
               </div>
               <div class="globalCircle">
-                <div class="globalItem">
-                  <div class="circle red">
-                    <div class="circleValue">16<span>g</span></div>
+                <div class="globalItem" id="fatCircle">
+                  <div class="circle red zeroValue">
+                    <div class="circleValue">0<span>g</span></div>
                   </div>
                   <p>Fat</p>
                 </div>
-                <div class="globalItem">
-                  <div class="circle orange">
-                    <div class="circleValue">45<span>g</span></div>
+                <div class="globalItem" id="carbohydrateCircle">
+                  <div class="circle orange zeroValue">
+                    <div class="circleValue">0<span>g</span></div>
                   </div>
                   <p>Carbohydrate</p>
                 </div>
-                <div class="globalItem">
-                  <div class="circle green">
-                    <div class="circleValue">12<span>g</span></div>
+                <div class="globalItem" id="proteinCircle">
+                  <div class="circle green zeroValue">
+                    <div class="circleValue">0<span>g</span></div>
                   </div>
                   <p>Protein</p>
                 </div>
-                <div class="globalItem">
-                  <div class="circle blue">
-                    <div class="circleValue">6<span>g</span></div>
+                <div class="globalItem" id="fiberCircle">
+                  <div class="circle blue zeroValue">
+                    <div class="circleValue">0<span>g</span></div>
                   </div>
                   <p>Fiber</p>
                 </div>
@@ -518,39 +531,25 @@
                 <h2>Macronutrients per portion</h2>
                 <p>Macronutrients distribution of the recipe</p>
               </div>
-              <div class="macronutrientChart">
-                <div class="pieChart">
-                  <canvas id="pieChart"></canvas>
-                </div>
-                <div class="chartAnnotation">
-                  <div class="fat tableRow">
-                    <div class="boxColor red"></div>
-                    <p>Fat</p>
-                  </div>
-                  <div class="carbohydrate tableRow">
-                    <div class="boxColor orange"></div>
-                    <p>Carbohydrate</p>
-                  </div>
-                  <div class="protein tableRow">
-                    <div class="boxColor green"></div>
-                    <p>Protein</p>
-                  </div>
-                </div>
+              <div id="addRecipeChartWrapper">
+                <canvas id="addRecipeChart" width="290" height="290"></canvas>
               </div>
             </div>
-
-            <div class="micronutrient recipeDetailCard">
+            <div
+              class="micronutrient recipeDetailCard"
+              id="macronutrientsValue"
+            >
               <div class="recipeDetailsTitle">
                 <h2>Macronutrients per portion</h2>
                 <p>Macronutrients distribution of the recipe</p>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Sodium</span>
-                <span class="nutrientValue">1418 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Vitamin A</span>
-                <span class="nutrientValue">18 <span>ug</span></span>
+                <span class="nutrientValue">0 <span>ug</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Vitamin B-6</span>
@@ -562,7 +561,7 @@
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Vitamin C</span>
-                <span class="nutrientValue">50 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Vitamin D (D2 + D3)</span>
@@ -570,55 +569,55 @@
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Vitamin E</span>
-                <span class="nutrientValue">1 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Vitamin K</span>
-                <span class="nutrientValue">87 <span>ug</span></span>
+                <span class="nutrientValue">0 <span>ug</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Sugars</span>
-                <span class="nutrientValue">13 <span>g</span></span>
+                <span class="nutrientValue">0 <span>g</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Calcium</span>
-                <span class="nutrientValue">88 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Iron</span>
-                <span class="nutrientValue">4 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Magnesium</span>
-                <span class="nutrientValue">127 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Phosphorus</span>
-                <span class="nutrientValue">251 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Potassium</span>
-                <span class="nutrientValue">649 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Zinc</span>
-                <span class="nutrientValue">2 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Copper</span>
-                <span class="nutrientValue">1 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Fluoride</span>
-                <span class="nutrientValue">1 <span>ug</span></span>
+                <span class="nutrientValue">0 <span>ug</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Manganese</span>
-                <span class="nutrientValue">2 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Selenium</span>
-                <span class="nutrientValue">4 <span>ug</span></span>
+                <span class="nutrientValue">0 <span>ug</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Thiamin</span>
@@ -630,15 +629,15 @@
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Niacin</span>
-                <span class="nutrientValue">3 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Pantothenic acid</span>
-                <span class="nutrientValue">1 <span>mg</span></span>
+                <span class="nutrientValue">0 <span>mg</span></span>
               </div>
               <div class="nutrientItem">
                 <span class="nutrientName">Folate, total</span>
-                <span class="nutrientValue">156 <span>ug</span></span>
+                <span class="nutrientValue">0 <span>ug</span></span>
               </div>
             </div>
           </div>
