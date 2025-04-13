@@ -762,7 +762,7 @@ saveCreateFoodBtn.addEventListener("click", function () {
 });
 
 // Data
-// const foodData = [
+// const foodData1 = [
 //   {
 //     id: 1,
 //     name: "Ackee, canned, drained",
@@ -1076,4 +1076,4 @@ saveCreateFoodBtn.addEventListener("click", function () {
 //     },
 //   },
 // ];
-// localStorage.setItem("foodData", JSON.stringify(foodData));
+// localStorage.setItem("foodData", JSON.stringify(foodData1));
