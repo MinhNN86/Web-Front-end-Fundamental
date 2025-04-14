@@ -776,7 +776,7 @@ document.querySelector(".addImgRecipe").addEventListener("click", function () {
   if (!instructAddImg) {
     Swal.fire({
       title: "Thêm ảnh",
-      text: "Hãy lên trên mạng tìm hình ảnh món ăn và sao chép LINK rồi dán vào ô",
+      text: "Dán link ảnh món ăn (nên chọn ảnh nằm ngang để hiển thị đẹp hơn)",
       icon: "question",
     });
     instructAddImg = true;

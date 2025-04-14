@@ -406,7 +406,8 @@ document
 // let recipesData = [
 //   {
 //     id: 1,
-//     coverSrc: "",
+//     coverSrc:
+//       "https://images.immediate.co.uk/production/volatile/sites/2/2017/09/OLI1017-TumericCauliflowerSalad_014532.jpg?quality=90&resize=556,505",
 //     name: "Turmeric Roasted Cauliflower Salad (lowfodmap)",
 //     description:
 //       "Our roasted cauliflower salad with turmeric is low in calories and packed with punchy flavor.",
@@ -426,7 +427,8 @@ document
 //   },
 //   {
 //     id: 2,
-//     coverSrc: "",
+//     coverSrc:
+//       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-Ne9niCIuEcfJsCduQ08v4cm1BVSIdc3Gbw&s",
 //     name: "Grilled Chicken with Lemon and Herbs",
 //     description:
 //       "Juicy grilled chicken breasts marinated in a lemon and herb sauce.",
@@ -446,7 +448,8 @@ document
 //   },
 //   {
 //     id: 3,
-//     coverSrc: "",
+//     coverSrc:
+//       "https://www.healthyfood.com/wp-content/uploads/2019/07/Creamy-pumpkin-soup.jpg",
 //     name: "Creamy Pumpkin Soup",
 //     description:
 //       "A comforting and creamy soup made with roasted pumpkin and a touch of cream.",
@@ -466,7 +469,7 @@ document
 //   },
 //   {
 //     id: 4,
-//     coverSrc: "",
+//     coverSrc: "https://cdn.tgdd.vn/2021/01/CookProduct/1200-1200x676-16.jpg",
 //     name: "Spaghetti Aglio e Olio",
 //     description: "Simple and classic Italian pasta with garlic and olive oil.",
 //     author: "Marco Rossi",
@@ -485,7 +488,8 @@ document
 //   },
 //   {
 //     id: 5,
-//     coverSrc: "",
+//     coverSrc:
+//       "https://www.eatingwell.com/thmb/PqRN1f14fA3zdvpFMGi7I19FCPU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/hearty-chickpea-spinach-stew-270568-1x1-b27d319be4504a39ba4d4184d1a3b2cb.jpg",
 //     name: "Chickpea & Spinach Stew",
 //     description:
 //       "A hearty and healthy stew made with chickpeas, spinach, and warm spices.",
@@ -505,7 +509,8 @@ document
 //   },
 //   {
 //     id: 6,
-//     coverSrc: "",
+//     coverSrc:
+//       "https://www.funfoodfrolic.com/wp-content/uploads/2020/03/Tofu-Stir-Fry-Thumbnail.jpg",
 //     name: "Tofu Stir-Fry with Veggies",
 //     description:
 //       "Colorful stir-fried vegetables tossed with crispy tofu in a savory sauce.",
@@ -525,7 +530,8 @@ document
 //   },
 //   {
 //     id: 7,
-//     coverSrc: "",
+//     coverSrc:
+//       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG4tEU7GPCnCsR5c-zvqeMJPqHIFmVilASSw&s",
 //     name: "Baked Salmon with Dill",
 //     description: "Tender salmon fillet baked with lemon slices and fresh dill.",
 //     author: "Elena Petrova",
@@ -544,7 +550,8 @@ document
 //   },
 //   {
 //     id: 8,
-//     coverSrc: "",
+//     coverSrc:
+//       "https://nomoneynotime.com.au/uploads/recipes/shutterstock_1926492050-1.jpg",
 //     name: "Avocado Toast with Poached Egg",
 //     description:
 //       "A nourishing breakfast of wholegrain toast topped with smashed avocado and a poached egg.",
@@ -564,7 +571,8 @@ document
 //   },
 //   {
 //     id: 9,
-//     coverSrc: "",
+//     coverSrc:
+//       "https://embed.widencdn.net/img/beef/t9bwp7fitq/exact/Stuffed%20Peppers%20-%20NCBA%20Beef%20Aug%20202431717.jpg?keep=c&u=7fueml",
 //     name: "Stuffed Bell Peppers",
 //     description:
 //       "Bell peppers filled with a tasty mix of rice, beans, and herbs.",
@@ -584,7 +592,8 @@ document
 //   },
 //   {
 //     id: 10,
-//     coverSrc: "",
+//     coverSrc:
+//       "https://www.aforkstale.com/wp-content/uploads/mediterranean-quinoa-salad-with-feta.-4.jpg",
 //     name: "Quinoa Salad with Feta and Olives",
 //     description:
 //       "A Mediterranean-inspired quinoa salad with feta cheese and olives.",
