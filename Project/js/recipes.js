@@ -176,7 +176,11 @@ function renderRecipes(recipesToRender) {
           <div class="recipeTitle">
             <div class="recipeName" data-id="${recipe.id}">${recipe.name}</div>
             <div class="recipeLike" data-id="${recipe.id}">
-              <img src="../assets/home/favoriteRecipes.png" alt="" width="13px" />
+              ${
+                checkFavoriteRecipe
+                  ? `<img src="../assets/home/addFavoriteRecipes.png" alt="" width="13px" />`
+                  : `<img src="../assets/home/favoriteRecipes.png" alt="" width="13px" />`
+              }
               <div class="numOfLike" >${recipe.likes}</div>
             </div>
           </div>
@@ -331,14 +335,14 @@ function renderRecipes(recipesToRender) {
       const recipe = recipesData.find((e) => e.id === recipeId);
 
       // Kiểm tra tác giả của công thức
-      if (recipe.author === loginAccountData.username) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Không thể yêu thích công thức của bạn",
-        });
-        return;
-      }
+      // if (recipe.author === loginAccountData.username) {
+      //   Swal.fire({
+      //     icon: "error",
+      //     title: "Oops...",
+      //     text: "Không thể yêu thích công thức của bạn",
+      //   });
+      //   return;
+      // }
 
       // Tìm danh sách yêu thích của người dùng
       let favoriteRecipeAccount = favoriteRecipeData.find(
@@ -373,6 +377,14 @@ function renderRecipes(recipesToRender) {
 
       // Cập nhật số lượt thích hiển thị
       like.querySelector(".numOfLike").textContent = recipe.likes;
+      // Cập nhật số lượt thích trên trang
+      let foodLikes = 0;
+      recipesData.forEach((recipe) => {
+        if (recipe.author === loginAccountData.username) {
+          foodLikes += recipe.likes;
+        }
+      });
+      document.getElementById("valueFavorite").textContent = `${foodLikes}`;
     });
   });
 }
@@ -547,6 +559,9 @@ document
           text: "Thêm công thức riêng của bạn ngay!",
           icon: "question",
         });
+        setTimeout(function () {
+          window.location.href = "addRecipe.html";
+        }, 1500);
       }
     } else {
       searchNameCategory();
