@@ -541,13 +541,14 @@ function renderFoodModal(foodId) {
         </div>
         <div class="cancelSave">
           <div class="cancel" id="cancelModal">Cancel</div>
-          <div class="save" id="saveModal">Save and close</div>
+          <div class="save" id="saveModal">Close</div>
         </div>
       </div>
   `;
 
   document.getElementById("closeBtn").addEventListener("click", closeModal);
   document.getElementById("cancelModal").addEventListener("click", closeModal);
+  document.getElementById("saveModal").addEventListener("click", closeModal);
 }
 
 //Hàm in ra tất cả các thực phẩm

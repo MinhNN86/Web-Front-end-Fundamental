@@ -38,6 +38,9 @@ document.getElementById("btn-singUp").addEventListener("click", function () {
   if (inputUsername === "") {
     inputError.innerHTML += "Username không được bỏ trống <br />";
     check = false;
+  } else if (accountData.some((e) => e.username === inputUsername)) {
+    inputError.innerHTML += "Username bị đã tồn tại <br />";
+    check = false;
   }
 
   // Kiểm tra email
