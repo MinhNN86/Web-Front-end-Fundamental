@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/RecipeDetail.css" />
     <link rel="icon" type="image/x-icon" href="../assets/iconWeb.png" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
 
   <body>
@@ -127,13 +128,15 @@
                 <span></span>
               </div>
             </div>
-            <div class="addFavorite">
-              <img
-                src="../assets/home/addFavoriteRecipes.png"
-                alt=""
-                width="14px"
-              />
-              <div>Add to favorite</div>
+            <div class="renderAddFavorite">
+              <div class="addFavorite" data-id="">
+                <img
+                  src="../assets/home/addFavoriteRecipes.png"
+                  alt=""
+                  width="14px"
+                />
+                <div>Add to favorite</div>
+              </div>
             </div>
           </div>
 

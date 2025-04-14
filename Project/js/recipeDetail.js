@@ -70,6 +70,7 @@ displayRecipeDetails(renderRecipesData);
 // hiển thị dữ liệu
 function displayRecipeDetails(recipe) {
   const foodData = JSON.parse(localStorage.getItem("foodData")) || [];
+  const loginAccountData = JSON.parse(localStorage.getItem("loginAccountData"));
   // chỉnh sửa được nếu là dữ liệu của mình
   if (recipe.author === loginAccountData.username) {
     document.querySelector(".communityRecipes").innerHTML = `
@@ -80,8 +81,45 @@ function displayRecipeDetails(recipe) {
       />
       <div class="myRecipes">My recipes</div>
     `;
-    document.querySelector(".addFavorite").style.display = "none";
   }
+
+  //kiểm tra có phải recipe mình thích chưa
+  const favoriteRecipeData = JSON.parse(
+    localStorage.getItem("favoriteRecipeData")
+  );
+  let favoriteRecipeAccount = favoriteRecipeData.find(
+    (e) => e.accountId === loginAccountData.id
+  );
+  if (favoriteRecipeAccount.idRecipeFavorite.includes(recipe.id)) {
+    document.querySelector(".infoLeft .recipeLike").innerHTML = `
+    <img
+      src="../assets/home/addFavoriteRecipes.png"
+      alt=""
+      width="14px"
+    />
+    <div></div>
+    `;
+  } else {
+    document.querySelector(".infoLeft .recipeLike").innerHTML = `
+    <img
+      src="../assets/home/favoriteRecipes.png"
+      alt=""
+      width="14px"
+    />
+    <div></div>
+    `;
+  }
+
+  document.querySelector(".infoLeft .renderAddFavorite").innerHTML = `
+    <div class="addFavorite" data-id="${recipe.id}"->
+    <img
+      src="../assets/home/addFavoriteRecipes.png"
+      alt=""
+      width="14px"
+    />
+    <div>Add to favorite</div>
+  `;
+
   document.querySelector(
     ".recipeMenu .recipePicture img"
   ).src = `${recipe.coverSrc}`;
@@ -385,3 +423,50 @@ function displayRecipeDetails(recipe) {
   </div>
   `;
 }
+
+// gán sự kiện thích
+document
+  .querySelector(".infoLeft .renderAddFavorite")
+  .addEventListener("click", function () {
+    // Lấy dữ liệu
+    let addFavorite = document.querySelector(
+      ".infoLeft .renderAddFavorite .addFavorite"
+    );
+    const recipeId = +addFavorite.getAttribute("data-id");
+    const loginAccountData = JSON.parse(
+      localStorage.getItem("loginAccountData")
+    );
+    let favoriteRecipeData = JSON.parse(
+      localStorage.getItem("favoriteRecipeData")
+    );
+    let recipesData = JSON.parse(localStorage.getItem("recipesData"));
+
+    const recipe = recipesData.find((e) => e.id === recipeId);
+    // tìm danh sách yêu thích của người dùng
+    let favoriteRecipeAccount = favoriteRecipeData.find(
+      (e) => e.accountId === loginAccountData.id
+    );
+
+    if (favoriteRecipeAccount.idRecipeFavorite.includes(recipeId)) {
+      Swal.fire({
+        title: "Thông báo",
+        text: "Bạn đã yêu thích công thức này",
+        icon: "info",
+      });
+    } else {
+      favoriteRecipeAccount.idRecipeFavorite.push(recipeId);
+      recipe.likes++;
+
+      // lưu dữ liệu
+      localStorage.setItem("recipesData", JSON.stringify(recipesData));
+      localStorage.setItem(
+        "favoriteRecipeData",
+        JSON.stringify(favoriteRecipeData)
+      );
+
+      // render lại trang
+      document.querySelector(".infoLeft .recipeLike img").src =
+        "../assets/home/addFavoriteRecipes.png";
+      document.querySelector(".recipeLike div").textContent = recipe.likes;
+    }
+  });
