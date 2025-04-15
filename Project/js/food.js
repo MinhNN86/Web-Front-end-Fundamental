@@ -248,9 +248,14 @@ function renderFoodCard(foodToRender) {
 
 //render Food Modal
 function renderFoodModal(foodId) {
+  const loginAccountData = JSON.parse(localStorage.getItem("loginAccountData"));
   let foodData = JSON.parse(localStorage.getItem("foodData"));
   let foodModal = document.getElementById("foodModal");
   let foodInfo = foodData.find((e) => e.id === foodId);
+  let checkFoodId = false;
+  if (foodInfo.source === loginAccountData.username) {
+    checkFoodId = true;
+  }
   foodModal.innerHTML = "";
   foodModal.innerHTML += `
   <div class="modalContent">
@@ -266,7 +271,9 @@ function renderFoodModal(foodId) {
             <div class="name tableRow">
               <div class="nameValue">Name</div>
               <div class="value">
-                <input type="text" value="${foodInfo.name}" disabled />
+                <input type="text" value="${foodInfo.name}" ${
+    checkFoodId ? `class="changeInput" id="inputName"` : "disabled"
+  } />
               </div>
             </div>
             <div class="category tableRow">
@@ -275,7 +282,11 @@ function renderFoodModal(foodId) {
                 <input
                   type="text"
                   value="${foodInfo.category}"
-                  disabled
+                  ${
+                    checkFoodId
+                      ? `class="changeInput" id="inputCategory"`
+                      : "disabled"
+                  }
                 />
               </div>
             </div>
@@ -285,13 +296,17 @@ function renderFoodModal(foodId) {
             <div class="source tableRow">
               <div class="nameValue">Source</div>
               <div class="value">
-                <input type="text" value="${foodInfo.source}" disabled />
+                <input type="text" value="${
+                  foodInfo.source
+                }" id="inputSource" disabled />
               </div>
             </div>
             <div class="quantity tableRow">
               <div class="nameValue">Quantity</div>
               <div class="value">
-                <input type="text" value="${foodInfo.quantity}" disabled />
+                <input type="number" value="${foodInfo.quantity}" ${
+    checkFoodId ? `class="changeInput" id="inputQuantity"` : "disabled"
+  } />
               </div>
               <div class="weightValue">grams</div>
             </div>
@@ -307,14 +322,22 @@ function renderFoodModal(foodId) {
               <div class="energy tableRow">
                 <div class="nameValue">Energy</div>
                 <div class="value">
-                  <input type="text" value="${foodInfo.macronutrients.energy}" disabled />
+                  <input type="text" value="${
+                    foodInfo.macronutrients.energy
+                  }" ${
+    checkFoodId ? `class="changeInput" id="inputEnergy"` : "disabled"
+  } />
                 </div>
                 <div class="weightValue">kcal</div>
               </div>
               <div class="carbohydrate tableRow">
                 <div class="nameValue">Carbohydrate</div>
                 <div class="value">
-                  <input type="text" value="${foodInfo.macronutrients.carbohydrate}" disabled />
+                  <input type="text" value="${
+                    foodInfo.macronutrients.carbohydrate
+                  }" ${
+    checkFoodId ? `class="changeInput" id="inputCarbohydrate"` : "disabled"
+  } />
                 </div>
                 <div class="weightValue">g</div>
               </div>
@@ -324,14 +347,20 @@ function renderFoodModal(foodId) {
               <div class="fat tableRow">
                 <div class="nameValue">Fat</div>
                 <div class="value">
-                  <input type="text" value="${foodInfo.macronutrients.fat}" disabled />
+                  <input type="text" value="${foodInfo.macronutrients.fat}" ${
+    checkFoodId ? `class="changeInput"` : "disabled"
+  } />
                 </div>
                 <div class="weightValue">g</div>
               </div>
               <div class="protein tableRow">
                 <div class="nameValue">Protein</div>
                 <div class="value">
-                  <input type="text" value="${foodInfo.macronutrients.protein}" disabled />
+                  <input type="text" value="${
+                    foodInfo.macronutrients.protein
+                  }" ${
+    checkFoodId ? `class="changeInput" id="inputProtein"` : "disabled"
+  } />
                 </div>
                 <div class="weightValue">g</div>
               </div>
@@ -345,67 +374,111 @@ function renderFoodModal(foodId) {
             <div class="tableCol">
               <div class="tableRow">
                 <div class="nameValue">Cholesterol</div>
-                <input type="text" value="${foodInfo.micronutrients.cholesterol}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.cholesterol
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputCholesterol"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Water</div>
-                <input type="text" value="${foodInfo.micronutrients.water}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.water}" ${
+    checkFoodId ? `class="changeInput" id="inputWater"` : "disabled"
+  } />
                 <div class="weightValue">g</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Vitamin B-12</div>
-                <input type="text" value="${foodInfo.micronutrients.vitaminB12}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.vitaminB12
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputVitaminB12"` : "disabled"
+  } />
                 <div class="weightValue">ug</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Vitamin E</div>
-                <input type="text" value="${foodInfo.micronutrients.vitaminE}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.vitaminE
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputVitaminE"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Lactose</div>
-                <input type="text" value="${foodInfo.micronutrients.lactose}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.lactose}" ${
+    checkFoodId ? `class="changeInput" id="inputLactose"` : "disabled"
+  } />
                 <div class="weightValue">g</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Sugars</div>
-                <input type="text" value="${foodInfo.micronutrients.sugars}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.sugars}" ${
+    checkFoodId ? `class="changeInput" id="inputSugars"` : "disabled"
+  } />
                 <div class="weightValue">g</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Magnesium</div>
-                <input type="text" value="${foodInfo.micronutrients.magnesium}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.magnesium
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputMagnesium"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Zinc</div>
-                <input type="text" value="${foodInfo.micronutrients.zinc}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.zinc}" ${
+    checkFoodId ? `class="changeInput" id="inputZinc"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Manganese</div>
-                <input type="text" value="${foodInfo.micronutrients.manganese}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.manganese
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputManganese"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Riboflavin</div>
-                <input type="text" value="${foodInfo.micronutrients.riboflavin}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.riboflavin
+                }" ${checkFoodId ? `class="changeInput" ` : "disabled"} />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Folate, total</div>
-                <input type="text" value="${foodInfo.micronutrients.folateTotal}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.folateTotal
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputFolateTotal"` : "disabled"
+  } />
                 <div class="weightValue">ug</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Fatty acids, total saturated</div>
-                <input type="text" value="${foodInfo.micronutrients.fattyAcidsSaturated}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.fattyAcidsSaturated
+                }" ${
+    checkFoodId
+      ? `class="changeInput" id="inputSaturatedFattyAcids"`
+      : "disabled"
+  } />
                 <div class="weightValue">g</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Chloride</div>
-                <input type="text" value="${foodInfo.micronutrients.chloride}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.chloride
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputChloride"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
             </div>
@@ -414,62 +487,102 @@ function renderFoodModal(foodId) {
             <div class="tableCol">
               <div class="tableRow">
                 <div class="nameValue">Fiber</div>
-                <input type="text" value="${foodInfo.micronutrients.fiber}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.fiber}" ${
+    checkFoodId ? `class="changeInput" id="inputFiber"` : "disabled"
+  } />
                 <div class="weightValue">g</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Vitamin A</div>
-                <input type="text" value="${foodInfo.micronutrients.vitaminA}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.vitaminA
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputVitaminA"` : "disabled"
+  } />
                 <div class="weightValue">ug</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Vitamin C</div>
-                <input type="text" value="${foodInfo.micronutrients.vitaminC}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.vitaminC
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputVitaminC"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Vitamin K</div>
-                <input type="text" value="${foodInfo.micronutrients.vitaminK}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.vitaminK
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputVitaminK"` : "disabled"
+  } />
                 <div class="weightValue">ug</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Alcohol</div>
-                <input type="text" value="${foodInfo.micronutrients.alcohol}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.alcohol}" ${
+    checkFoodId ? `class="changeInput" id="inputAlcohol"` : "disabled"
+  } />
                 <div class="weightValue">g</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Calcium</div>
-                <input type="text" value="${foodInfo.micronutrients.calcium}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.calcium}" ${
+    checkFoodId ? `class="changeInput" id="inputCalcium"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Phosphorus</div>
-                <input type="text" value="${foodInfo.micronutrients.phosphorus}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.phosphorus
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputPhosphorus"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Copper</div>
-                <input type="text" value="${foodInfo.micronutrients.copper}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.copper}" ${
+    checkFoodId ? `class="changeInput" id="inputCopper"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Selenium</div>
-                <input type="text" value="${foodInfo.micronutrients.selenium}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.selenium
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputSelenium"` : "disabled"
+  } />
                 <div class="weightValue">ug</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Niacin</div>
-                <input type="text" value="${foodInfo.micronutrients.niacin}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.niacin}" ${
+    checkFoodId ? `class="changeInput" id="inputNiacin"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Folic acid</div>
-                <input type="text" value="${foodInfo.micronutrients.folicAcid}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.folicAcid
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputFolicAcid"` : "disabled"
+  } />
                 <div class="weightValue">ug</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Fatty acids, total monounsaturated</div>
-                <input type="text" value="${foodInfo.micronutrients.fattyAcidsMonounsaturated}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.fattyAcidsMonounsaturated
+                }" ${
+    checkFoodId
+      ? `class="changeInput" id="inputMonounsaturatedFattyAcids"`
+      : "disabled"
+  } />
                 <div class="weightValue">g</div>
               </div>
             </div>
@@ -478,62 +591,104 @@ function renderFoodModal(foodId) {
             <div class="tableCol">
               <div class="tableRow">
                 <div class="nameValue">Sodium</div>
-                <input type="text" value="${foodInfo.micronutrients.sodium}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.sodium}" ${
+    checkFoodId ? `class="changeInput" id="inputSodium"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Vitamin B-6</div>
-                <input type="text" value="${foodInfo.micronutrients.vitaminB6}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.vitaminB6
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputVitaminB6"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Vitamin D (D2 + D3)</div>
-                <input type="text" value="${foodInfo.micronutrients.vitaminD}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.vitaminD
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputVitaminD"` : "disabled"
+  } />
                 <div class="weightValue">ug</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Starch</div>
-                <input type="text" value="${foodInfo.micronutrients.starch}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.starch}" ${
+    checkFoodId ? `class="changeInput" id="inputStarch"` : "disabled"
+  } />
                 <div class="weightValue">g</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Caffeine</div>
-                <input type="text" value="${foodInfo.micronutrients.caffeine}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.caffeine
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputCaffeine"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Iron</div>
-                <input type="text" value="${foodInfo.micronutrients.iron}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.iron}" ${
+    checkFoodId ? `class="changeInput" id="inputIron"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Potassium</div>
-                <input type="text" value="${foodInfo.micronutrients.potassium}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.potassium
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputPotassium"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Fluoride</div>
-                <input type="text" value="${foodInfo.micronutrients.fluoride}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.fluoride
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputFluoride"` : "disabled"
+  } />
                 <div class="weightValue">ug</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Thiamin</div>
-                <input type="text" value="${foodInfo.micronutrients.thiamin}" disabled />
+                <input type="text" value="${foodInfo.micronutrients.thiamin}" ${
+    checkFoodId ? `class="changeInput" id="inputThiamin"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Pantothenic acid</div>
-                <input type="text" value="${foodInfo.micronutrients.pantothenicAcid}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.pantothenicAcid
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputPantothenicAcid"` : "disabled"
+  } />
                 <div class="weightValue">mg</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Fatty acids, total trans</div>
-                <input type="text" value="${foodInfo.micronutrients.fattyAcidsTrans}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.fattyAcidsTrans
+                }" ${
+    checkFoodId ? `class="changeInput" id="inputTransFattyAcids"` : "disabled"
+  } />
                 <div class="weightValue">g</div>
               </div>
               <div class="tableRow">
                 <div class="nameValue">Fatty acids, total polyunsaturated</div>
-                <input type="text" value="${foodInfo.micronutrients.fattyAcidsPolyunsaturated}" disabled />
+                <input type="text" value="${
+                  foodInfo.micronutrients.fattyAcidsPolyunsaturated
+                }" ${
+    checkFoodId
+      ? `class="changeInput" id="inputPolyunsaturatedFattyAcids"`
+      : "disabled"
+  } />
                 <div class="weightValue">g</div>
               </div>
             </div>
@@ -541,14 +696,157 @@ function renderFoodModal(foodId) {
         </div>
         <div class="cancelSave">
           <div class="cancel" id="cancelModal">Cancel</div>
-          <div class="save" id="saveModal">Close</div>
+          ${
+            checkFoodId
+              ? `<div class="save" id="saveModal">Save and close</div>`
+              : `<div class="save" id="saveModal">Close</div>`
+          }
         </div>
       </div>
   `;
 
   document.getElementById("closeBtn").addEventListener("click", closeModal);
   document.getElementById("cancelModal").addEventListener("click", closeModal);
-  document.getElementById("saveModal").addEventListener("click", closeModal);
+  document.getElementById("saveModal").addEventListener("click", function () {
+    if (!checkFoodId) {
+      closeModal();
+    } else {
+      //
+      loadEditFood(foodInfo);
+      closeModal();
+    }
+  });
+}
+
+// hàm đẩy dữ liệu mới vào Data
+function loadEditFood(foodInfo) {
+  if (!foodInfo) {
+    Swal.fire({
+      title: "Lỗi",
+      text: "Không tìm thấy thông tin thực phẩm",
+      icon: "error",
+    });
+    return;
+  }
+
+  const name = document.getElementById("inputName").value.trim();
+  const category = document.getElementById("inputCategory").value.trim();
+  const quantity = document.getElementById("inputQuantity").value;
+
+  // Lấy thông tin macronutrients
+  const energy = parseFloat(document.getElementById("inputEnergy").value) || 0;
+  const carbohydrate =
+    parseFloat(document.getElementById("inputCarbohydrate").value) || 0;
+  const fat = parseFloat(document.getElementById("inputFat").value) || 0;
+  const protein =
+    parseFloat(document.getElementById("inputProtein").value) || 0;
+
+  // Kiểm tra dữ liệu cơ bản
+  if (!name || !category || !quantity) {
+    Swal.fire({
+      icon: "error",
+      title: "Vui lòng điền đầy đủ thông tin",
+      text: "Bạn thiếu thông tin cơ bản của món ăn",
+    });
+    return;
+  }
+
+  // Tạo đối tượng micronutrients
+  const micronutrients = {
+    cholesterol:
+      parseFloat(document.getElementById("inputCholesterol").value) || 0,
+    fiber: parseFloat(document.getElementById("inputFiber").value) || 0,
+    sodium: parseFloat(document.getElementById("inputSodium").value) || 0,
+    water: parseFloat(document.getElementById("inputWater").value) || 0,
+    vitaminA: parseFloat(document.getElementById("inputVitaminA").value) || 0,
+    vitaminB6: parseFloat(document.getElementById("inputVitaminB6").value) || 0,
+    vitaminB12:
+      parseFloat(document.getElementById("inputVitaminB12").value) || 0,
+    vitaminC: parseFloat(document.getElementById("inputVitaminC").value) || 0,
+    vitaminD: parseFloat(document.getElementById("inputVitaminD").value) || 0,
+    vitaminE: parseFloat(document.getElementById("inputVitaminE").value) || 0,
+    vitaminK: parseFloat(document.getElementById("inputVitaminK").value) || 0,
+    starch: parseFloat(document.getElementById("inputStarch").value) || 0,
+    lactose: parseFloat(document.getElementById("inputLactose").value) || 0,
+    alcohol: parseFloat(document.getElementById("inputAlcohol").value) || 0,
+    caffeine: parseFloat(document.getElementById("inputCaffeine").value) || 0,
+    sugars: parseFloat(document.getElementById("inputSugars").value) || 0,
+    calcium: parseFloat(document.getElementById("inputCalcium").value) || 0,
+    iron: parseFloat(document.getElementById("inputIron").value) || 0,
+    magnesium: parseFloat(document.getElementById("inputMagnesium").value) || 0,
+    phosphorus:
+      parseFloat(document.getElementById("inputPhosphorus").value) || 0,
+    potassium: parseFloat(document.getElementById("inputPotassium").value) || 0,
+    zinc: parseFloat(document.getElementById("inputZinc").value) || 0,
+    copper: parseFloat(document.getElementById("inputCopper").value) || 0,
+    fluoride: parseFloat(document.getElementById("inputFluoride").value) || 0,
+    manganese: parseFloat(document.getElementById("inputManganese").value) || 0,
+    selenium: parseFloat(document.getElementById("inputSelenium").value) || 0,
+    thiamin: parseFloat(document.getElementById("inputThiamin").value) || 0,
+    riboflavin:
+      parseFloat(document.getElementById("inputRiboflavin").value) || 0,
+    niacin: parseFloat(document.getElementById("inputNiacin").value) || 0,
+    pantothenicAcid:
+      parseFloat(document.getElementById("inputPantothenicAcid").value) || 0,
+    folateTotal:
+      parseFloat(document.getElementById("inputFolateTotal").value) || 0,
+    folicAcid: parseFloat(document.getElementById("inputFolicAcid").value) || 0,
+    fattyAcidsTrans:
+      parseFloat(document.getElementById("inputTransFattyAcids").value) || 0,
+    fattyAcidsSaturated:
+      parseFloat(document.getElementById("inputSaturatedFattyAcids").value) ||
+      0,
+    fattyAcidsMonounsaturated:
+      parseFloat(
+        document.getElementById("inputMonounsaturatedFattyAcids").value
+      ) || 0,
+    fattyAcidsPolyunsaturated:
+      parseFloat(
+        document.getElementById("inputPolyunsaturatedFattyAcids").value
+      ) || 0,
+    chloride: parseFloat(document.getElementById("inputChloride").value) || 0,
+  };
+
+  // Cập nhật thông tin thực phẩm
+  let foodData = JSON.parse(localStorage.getItem("foodData")) || [];
+  const foodIndex = foodData.findIndex((food) => food.id === foodInfo.id);
+
+  if (foodIndex !== -1) {
+    foodData[foodIndex] = {
+      ...foodData[foodIndex],
+      name: name,
+      category: category,
+      quantity: parseFloat(quantity),
+      macronutrients: {
+        energy: energy,
+        carbohydrate: carbohydrate,
+        fat: fat,
+        protein: protein,
+      },
+      micronutrients: micronutrients,
+    };
+
+    // Lưu lại vào localStorage
+    localStorage.setItem("foodData", JSON.stringify(foodData));
+
+    // Thông báo thành công
+    Swal.fire({
+      title: "Cập nhật thành công!",
+      icon: "success",
+    });
+
+    // Render lại danh sách thực phẩm
+    renderFood();
+
+    // Đóng modal
+    closeModal();
+  } else {
+    Swal.fire({
+      title: "Lỗi",
+      text: "Không tìm thấy thực phẩm để cập nhật",
+      icon: "error",
+    });
+  }
 }
 
 //Hàm in ra tất cả các thực phẩm
